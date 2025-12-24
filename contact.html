@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - EdBridge</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/logo.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/logo.png" sizes="32x32">
+    <style>
+        
+        :root {
+            --primary: #2a5ca9;
+            --secondary: #f9a826;
+            --accent: #e53e3e;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --success: #28a745;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #FAEBD7;
+            transition: all 0.3s ease;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #9f811e 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: background-color 0.3s;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            color: white;
+            margin: 0;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        nav ul li a.active {
+            color: var(--secondary);
+        }
+        
+        nav ul li a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Language Switcher Styles */
+        .language-switcher {
+            position: relative;
+            margin-left: 20px;
+        }
+
+        .lang-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .lang-btn:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .lang-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            min-width: 120px;
+            display: none;
+            overflow: hidden;
+            z-index: 1001;
+        }
+
+        .lang-dropdown.show {
+            display: block;
+        }
+
+        .lang-dropdown a {
+            display: block;
+            padding: 10px 15px;
+            color: #333;
+            text-decoration: none;
+            transition: background 0.3s;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .lang-dropdown a:hover {
+            background: #f8f9fa;
+            color: var(--primary);
+        }
+
+        .lang-dropdown a:last-child {
+            border-bottom: none;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(253, 253, 253, 0.652), rgba(25, 19, 19, 0.6)), url('https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/Cover photo.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #e89a1f;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background-color: #1e429f;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .circle-logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        /* Highlights Grid */
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .highlight-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .highlight-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .highlight-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background-color: #FAEBD7;
+        }
+        
+        .contact-container {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-form {
+            flex: 1;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            background-color: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Open Sans', sans-serif;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+        
+        .footer-column p {
+            margin-bottom: 15px;
+            color: #bbb;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(218, 11, 11, 0.49);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .language-switcher {
+                margin-left: 10px;
+            }
+        }
+
+        /* Loading animation for language switching */
+        .loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        /* Improved accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Improved focus styles for accessibility */
+        a:focus, button:focus {
+            outline: 2px solid var(--secondary);
+            outline-offset: 2px;
+        }
+    
+        .contact-hero {
+             background: linear-gradient(rgba(253, 253, 253, 0.652), rgba(25, 19, 19, 0.6)), url('https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/Cover photo.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+        
+        .contact-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .contact-container-extended {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 50px;
+        }
+        
+        .contact-info-extended {
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .contact-form-extended {
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .contact-item-extended {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .contact-icon-extended {
+            background-color: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+        }
+        
+        .contact-details h3 {
+            margin-bottom: 5px;
+        }
+        
+        .contact-details p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .social-links-extended {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .social-links-extended a {
+            width: 40px;
+            height: 40px;
+            background-color: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-links-extended a:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .form-group-extended {
+            margin-bottom: 25px;
+        }
+        
+        .form-group-extended label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .form-control-extended {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control-extended:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+        
+        textarea.form-control-extended {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .faq-section {
+            background-color: var(--light);
+            padding: 80px 0;
+            margin-top: 80px;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background-color: white;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .faq-question {
+            padding: 20px 25px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--dark);
+            transition: background-color 0.3s;
+        }
+        
+        .faq-question:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .faq-question i {
+            transition: transform 0.3s;
+        }
+        
+        .faq-answer {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s, padding 0.3s;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 20px 25px;
+            max-height: 500px;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        .map-section {
+            margin: 80px 0;
+        }
+        
+        .map-container {
+            height: 400px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .back-to-home {
+            text-align: center;
+            margin: 50px 0 30px;
+        }
+        
+        @media (max-width: 992px) {
+            .contact-container-extended {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .contact-info-extended,
+            .contact-form-extended {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/logo.png" alt="EdBridge Logo" class="circle-logo">
+                <h1>Ed<span>Bridge</span></h1>
+            </div>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                 <ul>
+        <li><a href="index.html" data-en="Home" data-my="မူလ စာမျက်နှာ" class="active">Home</a></li>
+        <li><a href="about.html" data-en="About" data-my="အကြောင်း">About</a></li>
+       
+        <li><a href="services.html" data-en="Services" data-my="ဝန်ဆောင်မှုများ">Services</a></li>
+        
+        <li><a href="news.html" data-en="News" data-my="သတင်းများ">News</a></li>
+        <li><a href="activities.html" data-en="Activities" data-my="လှုပ်ရှားမှုများ">Activities</a></li>
+        
+        <li><a href="membership.html" data-en="Membership" data-my="အဖွဲ့ဝင်ရန်" target="_blank">Membership</a></li>
+        <li><a href="contact.html" data-en="Contact" data-my="ဆက်သွယ်ရန်">Contact</a></li>
+    </ul>
+            </nav>
+            <!-- Language Switcher -->
+            <div class="language-switcher">
+                <button id="langToggle" class="lang-btn">
+                    <i class="fas fa-globe"></i> <span id="currentLang">English</span> <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="lang-dropdown">
+                    <a href="#" data-lang="en">English</a>
+                    <a href="#" data-lang="my">Myanmar</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contact Hero -->
+    <section class="contact-hero">
+        <div class="container">
+            <h1 data-en="Contact Us" data-my="ဆက်သွယ်ရန်">Contact Us</h1>
+            <p data-en="Get in touch to learn more, get involved, or ask questions" 
+               data-my="ပိုမိုလေ့လာရန်၊ ပါဝင်ရန်သို့မဟုတ် မေးခွန်းများမေးရန် ဆက်သွယ်ပါ">
+                Get in touch to learn more, get involved, or ask questions
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Content -->
+    <section id="contact-content">
+        <div class="container">
+            <div class="contact-container-extended">
+                <!-- Contact Information -->
+                <div class="contact-info-extended">
+                    <h2 data-en="Get In Touch" data-my="ဆက်သွယ်ရန်">Get In Touch</h2>
+                    <p data-en="We're here to help you with any questions about our programs, services, or partnership opportunities."
+                       data-my="ကျွန်ုပ်တို့၏အစီအစဉ်များ၊ ဝန်ဆောင်မှုများ သို့မဟုတ် မိတ်ဖက်အခွင့်အလမ်းများနှင့်ပတ်သက်သည့် မည်သည့်မေးခွန်းများအတွက်မဆို ကူညီရန် ဤနေရာတွင်ရှိပါသည်။">
+                        We're here to help you with any questions.
+                    </p>
+                    
+                    <div class="contact-item-extended">
+                        <div class="contact-icon-extended">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3 data-en="Email" data-my="အီးမေးလ်">Email</h3>
+                            <p>edbridgeeducation448@gmail.com</p>
+                            <p data-en="Response time: Within 24 hours" data-my="ပြန်ကြားချိန်: ၂၄ နာရီအတွင်း">Response time: Within 24 hours</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item-extended">
+                        <div class="contact-icon-extended">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3 data-en="Phone" data-my="ဖုန်း">Phone</h3>
+                            <p data-en="Available for program inquiries and emergencies" data-my="အစီအစဉ်မေးမြန်းချက်များနှင့် အရေးပေါ်အခြေအနေများအတွက် ရနိုင်သည်">Available for program inquiries and emergencies</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item-extended">
+                        <div class="contact-icon-extended">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3 data-en="Office Hours" data-my="ရုံးချိန်">Office Hours</h3>
+                            <p data-en="Monday - Friday: 9:00 AM - 6:00 PM" data-my="တနင်္လာ - သောကြာ: မနက် ၉:၀၀ - ညနေ ၆:၀၀">Monday - Friday: 9:00 AM - 6:00 PM</p>
+                            <p data-en="Saturday: 10:00 AM - 4:00 PM" data-my="စနေ: မနက် ၁၀:၀၀ - ညနေ ၄:၀၀">Saturday: 10:00 AM - 4:00 PM</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item-extended">
+                        <div class="contact-icon-extended">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3 data-en="Follow Us" data-my="လိုက်နာပါ">Follow Us</h3>
+                            <p data-en="Stay updated with our latest news and activities" data-my="ကျွန်ုပ်တို့၏နောက်ဆုံးရသတင်းများနှင့် လှုပ်ရှားမှုများကို အပ်ဒိတ်ရယူပါ">Stay updated with our latest news and activities</p>
+                            <div class="social-links-extended">
+                                <a href="https://www.facebook.com/profile.php?id=61583187345390&mibextid=LQQJ4d&rdid=xyBlhD3SXoruMroe&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1BNqAPcspo%2F%3Fmibextid%3DLQQJ4d#" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://www.youtube.com/channel/UCoaBP0vjtLTzBFC5C7ccZJA" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+                                <a href="https://www.tiktok.com/@edbridgeeducation" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
+                                <a href="#" target="_blank" rel="noopener"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="contact-form-extended">
+                    <h2 data-en="Send Us a Message" data-my="မက်ဆေ့ဂျာပေးပို့ရန်">Send Us a Message</h2>
+                    <form id="contactForm">
+                        <div class="form-group-extended">
+                            <label for="name" data-en="Full Name" data-my="အမည်အပြည့်အစုံ">Full Name *</label>
+                            <input type="text" id="name" class="form-control-extended" required 
+                                   data-en-placeholder="Enter your full name" 
+                                   data-my-placeholder="သင့်အမည်အပြည့်အစုံကို ရိုက်ထည့်ပါ">
+                        </div>
+                        
+                        <div class="form-group-extended">
+                            <label for="email" data-en="Email Address" data-my="အီးမေးလ်လိပ်စာ">Email Address *</label>
+                            <input type="email" id="email" class="form-control-extended" required 
+                                   data-en-placeholder="Enter your email address" 
+                                   data-my-placeholder="သင့်အီးမေးလ်လိပ်စာကို ရိုက်ထည့်ပါ">
+                        </div>
+                        
+                        <div class="form-group-extended">
+                            <label for="phone" data-en="Phone Number" data-my="ဖုန်းနံပါတ်">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control-extended" 
+                                   data-en-placeholder="Enter your phone number" 
+                                   data-my-placeholder="သင့်ဖုန်းနံပါတ်ကို ရိုက်ထည့်ပါ">
+                        </div>
+                        
+                        <div class="form-group-extended">
+                            <label for="subject" data-en="Subject" data-my="ခေါင်းစဉ်">Subject *</label>
+                            <select id="subject" class="form-control-extended" required>
+                                <option value="" data-en="Select a subject" data-my="ခေါင်းစဉ်တစ်ခုရွေးချယ်ပါ">Select a subject</option>
+                                <option value="program" data-en="Program Inquiry" data-my="အစီအစဉ်မေးမြန်းချက်">Program Inquiry</option>
+                                <option value="partnership" data-en="Partnership" data-my="မိတ်ဖက်ဖွဲ့ခြင်း">Partnership</option>
+                                <option value="volunteer" data-en="Volunteer Opportunity" data-my="အလုပ်အမှုဆောင်အခွင့်အလမ်း">Volunteer Opportunity</option>
+                                <option value="donation" data-en="Donation" data-my="လှူဒါန်းခြင်း">Donation</option>
+                                <option value="other" data-en="Other" data-my="အခြား">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group-extended">
+                            <label for="message" data-en="Message" data-my="မက်ဆေ့ဂျာ">Message *</label>
+                            <textarea id="message" class="form-control-extended" required 
+                                      data-en-placeholder="Tell us how we can help you..." 
+                                      data-my-placeholder="ကျွန်ုပ်တို့သင့်ကို မည်သို့ကူညီနိုင်သည်ကို ပြောပြပါ..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 15px; font-size: 1.1rem;" 
+                                data-en="Send Message" data-my="မက်ဆေ့ဂျာပေးပို့ရန်">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-en="Frequently Asked Questions" data-my="အမေးများသောမေးခွန်းများ">Frequently Asked Questions</h2>
+                <p data-en="Find quick answers to common questions" data-my="အဖြစ်များသောမေးခွန်းများအတွက် အမြန်အဖြေများရှာဖွေပါ">Find quick answers to common questions</p>
+            </div>
+            
+            <div class="faq-container">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span data-en="Who is eligible for your free training programs?" data-my="သင့်၏အခမဲ့သင်တန်းအစီအစဉ်များအတွက် မည်သူအရည်အချင်းပြည့်မီသနည်း?">Who is eligible for your free training programs?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p data-en="Our free digital marketing training is open to all Myanmar women, especially migrant women and mothers living abroad. No prior experience is required."
+                           data-my="ကျွန်ုပ်တို့၏အခမဲ့ဒီဂျစ်တယ်စျေးကွက်ရှာဖွေရေးသင်တန်းသည် မြန်မာအမျိုးသမီးအားလုံးအတွက် ဖွင့်လှစ်ထားပါသည်၊ အထူးသဖြင့် နိုင်ငံပြင်ပတွင်နေထိုင်သော ရွှေ့ပြောင်းအမျိုးသမီးများနှင့် မိခင်များ။ ယခင်အတွေ့အကြုံမလိုအပ်ပါ။">
+                            Open to all Myanmar women, especially migrant women and mothers living abroad.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span data-en="How long are your training programs?" data-my="သင့်၏သင်တန်းအစီအစဉ်များ ဘယ်လောက်ကြာသလဲ?">How long are your training programs?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p data-en="Our programs range from 4 to 8 weeks depending on the course. Digital Marketing Fundamentals is 4 weeks, while E-commerce Management is 8 weeks."
+                           data-my="ကျွန်ုပ်တို့၏အစီအစဉ်များသည် သင်တန်းအပေါ်မူတည်၍ ၄ ပတ်မှ ၈ ပတ်အထိကြာသည်။ ဒီဂျစ်တယ်စျေးကွက်ရှာဖွေရေးအခြေခံများသည် ၄ ပတ်ကြာပြီး အီလက်ထရွန်းနစ်စီးပွားရေးစီမံခန့်ခွဲမှုသည် ၈ ပတ်ကြာသည်။">
+                            Programs range from 4 to 8 weeks depending on the course.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span data-en="Do you provide job placement assistance?" data-my="အလုပ်အကိုင်နေရာချထားမှုအကူအညီ ပေးပါသလား?">Do you provide job placement assistance?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p data-en="Yes! We provide comprehensive job placement support including resume building, interview preparation, and connections with our partner companies."
+                           data-my="ဟုတ်ပါတယ်! ကိုယ်ရေးမှတ်တမ်းတည်ဆောက်ခြင်း၊ အင်တာဗျူးပြင်ဆင်ခြင်းနှင့် ကျွန်ုပ်တို့၏မိတ်ဖက်ကုမ္ပဏီများနှင့် ချိတ်ဆက်မှုများအပါအဝင် ကျယ်ပြန့်သောအလုပ်အကိုင်နေရာချထားမှုထောက်ပံ့မှုကို ပေးပါသည်။">
+                            Yes! We provide comprehensive job placement support.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span data-en="How can I support EdBridge as a volunteer or donor?" data-my="အလုပ်အမှုဆောင်သို့မဟုတ် လှူဒါန်းသူအနေဖြင့် EdBridge ကို မည်သို့ထောက်ပံ့နိုင်မည်နည်း?">How can I support EdBridge as a volunteer or donor?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p data-en="We welcome volunteers with expertise in digital marketing, education, or administration. Donations help fund our free programs. Contact us to discuss opportunities."
+                           data-my="ဒီဂျစ်တယ်စျေးကွက်ရှာဖွေရေး၊ ပညာရေးသို့မဟုတ် အုပ်ချုပ်ရေးတွင် ကျွမ်းကျင်မှုရှိသော အလုပ်အမှုဆောင်များကို ကြိုဆိုပါသည်။ လှူဒါန်းမှုများသည် ကျွန်ုပ်တို့၏အခမဲ့အစီအစဉ်များကို ရန်ပုံငွေထောက်ပံ့ပေးသည်။ အခွင့်အလမ်းများဆွေးနွေးရန် ဆက်သွယ်ပါ။">
+                            We welcome volunteers and donations. Contact us to discuss opportunities.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 5 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span data-en="Are your programs conducted online or in-person?" data-my="သင့်၏အစီအစဉ်များကို အွန်လိုင်းသို့မဟုတ် လူကိုယ်တိုင်ပြုလုပ်ပါသလား?">Are your programs conducted online or in-person?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p data-en="Currently, all our programs are conducted online via Zoom and our learning platform. This allows us to reach Myanmar women across different countries."
+                           data-my="လက်ရှိတွင် ကျွန်ုပ်တို့၏အစီအစဉ်အားလုံးကို Zoom နှင့် ကျွန်ုပ်တို့၏သင်ယူမှုပလက်ဖောင်းမှတစ်ဆင့် အွန်လိုင်းဖြင့် ပြုလုပ်ပါသည်။ ဤသို့ပြုလုပ်ခြင်းဖြင့် နိုင်ငံအသီးသီးရှိ မြန်မာအမျိုးသမီးများထိ ရောက်ရှိနိုင်ပါသည်။">
+                            Currently, all our programs are conducted online via Zoom.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Home -->
+    <div class="container">
+        <div class="back-to-home">
+            <a href="index.html" class="btn btn-primary" data-en="Back to Home" data-my="မူလစာမျက်နှာသို့ ပြန်သွားရန်">Back to Home</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>EdBridge</h3>
+                    <p data-en="Education Bridge for Myanmar Women - Empowering Myanmar migrant women through education and digital skills training." 
+                       data-my="မြန်မာအမျိုးသမီးများအတွက်ပညာရေးတံတား - ပညာရေးနှင့်ဒီဂျစ်တယ်ကျွမ်းကျင်မှုသင်တန်းများဖြင့် မြန်မာရွှေ့ပြောင်းအမျိုးသမီးများကိုစွမ်းဆောင်ရည်မြှင့်တင်ခြင်း။">
+                        Education Bridge for Myanmar Women.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61583187345390&mibextid=LQQJ4d&rdid=xyBlhD3SXoruMroe&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1BNqAPcspo%2F%3Fmibextid%3DLQQJ4d#" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.youtube.com/channel/UCoaBP0vjtLTzBFC5C7ccZJA" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.tiktok.com/@edbridgeeducation" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        
+                        <li><a href="membership.html">Membership</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 data-en="Contact Info" data-my="ဆက်သွယ်ရန်အချက်အလက်">Contact Info</h3>
+                    <p><i class="fas fa-envelope"></i> edbridgeeducation448@gmail.com</p>
+                    <p><i class="fab fa-youtube"></i> <span data-en="YouTube: EdBridge Education" data-my="YouTube: EdBridge Education">YouTube: EdBridge Education</span></p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p data-en="&copy; 2025 EdBridge - Education Bridge for Myanmar Women." 
+                   data-my="&copy; 2025 EdBridge - မြန်မာအမျိုးသမီးများအတွက်ပညာရေးတံတား။">
+                    &copy; 2025 EdBridge.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Language Switcher
+        const langToggle = document.getElementById('langToggle');
+        const langDropdown = document.querySelector('.lang-dropdown');
+        const currentLang = document.getElementById('currentLang');
+        
+        let currentLanguage = 'en';
+        
+        langToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            langDropdown.classList.toggle('show');
+        });
+
+        document.addEventListener('click', function() {
+            langDropdown.classList.remove('show');
+        });
+
+        document.querySelectorAll('.lang-dropdown a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const lang = this.getAttribute('data-lang');
+                
+                document.body.classList.add('loading');
+                const langText = this.textContent;
+                currentLang.textContent = langText;
+                langDropdown.classList.remove('show');
+                
+                setTimeout(() => {
+                    changeLanguage(lang);
+                    document.body.classList.remove('loading');
+                    
+                    if (lang === 'my') {
+                        alert('မြန်မာဘာသာသို့ ပြောင်းလဲပြီးပါပြီ။');
+                    } else {
+                        alert('Language changed to English.');
+                    }
+                }, 300);
+            });
+        });
+
+        function changeLanguage(lang) {
+            currentLanguage = lang;
+            
+            document.querySelectorAll('[data-en]').forEach(element => {
+                if (element.hasAttribute(`data-${lang}`)) {
+                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA' || element.tagName === 'SELECT') {
+                        const placeholderAttr = element.getAttribute(`data-${lang}-placeholder`);
+                        if (placeholderAttr) {
+                            element.placeholder = placeholderAttr;
+                        } else if (element.tagName === 'SELECT') {
+                            // Handle select options
+                            element.querySelectorAll('option').forEach(option => {
+                                if (option.hasAttribute(`data-${lang}`)) {
+                                    option.textContent = option.getAttribute(`data-${lang}`);
+                                }
+                            });
+                        } else {
+                            element.placeholder = element.getAttribute(`data-${lang}`);
+                        }
+                    } else {
+                        element.textContent = element.getAttribute(`data-${lang}`);
+                    }
+                }
+            });
+            
+            if (lang === 'en') {
+                document.title = "Contact Us - EdBridge";
+            } else if (lang === 'my') {
+                document.title = "ဆက်သွယ်ရန် - EdBridge";
+            }
+        }
+
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const item = this.parentElement;
+                item.classList.toggle('active');
+                
+                // Close other items
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        // Contact Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            
+            // Show success message
+            alert(currentLanguage === 'en' 
+                ? `Thank you ${name}! Your message has been sent. We'll contact you at ${email} within 24 hours.` 
+                : `ကျေးဇူးတင်ပါတယ် ${name}။ သင့်မက်ဆေ့ဂျာကို ပေးပို့ပြီးပါပြီ။ ကျွန်ုပ်တို့သည် ၂၄ နာရီအတွင်း ${email} တွင် သင့်အား ဆက်သွယ်ပါမည်။`);
+            
+            // Reset form
+            this.reset();
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if(window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(42, 92, 169, 0.95)';
+            } else {
+                header.style.backgroundColor = '';
+            }
+        });
+    </script>
+</body>
+</html>
