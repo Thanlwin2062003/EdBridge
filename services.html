@@ -8,7 +8,6 @@
     <link rel="icon" href="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/logo.png" type="image/png" sizes="32x32">
     <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/logo.png" sizes="32x32">
     <style>
-      
         :root {
             --primary: #2a5ca9;
             --secondary: #f9a826;
@@ -733,6 +732,129 @@
             text-align: center;
             margin: 50px 0 30px;
         }
+
+        /* New Service Card Styles */
+        .skills-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .skills-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .skills-card .service-icon-large {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            height: 60px;
+        }
+
+        .skills-card h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .consulting-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .consulting-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .consulting-list {
+            list-style: none;
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .consulting-list li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .consulting-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .onsite-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .onsite-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .onsite-formats {
+            list-style: none;
+            text-align: left;
+            margin-top: 20px;
+        }
+
+        .onsite-formats li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .onsite-formats li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .service-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.8;
+        }
         
         @media (max-width: 768px) {
             .pricing-card.popular {
@@ -742,6 +864,10 @@
             
             .pricing-card.popular:hover {
                 transform: translateY(-10px);
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -795,154 +921,143 @@
         </div>
     </section>
 
-    <!-- Training Services -->
-    <section id="training-services">
+    <!-- Skills Training Programs -->
+    <section id="skills-training">
         <div class="container">
             <div class="service-category">
                 <div class="service-category-title">
-                    <h2 data-en="Training Programs" data-my="သင်တန်းအစီအစဉ်များ">Training Programs</h2>
-                    <p data-en="Free and affordable digital skills training for employability" data-my="အလုပ်အကိုင်ရရှိရန် အခမဲ့နှင့် ဈေးနှုန်းချိုသာသော ဒီဂျစ်တယ်ကျွမ်းကျင်မှုသင်တန်းများ">Free and affordable digital skills training for employability</p>
+                    <h2 data-en="Skills Training Programs" data-my="ကျွမ်းကျင်မှုသင်တန်းအစီအစဉ်များ">Skills Training Programs</h2>
+                    <p data-en="Build practical, job-ready skills" data-my="လက်တွေ့အသုံးဝင်ပြီး အလုပ်အတွက်အဆင်သင့်ဖြစ်သောကျွမ်းကျင်မှုများတည်ဆောက်ပါ">Build practical, job-ready skills</p>
                 </div>
                 
-                <div class="services-grid-extended">
-                    <!-- Service 1 -->
-                    <div class="service-card-extended">
+                <div class="service-intro">
+                    <p data-en="Structured training designed to be practical, accessible, and relevant to real-world work environments."
+                       data-my="လက်တွေ့အလုပ်ပတ်ဝန်းကျင်များနှင့် သက်ဆိုင်ပြီး လက်တွေ့ကျ၊ လက်လှမ်းမီနိုင်စေရန်နှင့် သက်ဆိုင်သော ဖွဲ့စည်းတည်ဆောက်ပုံသင်တန်းများ">
+                        Structured training designed to be practical, accessible, and relevant to real-world work environments.
+                    </p>
+                </div>
+                
+                <div class="skills-grid">
+                    <!-- Digital Marketing -->
+                    <div class="skills-card">
                         <div class="service-icon-large">
                             <i class="fas fa-bullhorn"></i>
                         </div>
-                        <h3 data-en="Digital Marketing Fundamentals" data-my="ဒီဂျစ်တယ်စျေးကွက်ရှာဖွေရေး အခြေခံများ">Digital Marketing Fundamentals</h3>
-                        <p data-en="Comprehensive introduction to digital marketing concepts, tools, and strategies for beginners."
-                           data-my="အစပြုသူများအတွက် ဒီဂျစ်တယ်စျေးကွက်ရှာဖွေရေးအယူအဆများ၊ ကိရိယာများနှင့် ဗျူဟာများကို ကျယ်ပြန့်စွာမိတ်ဆက်ပေးခြင်း။">
-                            Comprehensive introduction to digital marketing concepts and tools.
-                        </p>
+                        <h3 data-en="Digital Marketing" data-my="ဒီဂျစ်တယ်စျေးကွက်ရှာဖွေရေး">Digital Marketing</h3>
                         <ul class="service-features">
-                            <li data-en="Social Media Marketing" data-my="ဆိုရှယ်မီဒီယာစျေးကွက်ရှာဖွေရေး">Social Media Marketing</li>
-                            <li data-en="Content Creation Basics" data-my="အကြောင်းအရာဖန်တီးမှုအခြေခံများ">Content Creation Basics</li>
-                            <li data-en="SEO Fundamentals" data-my="SEO အခြေခံများ">SEO Fundamentals</li>
-                            <li data-en="Email Marketing" data-my="အီးမေးလ်စျေးကွက်ရှာဖွေရေး">Email Marketing</li>
-                            <li data-en="Analytics & Reporting" data-my="ခွဲခြမ်းစိတ်ဖြာခြင်းနှင့် အစီရင်ခံခြင်း">Analytics & Reporting</li>
+                            <li data-en="Social media & content" data-my="ဆိုရှယ်မီဒီယာနှင့် အကြောင်းအရာ">Social media & content</li>
+                            <li data-en="Ads & analytics" data-my="ကြော်ငြာများနှင့် ခွဲခြမ်းစိတ်ဖြာမှု">Ads & analytics</li>
                         </ul>
-                        <div class="service-duration" data-en="4 Weeks | Free" data-my="၄ ပတ် | အခမဲ့">4 Weeks | Free</div>
-                        <a href="contact.html" class="btn" style="margin-top: 20px;" data-en="Apply Now" data-my="ယခုလျှောက်ထားပါ">Apply Now</a>
+                        <a href="contact.html" class="btn" style="margin-top: 20px;" data-en="Learn More" data-my="ပိုမိုလေ့လာရန်">Learn More</a>
                     </div>
 
-                    <!-- Service 2 -->
-                    <div class="service-card-extended">
+                    <!-- Finance -->
+                    <div class="skills-card">
                         <div class="service-icon-large">
                             <i class="fas fa-chart-line"></i>
                         </div>
-                        <h3 data-en="Advanced Social Media Management" data-my="အဆင့်မြင့် ဆိုရှယ်မီဒီယာစီမံခန့်ခွဲမှု">Advanced Social Media Management</h3>
-                        <p data-en="Master social media platforms, content strategy, and community management for business growth."
-                           data-my="စီးပွားရေးတိုးတက်မှုအတွက် ဆိုရှယ်မီဒီယာပလက်ဖောင်းများ၊ အကြောင်းအရာဗျူဟာနှင့် လူမှုအသိုင်းအဝိုင်းစီမံခန့်ခွဲမှုကို ကျွမ်းကျင်စွာလေ့လာပါ။">
-                            Master social media platforms and content strategy.
-                        </p>
+                        <h3 data-en="Finance" data-my="ဘဏ္ဍာရေး">Finance</h3>
                         <ul class="service-features">
-                            <li data-en="Platform Strategy" data-my="ပလက်ဖောင်းဗျူဟာ">Platform Strategy</li>
-                            <li data-en="Content Calendar" data-my="အကြောင်းအရာပြက္ခဒိန်">Content Calendar</li>
-                            <li data-en="Community Engagement" data-my="လူမှုအသိုင်းအဝိုင်းပါဝင်မှု">Community Engagement</li>
-                            <li data-en="Paid Advertising" data-my="ငွေကြေးဖြင့်ကြော်ငြာခြင်း">Paid Advertising</li>
-                            <li data-en="Crisis Management" data-my="အရေးပေါ်စီမံခန့်ခွဲမှု">Crisis Management</li>
+                            <li data-en="Basic accounting" data-my="အခြေခံစာရင်းကိုင်ပညာ">Basic accounting</li>
+                            <li data-en="Budgeting & planning" data-my="ဘတ်ဂျက်နှင့် စီစဉ်ခြင်း">Budgeting & planning</li>
                         </ul>
-                        <div class="service-duration" data-en="6 Weeks | Free" data-my="၆ ပတ် | အခမဲ့">6 Weeks | Free</div>
-                        <a href="contact.html" class="btn" style="margin-top: 20px;" data-en="Apply Now" data-my="ယခုလျှောက်ထားပါ">Apply Now</a>
+                        <a href="contact.html" class="btn" style="margin-top: 20px;" data-en="Learn More" data-my="ပိုမိုလေ့လာရန်">Learn More</a>
                     </div>
 
-                    <!-- Service 3 -->
-                    <div class="service-card-extended">
+                    <!-- Human Resources (HR) -->
+                    <div class="skills-card">
                         <div class="service-icon-large">
-                            <i class="fas fa-shopping-cart"></i>
+                            <i class="fas fa-users"></i>
                         </div>
-                        <h3 data-en="E-commerce Management" data-my="အီလက်ထရွန်းနစ်စီးပွားရေးစီမံခန့်ခွဲမှု">E-commerce Management</h3>
-                        <p data-en="Learn to build and manage online stores, product listings, and digital payment systems."
-                           data-my="အွန်လိုင်းစတိုများတည်ဆောက်ခြင်း၊ ထုတ်ကုန်စာရင်းပြုစုခြင်းနှင့် ဒီဂျစ်တယ်ငွေပေးချေမှုစနစ်များကို စီမံခန့်ခွဲခြင်းကို သင်ယူပါ။">
-                            Learn to build and manage online stores and digital payment systems.
-                        </p>
+                        <h3 data-en="Human Resources (HR)" data-my="လူ့စွမ်းအားအရင်းအမြစ် (HR)">Human Resources (HR)</h3>
                         <ul class="service-features">
-                            <li data-en="Store Setup" data-my="စတိုတည်ဆောက်ခြင်း">Store Setup</li>
-                            <li data-en="Product Management" data-my="ထုတ်ကုန်စီမံခန့်ခွဲမှု">Product Management</li>
-                            <li data-en="Order Processing" data-my="အော်ဒါပြုလုပ်ခြင်း">Order Processing</li>
-                            <li data-en="Customer Service" data-my="ဖောက်သည်ဝန်ဆောင်မှု">Customer Service</li>
-                            <li data-en="Inventory Control" data-my="ပစ္စည်းစာရင်းထိန်းချုပ်မှု">Inventory Control</li>
+                            <li data-en="Recruitment & HR admin" data-my="ခန့်အပ်ခြင်းနှင့် HR အုပ်ချုပ်မှု">Recruitment & HR admin</li>
+                            <li data-en="Workplace policies" data-my="အလုပ်ခွင် မူဝါဒများ">Workplace policies</li>
                         </ul>
-                        <div class="service-duration" data-en="8 Weeks | $50" data-my="၈ ပတ် | ၅၀ ဒေါ်လာ">8 Weeks | $50</div>
-                        <a href="contact.html" class="btn" style="margin-top: 20px;" data-en="Enroll Now" data-my="ယခုစာရင်းသွင်းပါ">Enroll Now</a>
+                        <a href="contact.html" class="btn" style="margin-top: 20px;" data-en="Learn More" data-my="ပိုမိုလေ့လာရန်">Learn More</a>
+                    </div>
+
+                    <!-- Business English -->
+                    <div class="skills-card">
+                        <div class="service-icon-large">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <h3 data-en="Business English" data-my="စီးပွားရေးအင်္ဂလိပ်စာ">Business English</h3>
+                        <ul class="service-features">
+                            <li data-en="Emails & meetings" data-my="အီးမေးလ်များနှင့် အစည်းအဝေးများ">Emails & meetings</li>
+                            <li data-en="Presentations" data-my="တင်ပြချက်များ">Presentations</li>
+                        </ul>
+                        <a href="contact.html" class="btn" style="margin-top: 20px;" data-en="Learn More" data-my="ပိုမိုလေ့လာရန်">Learn More</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Career Support Services -->
-    <section id="career-support" class="pricing-section">
+    <!-- Individual Consulting -->
+    <section id="individual-consulting" class="pricing-section">
         <div class="container">
             <div class="service-category">
                 <div class="service-category-title">
-                    <h2 data-en="Career Support Services" data-my="အလုပ်အကိုင်ထောက်ပံ့မှုဝန်ဆောင်မှုများ">Career Support Services</h2>
-                    <p data-en="Guidance and opportunities for professional growth" data-my="ကျွမ်းကျင်မှုတိုးတက်မှုအတွက် လမ်းညွှန်မှုနှင့် အခွင့်အလမ်းများ">Guidance and opportunities for professional growth</p>
+                    <h2 data-en="Individual Consulting" data-my="တစ်ဦးချင်းအကြံပေးခြင်း">Individual Consulting</h2>
+                    <p data-en="Personalized professional support" data-my="ပုဂ္ဂိုလ်ရေးကျွမ်းကျင်မှုအထောက်အပံ့">Personalized professional support</p>
                 </div>
                 
-                <div class="services-grid-extended">
-                    <!-- Service 4 -->
-                    <div class="service-card-extended">
+                <div class="service-intro">
+                    <p data-en="One-on-one consulting tailored to individual needs. Suitable for individuals, small businesses, and organizations."
+                       data-my="တစ်ဦးချင်းလိုအပ်ချက်များနှင့်ကိုက်ညီသော တစ်ဦးချင်းအကြံပေးခြင်း။ ပုဂ္ဂိုလ်ရေး၊ သေးငယ်သောစီးပွားရေးလုပ်ငန်းများနှင့် အဖွဲ့အစည်းများအတွက် သင့်တော်သည်။">
+                        One-on-one consulting tailored to individual needs. Suitable for individuals, small businesses, and organizations.
+                    </p>
+                </div>
+                
+                <div class="skills-grid">
+                    <div class="consulting-card">
                         <div class="service-icon-large">
-                            <i class="fas fa-briefcase"></i>
+                            <i class="fas fa-comments"></i>
                         </div>
-                        <h3 data-en="Career Counseling" data-my="အလုပ်အကိုင်အကြံပေးခြင်း">Career Counseling</h3>
-                        <p data-en="Personalized career guidance, resume building, and interview preparation sessions."
-                           data-my="ပုဂ္ဂိုလ်ရေးအလုပ်အကိုင်လမ်းညွှန်မှု၊ ကိုယ်ရေးမှတ်တမ်းတည်ဆောက်ခြင်းနှင့် အင်တာဗျူးပြင်ဆင်ခြင်းဆိုင်ရာ အစည်းအဝေးများ။">
-                            Personalized career guidance and interview preparation.
-                        </p>
-                        <ul class="service-features">
-                            <li data-en="Career Assessment" data-my="အလုပ်အကိုင်အကဲဖြတ်ခြင်း">Career Assessment</li>
-                            <li data-en="Resume Writing" data-my="ကိုယ်ရေးမှတ်တမ်းရေးသားခြင်း">Resume Writing</li>
-                            <li data-en="Cover Letter Development" data-my="အကြောင်းကြားစာဖွံ့ဖြိုးရေး">Cover Letter Development</li>
-                            <li data-en="Mock Interviews" data-my="နမူနာအင်တာဗျူးများ">Mock Interviews</li>
-                            <li data-en="LinkedIn Profile Optimization" data-my="LinkedIn ပရိုဖိုင်းအကောင်းဆုံးဖြစ်အောင်ပြုလုပ်ခြင်း">LinkedIn Profile Optimization</li>
+                        <h3 data-en="Consulting Services" data-my="အကြံပေးဝန်ဆောင်မှုများ">Consulting Services</h3>
+                        <p data-en="Professional guidance in key areas:" data-my="အဓိကနယ်ပယ်များတွင် ကျွမ်းကျင်လမ်းညွှန်မှု">Professional guidance in key areas:</p>
+                        <ul class="consulting-list">
+                            <li data-en="Digital Marketing" data-my="ဒီဂျစ်တယ်စျေးကွက်ရှာဖွေရေး">Digital Marketing</li>
+                            <li data-en="Finance" data-my="ဘဏ္ဍာရေး">Finance</li>
+                            <li data-en="Human Resources (HR)" data-my="လူ့စွမ်းအားအရင်းအမြစ် (HR)">Human Resources (HR)</li>
+                            <li data-en="Business English" data-my="စီးပွားရေးအင်္ဂလိပ်စာ">Business English</li>
+                            <li data-en="Education & Scholarship Guidance" data-my="ပညာရေးနှင့် ပညာသင်ဆုလမ်းညွှန်မှု">Education & Scholarship Guidance</li>
                         </ul>
-                        <div class="service-duration" data-en="Ongoing | Free" data-my="ဆက်လက်လုပ်ဆောင်မည် | အခမဲ့">Ongoing | Free</div>
-                        <a href="contact.html" class="btn" style="margin-top: 20px;" data-en="Book Session" data-my="အစည်းအဝေးချိန်းဆိုပါ">Book Session</a>
+                        <a href="contact.html" class="btn" style="margin-top: 20px;" data-en="Book Consultation" data-my="အကြံပေးချိန်းဆိုရန်">Book Consultation</a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                    <!-- Service 5 -->
-                    <div class="service-card-extended">
+    <!-- Onsite Training -->
+    <section id="onsite-training">
+        <div class="container">
+            <div class="service-category">
+                <div class="service-category-title">
+                    <h2 data-en="Onsite Training" data-my="နေရာတွင်သင်တန်း">Onsite Training</h2>
+                    <p data-en="Customized training for organizations & communities" data-my="အဖွဲ့အစည်းများနှင့် လူမှုအသိုင်းအဝိုင်းများအတွက် စိတ်ကြိုက်သင်တန်း">Customized training for organizations & communities</p>
+                </div>
+                
+                <div class="service-intro">
+                    <p data-en="Onsite workshops and group training designed around specific learning goals. Available for NGOs, companies, and community groups."
+                       data-my="သင်ယူမှုပန်းတိုင်များကို ဗဟိုပြုထားသော နေရာတွင်အလုပ်ရုံဆွေးနွေးပွဲများနှင့် အုပ်စုသင်တန်းများ။ NGO များ၊ ကုမ္ပဏီများနှင့် လူမှုအသိုင်းအဝိုင်းအုပ်စုများအတွက် ရနိုင်ပါသည်။">
+                        Onsite workshops and group training designed around specific learning goals. Available for NGOs, companies, and community groups.
+                    </p>
+                </div>
+                
+                <div class="skills-grid">
+                    <div class="onsite-card">
                         <div class="service-icon-large">
-                            <i class="fas fa-network-wired"></i>
+                            <i class="fas fa-building"></i>
                         </div>
-                        <h3 data-en="Job Placement Assistance" data-my="အလုပ်အကိုင်နေရာချထားမှုအကူအညီ">Job Placement Assistance</h3>
-                        <p data-en="Connecting qualified candidates with employers and internship opportunities."
-                           data-my="အရည်အချင်းပြည့်မီသောကိုယ်စားလှယ်လောင်းများကို အလုပ်ရှင်များနှင့် internship အခွင့်အလမ်းများနှင့် ချိတ်ဆက်ပေးခြင်း။">
-                            Connecting candidates with employers and internship opportunities.
-                        </p>
-                        <ul class="service-features">
-                            <li data-en="Job Matching" data-my="အလုပ်အကိုင်ကိုက်ညီမှု">Job Matching</li>
-                            <li data-en="Employer Networking" data-my="အလုပ်ရှင်ကွန်ယက်ချိတ်ဆက်မှု">Employer Networking</li>
-                            <li data-en="Interview Coordination" data-my="အင်တာဗျူးညှိနှိုင်းခြင်း">Interview Coordination</li>
-                            <li data-en="Contract Review" data-my="စာချုပ်စာတမ်းသုံးသပ်ခြင်း">Contract Review</li>
-                            <li data-en="Follow-up Support" data-my="နောက်ဆက်တွဲထောက်ပံ့မှု">Follow-up Support</li>
+                        <h3 data-en="Training Formats" data-my="သင်တန်းပုံစံများ">Training Formats</h3>
+                        <ul class="onsite-formats">
+                            <li data-en="Half-day / Full-day workshops" data-my="တစ်ဝက်နေ့ / တစ်နေ့တာလုံး အလုပ်ရုံဆွေးနွေးပွဲများ">Half-day / Full-day workshops</li>
+                            <li data-en="Short-term training series" data-my="အချိန်တိုသင်တန်းစီးရီးများ">Short-term training series</li>
                         </ul>
-                        <div class="service-duration" data-en="Ongoing | Free" data-my="ဆက်လက်လုပ်ဆောင်မည် | အခမဲ့">Ongoing | Free</div>
-                        <a href="contact.html" class="btn" style="margin-top: 20px;" data-en="Get Started" data-my="စတင်ပါ">Get Started</a>
-                    </div>
-
-                    <!-- Service 6 -->
-                    <div class="service-card-extended">
-                        <div class="service-icon-large">
-                            <i class="fas fa-user-tie"></i>
-                        </div>
-                        <h3 data-en="Freelance Development" data-my="Freelance ဖွံ့ဖြိုးရေး">Freelance Development</h3>
-                        <p data-en="Training and support for starting and growing freelance digital marketing businesses."
-                           data-my="Freelance ဒီဂျစ်တယ်စျေးကွက်ရှာဖွေရေးလုပ်ငန်းများစတင်ရန်နှင့် ကြီးထွားစေရန်အတွက် သင်တန်းနှင့် ထောက်ပံ့မှု။">
-                            Training for starting freelance digital marketing businesses.
-                        </p>
-                        <ul class="service-features">
-                            <li data-en="Portfolio Building" data-my="ပို့တိုဖိုလီယိုတည်ဆောက်ခြင်း">Portfolio Building</li>
-                            <li data-en="Client Acquisition" data-my="ဖောက်သည်ရရှိခြင်း">Client Acquisition</li>
-                            <li data-en="Pricing Strategies" data-my="ဈေးနှုန်းသတ်မှတ်ခြင်းဗျူဟာများ">Pricing Strategies</li>
-                            <li data-en="Contract Templates" data-my="စာချုပ်စာတမ်းပုံစံများ">Contract Templates</li>
-                            <li data-en="Financial Management" data-my="ငွေကြေးစီမံခန့်ခွဲမှု">Financial Management</li>
-                        </ul>
-                        <div class="service-duration" data-en="4 Weeks | $25" data-my="၄ ပတ် | ၂၅ ဒေါ်လာ">4 Weeks | $25</div>
-                        <a href="contact.html" class="btn" style="margin-top: 20px;" data-en="Start Freelancing" data-my="Freelancing စတင်ပါ">Start Freelancing</a>
+                        <a href="contact.html" class="btn btn-primary" style="margin-top: 20px;" data-en="Request Onsite Training" data-my="နေရာတွင်သင်တန်းတောင်းဆိုရန်">Request Onsite Training</a>
                     </div>
                 </div>
             </div>
