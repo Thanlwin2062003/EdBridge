@@ -432,21 +432,21 @@
             color: white;
         }
         
-        .service-category {
-            margin-bottom: 80px;
+        .service-section {
             background-color: white;
             border-radius: 15px;
             padding: 50px 40px;
+            margin-bottom: 40px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
         
-        .service-category-title {
+        .section-header {
             text-align: center;
             margin-bottom: 40px;
             position: relative;
         }
         
-        .service-category-title h2 {
+        .section-header h2 {
             display: inline-block;
             padding-bottom: 10px;
             position: relative;
@@ -454,7 +454,7 @@
             font-size: 2.2rem;
         }
         
-        .service-category-title h2::after {
+        .section-header h2::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -465,121 +465,130 @@
             background-color: var(--secondary);
         }
         
-        .service-purpose {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 40px;
-            padding: 20px;
+        .purpose-box {
             background-color: var(--light);
+            padding: 25px;
             border-radius: 10px;
+            margin-bottom: 30px;
             border-left: 4px solid var(--primary);
         }
         
-        .service-purpose h3 {
+        .purpose-box h3 {
             color: var(--primary);
             margin-bottom: 10px;
             font-size: 1.4rem;
         }
         
-        .service-purpose p {
+        .purpose-box p {
             font-size: 1.1rem;
             color: #666;
             line-height: 1.7;
+            margin-bottom: 0;
         }
         
-        .services-grid {
+        .content-box {
+            background-color: #f9f9f9;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .content-box h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .content-box p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+        
+        .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
             margin-top: 30px;
         }
         
-        .service-card {
-            background-color: #f9f9f9;
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: all 0.3s;
-            border-top: 4px solid var(--primary);
+        .skill-item {
+            background-color: #f0f7ff;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary);
         }
         
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-        
-        .service-icon {
-            font-size: 2.5rem;
+        .skill-item h4 {
             color: var(--primary);
-            margin-bottom: 20px;
-            height: 60px;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
             display: flex;
             align-items: center;
-            justify-content: center;
+            gap: 10px;
         }
         
-        .service-features {
+        .skill-item ul {
             list-style: none;
-            margin: 20px 0;
-            text-align: left;
+            padding-left: 0;
         }
         
-        .service-features li {
-            margin-bottom: 12px;
-            padding-left: 25px;
+        .skill-item li {
+            margin-bottom: 8px;
+            padding-left: 20px;
             position: relative;
             color: #555;
         }
         
-        .service-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--success);
-            font-weight: bold;
-        }
-        
-        .consulting-areas {
-            list-style: none;
-            margin: 20px 0;
-            text-align: left;
-        }
-        
-        .consulting-areas li {
-            margin-bottom: 12px;
-            padding-left: 25px;
-            position: relative;
-            color: #555;
-        }
-        
-        .consulting-areas li::before {
+        .skill-item li::before {
             content: '•';
             position: absolute;
             left: 0;
-            color: var(--secondary);
-            font-weight: bold;
-            font-size: 1.5rem;
-        }
-        
-        .training-formats {
-            list-style: none;
-            margin: 20px 0;
-            text-align: left;
-        }
-        
-        .training-formats li {
-            margin-bottom: 12px;
-            padding-left: 25px;
-            position: relative;
-            color: #555;
-        }
-        
-        .training-formats li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
             color: var(--primary);
             font-weight: bold;
+        }
+        
+        .consulting-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .consulting-list li {
+            margin-bottom: 12px;
+            padding: 10px 15px;
+            background-color: #f0f7ff;
+            border-radius: 5px;
+            color: #555;
+            border-left: 3px solid var(--secondary);
+        }
+        
+        .formats-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .formats-list li {
+            margin-bottom: 12px;
+            padding: 12px 15px;
+            background-color: #f0f7ff;
+            border-radius: 5px;
+            color: #555;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .formats-list li i {
+            color: var(--primary);
+        }
+        
+        .section-cta {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
         }
         
         .cta-section {
@@ -596,22 +605,17 @@
             margin: 50px 0 30px;
         }
         
-        /* Alternate section backgrounds */
-        .alternate-bg {
-            background-color: #f8f9fa;
-        }
-        
         @media (max-width: 768px) {
-            .service-category {
+            .service-section {
                 padding: 30px 20px;
             }
             
-            .services-grid {
-                grid-template-columns: 1fr;
+            .section-header h2 {
+                font-size: 1.8rem;
             }
             
-            .service-category-title h2 {
-                font-size: 1.8rem;
+            .skills-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -661,15 +665,15 @@
         </div>
     </section>
 
-    <!-- Skills Training Programs -->
+    <!-- Section 1: Skills Training Programs -->
     <section id="skills-training">
         <div class="container">
-            <div class="service-category">
-                <div class="service-category-title">
+            <div class="service-section">
+                <div class="section-header">
                     <h2 data-en="Skills Training Programs" data-my="ကျွမ်းကျင်မှုသင်တန်းအစီအစဉ်များ">Skills Training Programs</h2>
                 </div>
                 
-                <div class="service-purpose">
+                <div class="purpose-box">
                     <h3 data-en="Purpose" data-my="ရည်ရွယ်ချက်">Purpose</h3>
                     <p data-en="Manage small businesses or freelance work effectively" 
                        data-my="သေးငယ်သောစီးပွားရေးလုပ်ငန်းများ သို့မဟုတ် လွတ်လပ်သောအလုပ်များကို ထိရောက်စွာ စီမံခန့်ခွဲနိုင်ရန်">
@@ -677,72 +681,60 @@
                     </p>
                 </div>
                 
-                <div class="services-grid">
+                <div class="skills-grid">
                     <!-- Digital Marketing -->
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-bullhorn"></i>
-                        </div>
-                        <h3 data-en="Digital Marketing" data-my="ဒီဂျစ်တယ်စျေးကွက်ရှာဖွေရေး">Digital Marketing</h3>
-                        <ul class="service-features">
+                    <div class="skill-item">
+                        <h4><i class="fas fa-bullhorn"></i> <span data-en="Digital Marketing" data-my="ဒီဂျစ်တယ်စျေးကွက်ရှာဖွေရေး">Digital Marketing</span></h4>
+                        <ul>
                             <li data-en="Social media & content" data-my="ဆိုရှယ်မီဒီယာနှင့် အကြောင်းအရာ">Social media & content</li>
                             <li data-en="Ads & analytics" data-my="ကြော်ငြာများနှင့် ခွဲခြမ်းစိတ်ဖြာမှု">Ads & analytics</li>
                         </ul>
                     </div>
 
                     <!-- Finance -->
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h3 data-en="Finance" data-my="ဘဏ္ဍာရေး">Finance</h3>
-                        <ul class="service-features">
+                    <div class="skill-item">
+                        <h4><i class="fas fa-chart-line"></i> <span data-en="Finance" data-my="ဘဏ္ဍာရေး">Finance</span></h4>
+                        <ul>
                             <li data-en="Basic accounting" data-my="အခြေခံစာရင်းကိုင်ပညာ">Basic accounting</li>
                             <li data-en="Budgeting & planning" data-my="ဘတ်ဂျက်နှင့် စီစဉ်ခြင်း">Budgeting & planning</li>
                         </ul>
                     </div>
 
                     <!-- Human Resources (HR) -->
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <h3 data-en="Human Resources (HR)" data-my="လူ့စွမ်းအားအရင်းအမြစ် (HR)">Human Resources (HR)</h3>
-                        <ul class="service-features">
+                    <div class="skill-item">
+                        <h4><i class="fas fa-users"></i> <span data-en="Human Resources (HR)" data-my="လူ့စွမ်းအားအရင်းအမြစ် (HR)">Human Resources (HR)</span></h4>
+                        <ul>
                             <li data-en="Recruitment & HR admin" data-my="ခန့်အပ်ခြင်းနှင့် HR အုပ်ချုပ်မှု">Recruitment & HR admin</li>
                             <li data-en="Workplace policies" data-my="အလုပ်ခွင် မူဝါဒများ">Workplace policies</li>
                         </ul>
                     </div>
 
                     <!-- Business English -->
-                    <div class="service-card">
-                        <div class="service-icon">
-                            <i class="fas fa-language"></i>
-                        </div>
-                        <h3 data-en="Business English" data-my="စီးပွားရေးအင်္ဂလိပ်စာ">Business English</h3>
-                        <ul class="service-features">
+                    <div class="skill-item">
+                        <h4><i class="fas fa-language"></i> <span data-en="Business English" data-my="စီးပွားရေးအင်္ဂလိပ်စာ">Business English</span></h4>
+                        <ul>
                             <li data-en="Emails & meetings" data-my="အီးမေးလ်များနှင့် အစည်းအဝေးများ">Emails & meetings</li>
                             <li data-en="Presentations" data-my="တင်ပြချက်များ">Presentations</li>
                         </ul>
                     </div>
                 </div>
                 
-                <div class="back-to-home" style="margin-top: 40px; margin-bottom: 0;">
+                <div class="section-cta">
                     <a href="contact.html" class="btn" data-en="Learn More" data-my="ပိုမိုလေ့လာရန်">Learn More</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Individual Consulting -->
-    <section id="individual-consulting" class="alternate-bg">
+    <!-- Section 2: Individual Consulting -->
+    <section id="individual-consulting" style="background-color: #f8f9fa;">
         <div class="container">
-            <div class="service-category">
-                <div class="service-category-title">
+            <div class="service-section">
+                <div class="section-header">
                     <h2 data-en="Individual Consulting" data-my="တစ်ဦးချင်းအကြံပေးခြင်း">Individual Consulting</h2>
                 </div>
                 
-                <div class="service-purpose">
+                <div class="purpose-box">
                     <h3 data-en="Purpose" data-my="ရည်ရွယ်ချက်">Purpose</h3>
                     <p data-en="Personalized professional support" 
                        data-my="ပုဂ္ဂိုလ်ရေးကျွမ်းကျင်မှုအထောက်အပံ့">
@@ -750,43 +742,41 @@
                     </p>
                 </div>
                 
-                <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-                    <div style="margin-bottom: 30px;">
-                        <h3 data-en="Content" data-my="အကြောင်းအရာ">Content</h3>
-                        <p data-en="One-on-one consulting tailored to individual needs. Suitable for individuals, small businesses, and organizations."
-                           data-my="တစ်ဦးချင်းလိုအပ်ချက်များနှင့်ကိုက်ညီသော တစ်ဦးချင်းအကြံပေးခြင်း။ ပုဂ္ဂိုလ်ရေး၊ သေးငယ်သောစီးပွားရေးလုပ်ငန်းများနှင့် အဖွဲ့အစည်းများအတွက် သင့်တော်သည်။">
-                            One-on-one consulting tailored to individual needs. Suitable for individuals, small businesses, and organizations.
-                        </p>
-                    </div>
-                    
-                    <div>
-                        <h3 data-en="Consulting Areas" data-my="အကြံပေးနယ်ပယ်များ">Consulting Areas</h3>
-                        <ul class="consulting-areas" style="display: inline-block; text-align: left;">
-                            <li data-en="Digital Marketing" data-my="ဒီဂျစ်တယ်စျေးကွက်ရှာဖွေရေး">Digital Marketing</li>
-                            <li data-en="Finance" data-my="ဘဏ္ဍာရေး">Finance</li>
-                            <li data-en="Human Resources (HR)" data-my="လူ့စွမ်းအားအရင်းအမြစ် (HR)">Human Resources (HR)</li>
-                            <li data-en="Business English" data-my="စီးပွားရေးအင်္ဂလိပ်စာ">Business English</li>
-                            <li data-en="Education & Scholarship Guidance" data-my="ပညာရေးနှင့် ပညာသင်ဆုလမ်းညွှန်မှု">Education & Scholarship Guidance</li>
-                        </ul>
-                    </div>
+                <div class="content-box">
+                    <h3 data-en="Content" data-my="အကြောင်းအရာ">Content</h3>
+                    <p data-en="One-on-one consulting tailored to individual needs. Suitable for individuals, small businesses, and organizations."
+                       data-my="တစ်ဦးချင်းလိုအပ်ချက်များနှင့်ကိုက်ညီသော တစ်ဦးချင်းအကြံပေးခြင်း။ ပုဂ္ဂိုလ်ရေး၊ သေးငယ်သောစီးပွားရေးလုပ်ငန်းများနှင့် အဖွဲ့အစည်းများအတွက် သင့်တော်သည်။">
+                        One-on-one consulting tailored to individual needs. Suitable for individuals, small businesses, and organizations.
+                    </p>
                 </div>
                 
-                <div class="back-to-home" style="margin-top: 40px; margin-bottom: 0;">
+                <div class="content-box">
+                    <h3 data-en="Consulting Areas" data-my="အကြံပေးနယ်ပယ်များ">Consulting Areas</h3>
+                    <ul class="consulting-list">
+                        <li data-en="Digital Marketing" data-my="ဒီဂျစ်တယ်စျေးကွက်ရှာဖွေရေး">Digital Marketing</li>
+                        <li data-en="Finance" data-my="ဘဏ္ဍာရေး">Finance</li>
+                        <li data-en="Human Resources (HR)" data-my="လူ့စွမ်းအားအရင်းအမြစ် (HR)">Human Resources (HR)</li>
+                        <li data-en="Business English" data-my="စီးပွားရေးအင်္ဂလိပ်စာ">Business English</li>
+                        <li data-en="Education & Scholarship Guidance" data-my="ပညာရေးနှင့် ပညာသင်ဆုလမ်းညွှန်မှု">Education & Scholarship Guidance</li>
+                    </ul>
+                </div>
+                
+                <div class="section-cta">
                     <a href="contact.html" class="btn" data-en="Book Consultation" data-my="အကြံပေးချိန်းဆိုရန်">Book Consultation</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Onsite Training -->
+    <!-- Section 3: Onsite Training -->
     <section id="onsite-training">
         <div class="container">
-            <div class="service-category">
-                <div class="service-category-title">
+            <div class="service-section">
+                <div class="section-header">
                     <h2 data-en="Onsite Training" data-my="နေရာတွင်သင်တန်း">Onsite Training</h2>
                 </div>
                 
-                <div class="service-purpose">
+                <div class="purpose-box">
                     <h3 data-en="Purpose" data-my="ရည်ရွယ်ချက်">Purpose</h3>
                     <p data-en="Customized training for organizations & communities" 
                        data-my="အဖွဲ့အစည်းများနှင့် လူမှုအသိုင်းအဝိုင်းများအတွက် စိတ်ကြိုက်သင်တန်း">
@@ -794,25 +784,31 @@
                     </p>
                 </div>
                 
-                <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-                    <div style="margin-bottom: 30px;">
-                        <h3 data-en="Content" data-my="အကြောင်းအရာ">Content</h3>
-                        <p data-en="Onsite workshops and group training designed around specific learning goals. Available for NGOs, companies, and community groups."
-                           data-my="သင်ယူမှုပန်းတိုင်များကို ဗဟိုပြုထားသော နေရာတွင်အလုပ်ရုံဆွေးနွေးပွဲများနှင့် အုပ်စုသင်တန်းများ။ NGO များ၊ ကုမ္ပဏီများနှင့် လူမှုအသိုင်းအဝိုင်းအုပ်စုများအတွက် ရနိုင်ပါသည်။">
-                            Onsite workshops and group training designed around specific learning goals. Available for NGOs, companies, and community groups.
-                        </p>
-                    </div>
-                    
-                    <div>
-                        <h3 data-en="Formats" data-my="ပုံစံများ">Formats</h3>
-                        <ul class="training-formats" style="display: inline-block; text-align: left;">
-                            <li data-en="Half-day / Full-day workshops" data-my="တစ်ဝက်နေ့ / တစ်နေ့တာလုံး အလုပ်ရုံဆွေးနွေးပွဲများ">Half-day / Full-day workshops</li>
-                            <li data-en="Short-term training series" data-my="အချိန်တိုသင်တန်းစီးရီးများ">Short-term training series</li>
-                        </ul>
-                    </div>
+                <div class="content-box">
+                    <h3 data-en="Content" data-my="အကြောင်းအရာ">Content</h3>
+                    <p data-en="Onsite workshops and group training" 
+                       data-my="နေရာတွင်အလုပ်ရုံဆွေးနွေးပွဲများနှင့် အုပ်စုသင်တန်းများ">
+                        Onsite workshops and group training
+                    </p>
+                    <p data-en="Designed around specific learning goals" 
+                       data-my="သင်ယူမှုပန်းတိုင်များကို ဗဟိုပြုထားသော">
+                        Designed around specific learning goals
+                    </p>
+                    <p data-en="Available for NGOs, companies, and community groups"
+                       data-my="NGO များ၊ ကုမ္ပဏီများနှင့် လူမှုအသိုင်းအဝိုင်းအုပ်စုများအတွက် ရနိုင်ပါသည်">
+                        Available for NGOs, companies, and community groups
+                    </p>
                 </div>
                 
-                <div class="back-to-home" style="margin-top: 40px; margin-bottom: 0;">
+                <div class="content-box">
+                    <h3 data-en="Formats" data-my="ပုံစံများ">Formats</h3>
+                    <ul class="formats-list">
+                        <li><i class="fas fa-clock"></i> <span data-en="Half-day / Full-day workshops" data-my="တစ်ဝက်နေ့ / တစ်နေ့တာလုံး အလုပ်ရုံဆွေးနွေးပွဲများ">Half-day / Full-day workshops</span></li>
+                        <li><i class="fas fa-calendar-alt"></i> <span data-en="Short-term training series" data-my="အချိန်တိုသင်တန်းစီးရီးများ">Short-term training series</span></li>
+                    </ul>
+                </div>
+                
+                <div class="section-cta">
                     <a href="contact.html" class="btn btn-primary" data-en="Request Onsite Training" data-my="နေရာတွင်သင်တန်းတောင်းဆိုရန်">Request Onsite Training</a>
                 </div>
             </div>
