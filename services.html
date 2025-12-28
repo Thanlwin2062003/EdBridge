@@ -277,130 +277,6 @@
             background-color: var(--secondary);
         }
         
-        /* About Section */
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-        }
-        
-        .about-text {
-            flex: 1;
-        }
-        
-        .about-image {
-            flex: 1;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        
-        .about-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        .circle-logo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-        
-        /* Highlights Grid */
-        .highlights-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-        
-        .highlight-card {
-            background-color: white;
-            border-radius: 10px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-        }
-        
-        .highlight-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .highlight-icon {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-        
-        /* Contact Section */
-        .contact {
-            background-color: #FAEBD7;
-        }
-        
-        .contact-container {
-            display: flex;
-            gap: 40px;
-        }
-        
-        .contact-info {
-            flex: 1;
-        }
-        
-        .contact-form {
-            flex: 1;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 25px;
-        }
-        
-        .contact-icon {
-            background-color: var(--primary);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            flex-shrink: 0;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 500;
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: 'Open Sans', sans-serif;
-            transition: border-color 0.3s;
-        }
-        
-        .form-control:focus {
-            border-color: var(--primary);
-            outline: none;
-        }
-        
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-        
         /* Footer */
         footer {
             background-color: var(--dark);
@@ -476,16 +352,6 @@
         }
         
         /* Responsive Styles */
-        @media (max-width: 992px) {
-            .about-content {
-                flex-direction: column;
-            }
-            
-            .contact-container {
-                flex-direction: column;
-            }
-        }
-        
         @media (max-width: 768px) {
             .mobile-menu {
                 display: block;
@@ -568,6 +434,10 @@
         
         .service-category {
             margin-bottom: 80px;
+            background-color: white;
+            border-radius: 15px;
+            padding: 50px 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
         
         .service-category-title {
@@ -580,6 +450,8 @@
             display: inline-block;
             padding-bottom: 10px;
             position: relative;
+            color: var(--primary);
+            font-size: 2.2rem;
         }
         
         .service-category-title h2::after {
@@ -593,43 +465,54 @@
             background-color: var(--secondary);
         }
         
-        .services-grid-extended {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-        
-        .service-card-extended {
-            background-color: white;
-            border-radius: 15px;
-            padding: 40px 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s;
+        .service-purpose {
             text-align: center;
-            position: relative;
-            overflow: hidden;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            padding: 20px;
+            background-color: var(--light);
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
         }
         
-        .service-card-extended:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-        
-        .service-card-extended::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background-color: var(--primary);
-        }
-        
-        .service-icon-large {
-            font-size: 3.5rem;
+        .service-purpose h3 {
             color: var(--primary);
-            margin-bottom: 25px;
-            height: 80px;
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+        
+        .service-purpose p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.7;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .service-card {
+            background-color: #f9f9f9;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            border-top: 4px solid var(--primary);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -637,7 +520,7 @@
         
         .service-features {
             list-style: none;
-            margin: 25px 0;
+            margin: 20px 0;
             text-align: left;
         }
         
@@ -645,6 +528,7 @@
             margin-bottom: 12px;
             padding-left: 25px;
             position: relative;
+            color: #555;
         }
         
         .service-features li::before {
@@ -655,69 +539,47 @@
             font-weight: bold;
         }
         
-        .service-duration {
-            background-color: var(--light);
-            padding: 8px 15px;
-            border-radius: 20px;
-            display: inline-block;
-            margin-top: 15px;
-            font-size: 0.9rem;
-            color: var(--primary);
-            font-weight: 600;
-        }
-        
-        .pricing-section {
-            background-color: var(--light);
-            padding: 80px 0;
-            margin-top: 40px;
-        }
-        
-        .pricing-card {
-            background: white;
-            border-radius: 15px;
-            padding: 40px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            position: relative;
-            transition: transform 0.3s;
-        }
-        
-        .pricing-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .pricing-card.popular {
-            border: 2px solid var(--primary);
-            transform: scale(1.05);
-        }
-        
-        .pricing-card.popular:hover {
-            transform: scale(1.05) translateY(-10px);
-        }
-        
-        .popular-badge {
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--primary);
-            color: white;
-            padding: 8px 25px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-        
-        .price {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--primary);
+        .consulting-areas {
+            list-style: none;
             margin: 20px 0;
+            text-align: left;
         }
         
-        .price-period {
-            color: #666;
-            font-size: 1rem;
+        .consulting-areas li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+        }
+        
+        .consulting-areas li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .training-formats {
+            list-style: none;
+            margin: 20px 0;
+            text-align: left;
+        }
+        
+        .training-formats li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+        }
+        
+        .training-formats li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
         }
         
         .cta-section {
@@ -725,149 +587,31 @@
             color: white;
             padding: 80px 0;
             text-align: center;
-            margin-top: 60px;
+            margin-top: 40px;
+            border-radius: 15px;
         }
         
         .back-to-home {
             text-align: center;
             margin: 50px 0 30px;
         }
-
-        /* New Service Card Styles */
-        .skills-card {
-            background-color: white;
-            border-radius: 15px;
-            padding: 40px 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            height: 100%;
-        }
-
-        .skills-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-
-        .skills-card .service-icon-large {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-            height: 60px;
-        }
-
-        .skills-card h3 {
-            color: var(--primary);
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .consulting-card {
-            background-color: white;
-            border-radius: 15px;
-            padding: 40px 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            height: 100%;
-        }
-
-        .consulting-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-
-        .consulting-list {
-            list-style: none;
-            text-align: left;
-            margin-top: 20px;
-        }
-
-        .consulting-list li {
-            margin-bottom: 15px;
-            padding-left: 30px;
-            position: relative;
-        }
-
-        .consulting-list li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--secondary);
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .onsite-card {
-            background-color: white;
-            border-radius: 15px;
-            padding: 40px 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            height: 100%;
-        }
-
-        .onsite-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-
-        .onsite-formats {
-            list-style: none;
-            text-align: left;
-            margin-top: 20px;
-        }
-
-        .onsite-formats li {
-            margin-bottom: 15px;
-            padding-left: 30px;
-            position: relative;
-        }
-
-        .onsite-formats li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--success);
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .service-intro {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 40px;
-            font-size: 1.1rem;
-            color: #666;
-            line-height: 1.8;
+        
+        /* Alternate section backgrounds */
+        .alternate-bg {
+            background-color: #f8f9fa;
         }
         
         @media (max-width: 768px) {
-            .pricing-card.popular {
-                transform: none;
-                margin: 30px 0;
+            .service-category {
+                padding: 30px 20px;
             }
             
-            .pricing-card.popular:hover {
-                transform: translateY(-10px);
-            }
-            
-            .skills-grid {
+            .services-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .service-category-title h2 {
+                font-size: 1.8rem;
             }
         }
     </style>
@@ -923,20 +667,20 @@
             <div class="service-category">
                 <div class="service-category-title">
                     <h2 data-en="Skills Training Programs" data-my="ကျွမ်းကျင်မှုသင်တန်းအစီအစဉ်များ">Skills Training Programs</h2>
-                    <p data-en="Build practical, job-ready skills" data-my="လက်တွေ့အသုံးဝင်ပြီး အလုပ်အတွက်အဆင်သင့်ဖြစ်သောကျွမ်းကျင်မှုများတည်ဆောက်ပါ">Build practical, job-ready skills</p>
                 </div>
                 
-                <div class="service-intro">
-                    <p data-en="Structured training designed to be practical, accessible, and relevant to real-world work environments."
-                       data-my="လက်တွေ့အလုပ်ပတ်ဝန်းကျင်များနှင့် သက်ဆိုင်ပြီး လက်တွေ့ကျ၊ လက်လှမ်းမီနိုင်စေရန်နှင့် သက်ဆိုင်သော ဖွဲ့စည်းတည်ဆောက်ပုံသင်တန်းများ">
-                        Structured training designed to be practical, accessible, and relevant to real-world work environments.
+                <div class="service-purpose">
+                    <h3 data-en="Purpose" data-my="ရည်ရွယ်ချက်">Purpose</h3>
+                    <p data-en="Manage small businesses or freelance work effectively" 
+                       data-my="သေးငယ်သောစီးပွားရေးလုပ်ငန်းများ သို့မဟုတ် လွတ်လပ်သောအလုပ်များကို ထိရောက်စွာ စီမံခန့်ခွဲနိုင်ရန်">
+                        Manage small businesses or freelance work effectively
                     </p>
                 </div>
                 
-                <div class="skills-grid">
+                <div class="services-grid">
                     <!-- Digital Marketing -->
-                    <div class="skills-card">
-                        <div class="service-icon-large">
+                    <div class="service-card">
+                        <div class="service-icon">
                             <i class="fas fa-bullhorn"></i>
                         </div>
                         <h3 data-en="Digital Marketing" data-my="ဒီဂျစ်တယ်စျေးကွက်ရှာဖွေရေး">Digital Marketing</h3>
@@ -944,12 +688,11 @@
                             <li data-en="Social media & content" data-my="ဆိုရှယ်မီဒီယာနှင့် အကြောင်းအရာ">Social media & content</li>
                             <li data-en="Ads & analytics" data-my="ကြော်ငြာများနှင့် ခွဲခြမ်းစိတ်ဖြာမှု">Ads & analytics</li>
                         </ul>
-                        <a href="contact.html" class="btn" style="margin-top: 20px;" data-en="Learn More" data-my="ပိုမိုလေ့လာရန်">Learn More</a>
                     </div>
 
                     <!-- Finance -->
-                    <div class="skills-card">
-                        <div class="service-icon-large">
+                    <div class="service-card">
+                        <div class="service-icon">
                             <i class="fas fa-chart-line"></i>
                         </div>
                         <h3 data-en="Finance" data-my="ဘဏ္ဍာရေး">Finance</h3>
@@ -957,12 +700,11 @@
                             <li data-en="Basic accounting" data-my="အခြေခံစာရင်းကိုင်ပညာ">Basic accounting</li>
                             <li data-en="Budgeting & planning" data-my="ဘတ်ဂျက်နှင့် စီစဉ်ခြင်း">Budgeting & planning</li>
                         </ul>
-                        <a href="contact.html" class="btn" style="margin-top: 20px;" data-en="Learn More" data-my="ပိုမိုလေ့လာရန်">Learn More</a>
                     </div>
 
                     <!-- Human Resources (HR) -->
-                    <div class="skills-card">
-                        <div class="service-icon-large">
+                    <div class="service-card">
+                        <div class="service-icon">
                             <i class="fas fa-users"></i>
                         </div>
                         <h3 data-en="Human Resources (HR)" data-my="လူ့စွမ်းအားအရင်းအမြစ် (HR)">Human Resources (HR)</h3>
@@ -970,12 +712,11 @@
                             <li data-en="Recruitment & HR admin" data-my="ခန့်အပ်ခြင်းနှင့် HR အုပ်ချုပ်မှု">Recruitment & HR admin</li>
                             <li data-en="Workplace policies" data-my="အလုပ်ခွင် မူဝါဒများ">Workplace policies</li>
                         </ul>
-                        <a href="contact.html" class="btn" style="margin-top: 20px;" data-en="Learn More" data-my="ပိုမိုလေ့လာရန်">Learn More</a>
                     </div>
 
                     <!-- Business English -->
-                    <div class="skills-card">
-                        <div class="service-icon-large">
+                    <div class="service-card">
+                        <div class="service-icon">
                             <i class="fas fa-language"></i>
                         </div>
                         <h3 data-en="Business English" data-my="စီးပွားရေးအင်္ဂလိပ်စာ">Business English</h3>
@@ -983,45 +724,55 @@
                             <li data-en="Emails & meetings" data-my="အီးမေးလ်များနှင့် အစည်းအဝေးများ">Emails & meetings</li>
                             <li data-en="Presentations" data-my="တင်ပြချက်များ">Presentations</li>
                         </ul>
-                        <a href="contact.html" class="btn" style="margin-top: 20px;" data-en="Learn More" data-my="ပိုမိုလေ့လာရန်">Learn More</a>
                     </div>
+                </div>
+                
+                <div class="back-to-home" style="margin-top: 40px; margin-bottom: 0;">
+                    <a href="contact.html" class="btn" data-en="Learn More" data-my="ပိုမိုလေ့လာရန်">Learn More</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Individual Consulting -->
-    <section id="individual-consulting" class="pricing-section">
+    <section id="individual-consulting" class="alternate-bg">
         <div class="container">
             <div class="service-category">
                 <div class="service-category-title">
                     <h2 data-en="Individual Consulting" data-my="တစ်ဦးချင်းအကြံပေးခြင်း">Individual Consulting</h2>
-                    <p data-en="Personalized professional support" data-my="ပုဂ္ဂိုလ်ရေးကျွမ်းကျင်မှုအထောက်အပံ့">Personalized professional support</p>
                 </div>
                 
-                <div class="service-intro">
-                    <p data-en="One-on-one consulting tailored to individual needs. Suitable for individuals, small businesses, and organizations."
-                       data-my="တစ်ဦးချင်းလိုအပ်ချက်များနှင့်ကိုက်ညီသော တစ်ဦးချင်းအကြံပေးခြင်း။ ပုဂ္ဂိုလ်ရေး၊ သေးငယ်သောစီးပွားရေးလုပ်ငန်းများနှင့် အဖွဲ့အစည်းများအတွက် သင့်တော်သည်။">
-                        One-on-one consulting tailored to individual needs. Suitable for individuals, small businesses, and organizations.
+                <div class="service-purpose">
+                    <h3 data-en="Purpose" data-my="ရည်ရွယ်ချက်">Purpose</h3>
+                    <p data-en="Personalized professional support" 
+                       data-my="ပုဂ္ဂိုလ်ရေးကျွမ်းကျင်မှုအထောက်အပံ့">
+                        Personalized professional support
                     </p>
                 </div>
                 
-                <div class="skills-grid">
-                    <div class="consulting-card">
-                        <div class="service-icon-large">
-                            <i class="fas fa-comments"></i>
-                        </div>
-                        <h3 data-en="Consulting Services" data-my="အကြံပေးဝန်ဆောင်မှုများ">Consulting Services</h3>
-                        <p data-en="Professional guidance in key areas:" data-my="အဓိကနယ်ပယ်များတွင် ကျွမ်းကျင်လမ်းညွှန်မှု">Professional guidance in key areas:</p>
-                        <ul class="consulting-list">
+                <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                    <div style="margin-bottom: 30px;">
+                        <h3 data-en="Content" data-my="အကြောင်းအရာ">Content</h3>
+                        <p data-en="One-on-one consulting tailored to individual needs. Suitable for individuals, small businesses, and organizations."
+                           data-my="တစ်ဦးချင်းလိုအပ်ချက်များနှင့်ကိုက်ညီသော တစ်ဦးချင်းအကြံပေးခြင်း။ ပုဂ္ဂိုလ်ရေး၊ သေးငယ်သောစီးပွားရေးလုပ်ငန်းများနှင့် အဖွဲ့အစည်းများအတွက် သင့်တော်သည်။">
+                            One-on-one consulting tailored to individual needs. Suitable for individuals, small businesses, and organizations.
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <h3 data-en="Consulting Areas" data-my="အကြံပေးနယ်ပယ်များ">Consulting Areas</h3>
+                        <ul class="consulting-areas" style="display: inline-block; text-align: left;">
                             <li data-en="Digital Marketing" data-my="ဒီဂျစ်တယ်စျေးကွက်ရှာဖွေရေး">Digital Marketing</li>
                             <li data-en="Finance" data-my="ဘဏ္ဍာရေး">Finance</li>
                             <li data-en="Human Resources (HR)" data-my="လူ့စွမ်းအားအရင်းအမြစ် (HR)">Human Resources (HR)</li>
                             <li data-en="Business English" data-my="စီးပွားရေးအင်္ဂလိပ်စာ">Business English</li>
                             <li data-en="Education & Scholarship Guidance" data-my="ပညာရေးနှင့် ပညာသင်ဆုလမ်းညွှန်မှု">Education & Scholarship Guidance</li>
                         </ul>
-                        <a href="contact.html" class="btn" style="margin-top: 20px;" data-en="Book Consultation" data-my="အကြံပေးချိန်းဆိုရန်">Book Consultation</a>
                     </div>
+                </div>
+                
+                <div class="back-to-home" style="margin-top: 40px; margin-bottom: 0;">
+                    <a href="contact.html" class="btn" data-en="Book Consultation" data-my="အကြံပေးချိန်းဆိုရန်">Book Consultation</a>
                 </div>
             </div>
         </div>
@@ -1033,28 +784,36 @@
             <div class="service-category">
                 <div class="service-category-title">
                     <h2 data-en="Onsite Training" data-my="နေရာတွင်သင်တန်း">Onsite Training</h2>
-                    <p data-en="Customized training for organizations & communities" data-my="အဖွဲ့အစည်းများနှင့် လူမှုအသိုင်းအဝိုင်းများအတွက် စိတ်ကြိုက်သင်တန်း">Customized training for organizations & communities</p>
                 </div>
                 
-                <div class="service-intro">
-                    <p data-en="Onsite workshops and group training designed around specific learning goals. Available for NGOs, companies, and community groups."
-                       data-my="သင်ယူမှုပန်းတိုင်များကို ဗဟိုပြုထားသော နေရာတွင်အလုပ်ရုံဆွေးနွေးပွဲများနှင့် အုပ်စုသင်တန်းများ။ NGO များ၊ ကုမ္ပဏီများနှင့် လူမှုအသိုင်းအဝိုင်းအုပ်စုများအတွက် ရနိုင်ပါသည်။">
-                        Onsite workshops and group training designed around specific learning goals. Available for NGOs, companies, and community groups.
+                <div class="service-purpose">
+                    <h3 data-en="Purpose" data-my="ရည်ရွယ်ချက်">Purpose</h3>
+                    <p data-en="Customized training for organizations & communities" 
+                       data-my="အဖွဲ့အစည်းများနှင့် လူမှုအသိုင်းအဝိုင်းများအတွက် စိတ်ကြိုက်သင်တန်း">
+                        Customized training for organizations & communities
                     </p>
                 </div>
                 
-                <div class="skills-grid">
-                    <div class="onsite-card">
-                        <div class="service-icon-large">
-                            <i class="fas fa-building"></i>
-                        </div>
-                        <h3 data-en="Training Formats" data-my="သင်တန်းပုံစံများ">Training Formats</h3>
-                        <ul class="onsite-formats">
+                <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                    <div style="margin-bottom: 30px;">
+                        <h3 data-en="Content" data-my="အကြောင်းအရာ">Content</h3>
+                        <p data-en="Onsite workshops and group training designed around specific learning goals. Available for NGOs, companies, and community groups."
+                           data-my="သင်ယူမှုပန်းတိုင်များကို ဗဟိုပြုထားသော နေရာတွင်အလုပ်ရုံဆွေးနွေးပွဲများနှင့် အုပ်စုသင်တန်းများ။ NGO များ၊ ကုမ္ပဏီများနှင့် လူမှုအသိုင်းအဝိုင်းအုပ်စုများအတွက် ရနိုင်ပါသည်။">
+                            Onsite workshops and group training designed around specific learning goals. Available for NGOs, companies, and community groups.
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <h3 data-en="Formats" data-my="ပုံစံများ">Formats</h3>
+                        <ul class="training-formats" style="display: inline-block; text-align: left;">
                             <li data-en="Half-day / Full-day workshops" data-my="တစ်ဝက်နေ့ / တစ်နေ့တာလုံး အလုပ်ရုံဆွေးနွေးပွဲများ">Half-day / Full-day workshops</li>
                             <li data-en="Short-term training series" data-my="အချိန်တိုသင်တန်းစီးရီးများ">Short-term training series</li>
                         </ul>
-                        <a href="contact.html" class="btn btn-primary" style="margin-top: 20px;" data-en="Request Onsite Training" data-my="နေရာတွင်သင်တန်းတောင်းဆိုရန်">Request Onsite Training</a>
                     </div>
+                </div>
+                
+                <div class="back-to-home" style="margin-top: 40px; margin-bottom: 0;">
+                    <a href="contact.html" class="btn btn-primary" data-en="Request Onsite Training" data-my="နေရာတွင်သင်တန်းတောင်းဆိုရန်">Request Onsite Training</a>
                 </div>
             </div>
         </div>
@@ -1204,4 +963,3 @@
     </script>
 </body>
 </html>
-
