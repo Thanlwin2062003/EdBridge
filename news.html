@@ -8,7 +8,6 @@
     <link rel="icon" href="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/logo.png" type="image/png" sizes="32x32">
     <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/logo.png" sizes="32x32">
     <style>
-       
         :root {
             --primary: #2a5ca9;
             --secondary: #f9a826;
@@ -713,6 +712,224 @@
             display: block;
         }
         
+        /* Photo Gallery Styles */
+        .photo-gallery {
+            margin-top: 60px;
+        }
+        
+        .gallery-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .photo-card {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .photo-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .photo-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .photo-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+        
+        .photo-card:hover .photo-overlay {
+            transform: translateY(0);
+        }
+        
+        .photo-info {
+            text-align: center;
+        }
+        
+        .photo-date {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Video Gallery Styles */
+        .video-gallery {
+            margin-top: 60px;
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .video-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .video-thumbnail {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .video-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.7);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .video-play-btn:hover {
+            background: var(--primary);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        
+        .video-content {
+            padding: 25px;
+        }
+        
+        .video-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .video-category {
+            background: var(--light);
+            color: var(--primary);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .video-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .video-description {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .video-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .video-link:hover {
+            color: var(--secondary);
+        }
+        
+        /* Video Modal */
+        .video-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .video-modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            width: 90%;
+            max-width: 900px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .modal-video {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: none;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+        
+        .modal-close:hover {
+            background: var(--accent);
+        }
+        
         @media (max-width: 768px) {
             .newsletter-form {
                 flex-direction: column;
@@ -733,6 +950,25 @@
             .language-toggle {
                 flex-wrap: wrap;
             }
+            
+            .gallery-grid,
+            .video-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 15px;
+            }
+            
+            .modal-content {
+                width: 95%;
+            }
+            
+            .modal-video {
+                height: 300px;
+            }
+        }
+        
+        .view-all-btn {
+            text-align: center;
+            margin-top: 40px;
         }
     </style>
 </head>
@@ -778,9 +1014,9 @@
     <section class="news-hero">
         <div class="container">
             <h1 data-en="News & Updates" data-my="သတင်းများနှင့် အပ်ဒိတ်များ">News & Updates</h1>
-            <p data-en="Stay informed about our latest initiatives, events, and success stories" 
-               data-my="ကျွန်ုပ်တို့၏နောက်ဆုံးပေါ် လုပ်ငန်းစဉ်များ၊ ပွဲများနှင့် အောင်မြင်မှုဇာတ်လမ်းများအကြောင်း အသိပေးချက်ရယူပါ">
-                Stay informed about our latest initiatives, events, and success stories
+            <p data-en="Stay informed about our latest initiatives, photos, videos and success stories" 
+               data-my="ကျွန်ုပ်တို့၏နောက်ဆုံးပေါ် လုပ်ငန်းစဉ်များ၊ ဓာတ်ပုံများ၊ ဗီဒီယိုများနှင့် အောင်မြင်မှုဇာတ်လမ်းများအကြောင်း အသိပေးချက်ရယူပါ">
+                Stay informed about our latest initiatives, photos, videos and success stories
             </p>
         </div>
     </section>
@@ -791,8 +1027,8 @@
             <!-- News Filter -->
             <div class="news-filter">
                 <button class="filter-btn active" data-filter="all" data-en="All News" data-my="သတင်းအားလုံး">All News</button>
-                <button class="filter-btn" data-filter="events" data-en="Events" data-my="ပွဲများ">Events</button>
-                <button class="filter-btn" data-filter="success" data-en="Success Stories" data-my="အောင်မြင်မှုဇာတ်လမ်းများ">Success Stories</button>
+                <button class="filter-btn" data-filter="photos" data-en="Group Photos" data-my="အုပ်စုဓာတ်ပုံများ">Group Photos</button>
+                <button class="filter-btn" data-filter="videos" data-en="Success Videos" data-my="အောင်မြင်မှုဗီဒီယိုများ">Success Videos</button>
                 <button class="filter-btn" data-filter="announcements" data-en="Announcements" data-my="ကြေညာချက်များ">Announcements</button>
                 <button class="filter-btn" data-filter="messages" data-en="Messages" data-my="သတင်းစကား">Messages</button>
             </div>
@@ -887,7 +1123,124 @@
                 </div>
             </div>
 
-            <!-- News Grid -->
+            <!-- Photo Gallery Section -->
+            <div class="photo-gallery" data-category="photos">
+                <h2 class="gallery-title" data-en="Our Group Photos" data-my="ကျွန်ုပ်တို့၏ အုပ်စုဓာတ်ပုံများ">Our Group Photos</h2>
+                <div class="gallery-grid">
+                    <!-- Photo 1 -->
+                    <div class="photo-card">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Graduation Group Photo">
+                        <div class="photo-overlay">
+                            <div class="photo-info">
+                                <h3 data-en="Graduation Ceremony 2024" data-my="၂၀၂၄ ဘွဲ့နှင်းသဘင်">Graduation Ceremony 2024</h3>
+                                <p class="photo-date" data-en="December 2024" data-my="ဒီဇင်ဘာ ၂၀၂၄">December 2024</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Photo 2 -->
+                    <div class="photo-card">
+                        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Workshop Group Photo">
+                        <div class="photo-overlay">
+                            <div class="photo-info">
+                                <h3 data-en="Digital Marketing Workshop" data-my="ဒီဂျစ်တယ်စျေးကွက်ရှာဖွေရေးဆွေးနွေးပွဲ">Digital Marketing Workshop</h3>
+                                <p class="photo-date" data-en="January 2025" data-my="ဇန်နဝါရီ ၂၀၂၅">January 2025</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Photo 3 -->
+                    <div class="photo-card">
+                        <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Team Building Activity">
+                        <div class="photo-overlay">
+                            <div class="photo-info">
+                                <h3 data-en="Team Building Session" data-my="အဖွဲ့သားများ ညှိနှိုင်းဆွေးနွေးပွဲ">Team Building Session</h3>
+                                <p class="photo-date" data-en="November 2024" data-my="နိုဝင်ဘာ ၂၀၂၄">November 2024</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="view-all-btn">
+                    <a href="#" class="btn btn-primary" data-en="View All Photos" data-my="ဓာတ်ပုံအားလုံးကြည့်ရန်">View All Photos</a>
+                </div>
+            </div>
+
+            <!-- Video Gallery Section -->
+            <div class="video-gallery" data-category="videos">
+                <h2 class="gallery-title" data-en="Success Story Videos" data-my="အောင်မြင်မှုဇာတ်လမ်းဗီဒီယိုများ">Success Story Videos</h2>
+                <div class="video-grid">
+                    <!-- Video 1 -->
+                    <div class="video-card">
+                        <div class="video-thumbnail" data-video="https://www.youtube.com/embed/UCoaBP0vjtLTzBFC5C7ccZJA">
+                            <img src="https://img.youtube.com/vi/UCoaBP0vjtLTzBFC5C7ccZJA/hqdefault.jpg" alt="Student Success Story">
+                            <div class="video-play-btn">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="video-content">
+                            <div class="video-meta">
+                                <span class="video-date" data-en="Dec 15, 2024" data-my="၁၅ ဒီဇင်ဘာ၊ ၂၀၂၄">Dec 15, 2024</span>
+                                <span class="video-category" data-en="Success Story" data-my="အောင်မြင်မှုဇာတ်လမ်း">Success Story</span>
+                            </div>
+                            <h3 class="video-title" data-en="From Student to Entrepreneur" data-my="ကျောင်းသူမှ စီးပွားရေးသမားသို့">From Student to Entrepreneur</h3>
+                            <p class="video-description" data-en="Watch how EdBridge helped one of our students start her own business." 
+                               data-my="EdBridge မှ ကျောင်းသူတစ်ဦး ကိုယ်ပိုင်စီးပွားရေးစတင်ရန် မည်သို့ကူညီခဲ့သည်ကို ကြည့်ရှုပါ။">
+                                Watch how EdBridge helped one of our students start her own business.
+                            </p>
+                            <a href="#" class="video-link watch-video" data-en="Watch Video" data-my="ဗီဒီယိုကြည့်ရန်">Watch Video <i class="fas fa-play-circle"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Video 2 -->
+                    <div class="video-card">
+                        <div class="video-thumbnail" data-video="https://www.youtube.com/embed/UCoaBP0vjtLTzBFC5C7ccZJA">
+                            <img src="https://img.youtube.com/vi/UCoaBP0vjtLTzBFC5C7ccZJA/hqdefault.jpg" alt="Graduation Highlights">
+                            <div class="video-play-btn">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="video-content">
+                            <div class="video-meta">
+                                <span class="video-date" data-en="Dec 10, 2024" data-my="၁၀ ဒီဇင်ဘာ၊ ၂၀၂၄">Dec 10, 2024</span>
+                                <span class="video-category" data-en="Graduation" data-my="ဘွဲ့နှင်းသဘင်">Graduation</span>
+                            </div>
+                            <h3 class="video-title" data-en="First Batch Graduation Highlights" data-my="ပထမအသုတ် ဘွဲ့နှင်းသဘင် အဓိကအခိုက်အတန့်များ">First Batch Graduation Highlights</h3>
+                            <p class="video-description" data-en="Celebrating the achievements of our first graduating class."
+                               data-my="ကျွန်ုပ်တို့၏ ပထမဆုံးဘွဲ့ရအတန်း၏ အောင်မြင်မှုများကို ချီးကျူးဂုဏ်ပြုခြင်း။">
+                                Celebrating the achievements of our first graduating class.
+                            </p>
+                            <a href="#" class="video-link watch-video" data-en="Watch Video" data-my="ဗီဒီယိုကြည့်ရန်">Watch Video <i class="fas fa-play-circle"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Video 3 -->
+                    <div class="video-card">
+                        <div class="video-thumbnail" data-video="https://www.youtube.com/embed/UCoaBP0vjtLTzBFC5C7ccZJA">
+                            <img src="https://img.youtube.com/vi/UCoaBP0vjtLTzBFC5C7ccZJA/hqdefault.jpg" alt="Digital Skills Training">
+                            <div class="video-play-btn">
+                                <i class="fas fa-play"></i>
+                            </div>
+                        </div>
+                        <div class="video-content">
+                            <div class="video-meta">
+                                <span class="video-date" data-en="Nov 25, 2024" data-my="၂၅ နိုဝင်ဘာ၊ ၂၀၂၄">Nov 25, 2024</span>
+                                <span class="video-category" data-en="Training" data-my="သင်တန်း">Training</span>
+                            </div>
+                            <h3 class="video-title" data-en="Digital Skills Workshop in Action" data-my="လက်တွေ့လုပ်ဆောင်နေသော ဒီဂျစ်တယ်ကျွမ်းကျင်မှုသင်တန်း">Digital Skills Workshop in Action</h3>
+                            <p class="video-description" data-en="See how our digital skills workshops empower Myanmar women."
+                               data-my="ကျွန်ုပ်တို့၏ ဒီဂျစ်တယ်ကျွမ်းကျင်မှုသင်တန်းများက မြန်မာအမျိုးသမီးများကို မည်သို့အရှိန်အဟုန်မြှင့်ပေးသည်ကို ကြည့်ရှုပါ။">
+                                See how our digital skills workshops empower Myanmar women.
+                            </p>
+                            <a href="#" class="video-link watch-video" data-en="Watch Video" data-my="ဗီဒီယိုကြည့်ရန်">Watch Video <i class="fas fa-play-circle"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="view-all-btn">
+                    <a href="https://www.youtube.com/channel/UCoaBP0vjtLTzBFC5C7ccZJA" target="_blank" class="btn btn-primary" data-en="View All Videos on YouTube" data-my="YouTube တွင် ဗီဒီယိုအားလုံးကြည့်ရန်">View All Videos on YouTube</a>
+                </div>
+            </div>
+
+            <!-- Announcements Grid -->
             <div class="news-grid">
                 <!-- New Year News Item -->
                 <div class="news-card" data-category="announcements">
@@ -908,62 +1261,8 @@
                     </div>
                 </div>
 
-                <!-- News Item 1 -->
-                <div class="news-card" data-category="events">
-                    <div class="news-image">
-                        <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/About%20Section.jpg" alt="Digital Marketing Workshop">
-                    </div>
-                    <div class="news-content">
-                        <div class="news-meta">
-                            <span class="news-date" data-en="Jan 15, 2025" data-my="၁၅ ဇန်နဝါရီ၊ ၂၀၂၅">Jan 15, 2025</span>
-                            <span class="news-category" data-en="Event" data-my="ပွဲ">Event</span>
-                        </div>
-                        <h3 class="news-title" data-en="Digital Marketing Workshop Success" data-my="ဒီဂျစ်တယ်စျေးကွက်ရှာဖွေရေးဆွေးနွေးပွဲ အောင်မြင်မှု">Digital Marketing Workshop Success</h3>
-                        <p class="news-excerpt" data-en="Our first digital marketing workshop saw participation from 50+ Myanmar women."
-                           data-my="ကျွန်ုပ်တို့၏ ပထမဆုံးဒီဂျစ်တယ်စျေးကွက်ရှာဖွေရေးဆွေးနွေးပွဲတွင် မြန်မာအမျိုးသမီး ၅၀ ကျော် ပါဝင်ခဲ့သည်။">
-                            Our first digital marketing workshop saw participation from 50+ Myanmar women.
-                        </p>
-                        <a href="#" class="news-link" data-en="Read More" data-my="ဆက်ဖတ်ရန်">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- News Item 2 -->
-                <div class="news-card" data-category="success">
-                    <div class="news-image">
-                        <img src="https://images.unsplash.com/photo-1551836026-d5c2a5b9c7d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Graduation Ceremony">
-                    </div>
-                    <div class="news-content">
-                        <div class="news-meta">
-                            <span class="news-date" data-en="Dec 10, 2024" data-my="၁၀ ဒီဇင်ဘာ၊ ၂၀၂၄">Dec 10, 2024</span>
-                            <span class="news-category" data-en="Success Story" data-my="အောင်မြင်မှုဇာတ်လမ်း">Success Story</span>
-                        </div>
-                        <h3 class="news-title" data-en="First Batch Graduation Ceremony" data-my="ပထမအသုတ် ဘွဲ့နှင်းသဘင်">First Batch Graduation Ceremony</h3>
-                        <p class="news-excerpt" data-en="Celebrating the graduation of our first batch of 30 students."
-                           data-my="ကျောင်းသား ၃၀ ၏ ပထမအသုတ် ဘွဲ့နှင်းသဘင်ကို ကျင်းပခဲ့သည်။">
-                            Celebrating the graduation of our first batch of 30 students.
-                        </p>
-                        <a href="#" class="news-link" data-en="Read More" data-my="ဆက်ဖတ်ရန်">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
                 <!-- News Item 3 -->
-                <div class="news-card" data-category="announcements">
-                    <div class="news-image">
-                        <img src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="New Partnership">
-                    </div>
-                    <div class="news-content">
-                        <div class="news-meta">
-                            <span class="news-date" data-en="Nov 25, 2024" data-my="၂၅ နိုဝင်ဘာ၊ ၂၀၂၄">Nov 25, 2024</span>
-                            <span class="news-category" data-en="Announcement" data-my="ကြေညာချက်">Announcement</span>
-                        </div>
-                        <h3 class="news-title" data-en="New Partnership Announcement" data-my="မိတ်ဖက်အသစ် ကြေညာချက်">New Partnership Announcement</h3>
-                        <p class="news-excerpt" data-en="EdBridge partners with international organization for more internship opportunities."
-                           data-my="EdBridge သည် internship အခွင့်အလမ်းများ ပိုမိုရရှိရန် အပြည်ပြည်ဆိုင်ရာအဖွဲ့အစည်းနှင့် မိတ်ဖက်ဖြစ်လာခဲ့သည်။">
-                            EdBridge partners with international organization for more internship opportunities.
-                        </p>
-                        <a href="#" class="news-link" data-en="Read More" data-my="ဆက်ဖတ်ရန်">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
+                
             </div>
 
             <!-- Pagination -->
@@ -976,6 +1275,16 @@
             </div>
         </div>
     </section>
+
+    <!-- Video Modal -->
+    <div class="video-modal" id="videoModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <iframe class="modal-video" id="modalVideo" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
 
     <!-- Newsletter Section -->
     <section class="newsletter-section">
@@ -1125,6 +1434,8 @@
                 const filter = this.getAttribute('data-filter');
                 const newsCards = document.querySelectorAll('.news-card');
                 const newYearMessage = document.querySelector('.new-year-message');
+                const photoGallery = document.querySelector('.photo-gallery');
+                const videoGallery = document.querySelector('.video-gallery');
                 
                 // Handle new year message visibility
                 if (newYearMessage) {
@@ -1132,6 +1443,24 @@
                         newYearMessage.style.display = 'block';
                     } else {
                         newYearMessage.style.display = 'none';
+                    }
+                }
+                
+                // Handle photo gallery visibility
+                if (photoGallery) {
+                    if (filter === 'all' || filter === 'photos') {
+                        photoGallery.style.display = 'block';
+                    } else {
+                        photoGallery.style.display = 'none';
+                    }
+                }
+                
+                // Handle video gallery visibility
+                if (videoGallery) {
+                    if (filter === 'all' || filter === 'videos') {
+                        videoGallery.style.display = 'block';
+                    } else {
+                        videoGallery.style.display = 'none';
                     }
                 }
                 
@@ -1195,7 +1524,63 @@
                 }
             });
         });
+
+        // Video Modal Functionality
+        const videoModal = document.getElementById('videoModal');
+        const modalVideo = document.getElementById('modalVideo');
+        const modalClose = document.getElementById('modalClose');
+        
+        // Open video modal when clicking video play buttons
+        document.querySelectorAll('.watch-video, .video-play-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Find the video URL from the thumbnail
+                const thumbnail = this.closest('.video-thumbnail');
+                const videoUrl = thumbnail.getAttribute('data-video');
+                
+                if (videoUrl) {
+                    // Set the video source
+                    modalVideo.src = videoUrl;
+                    // Show the modal
+                    videoModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+        
+        // Close video modal
+        modalClose.addEventListener('click', function() {
+            videoModal.classList.remove('active');
+            modalVideo.src = '';
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close modal when clicking outside
+        videoModal.addEventListener('click', function(e) {
+            if (e.target === videoModal) {
+                videoModal.classList.remove('active');
+                modalVideo.src = '';
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && videoModal.classList.contains('active')) {
+                videoModal.classList.remove('active');
+                modalVideo.src = '';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Initialize filter visibility
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show everything on initial load
+            document.querySelectorAll('.photo-gallery, .video-gallery').forEach(element => {
+                element.style.display = 'block';
+            });
+        });
     </script>
 </body>
-
 </html>
