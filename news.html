@@ -745,6 +745,17 @@
             height: 250px;
             object-fit: cover;
             display: block;
+            cursor: pointer;
+        }
+        
+        /* Make only the third image clickable with a visual cue */
+        .photo-card:last-child img {
+            cursor: zoom-in;
+            transition: transform 0.3s;
+        }
+        
+        .photo-card:last-child:hover img {
+            transform: scale(1.03);
         }
         
         .photo-overlay {
@@ -930,6 +941,62 @@
             background: var(--accent);
         }
         
+        /* Single Image Modal Styles */
+        .image-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .image-modal.active {
+            display: flex;
+        }
+        
+        .modal-image-content {
+            max-width: 90%;
+            max-height: 90vh;
+            position: relative;
+        }
+        
+        .modal-image {
+            width: 100%;
+            height: auto;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 5px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.5);
+        }
+        
+        .image-modal-close {
+            position: absolute;
+            top: -45px;
+            right: -45px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: none;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+        }
+        
+        .image-modal-close:hover {
+            background: var(--accent);
+        }
+        
         @media (max-width: 768px) {
             .newsletter-form {
                 flex-direction: column;
@@ -964,6 +1031,11 @@
             .modal-video {
                 height: 300px;
             }
+            
+            .image-modal-close {
+                top: -35px;
+                right: 5px;
+            }
         }
         
         .view-all-btn {
@@ -987,13 +1059,8 @@
                  <ul>
         <li><a href="index.html" data-en="Home" data-my="မူလ စာမျက်နှာ">Home</a></li>
         <li><a href="about.html" data-en="About" data-my="အကြောင်း">About</a></li>
-       
         <li><a href="services.html" data-en="Services" data-my="ဝန်ဆောင်မှုများ">Services</a></li>
-        
         <li><a href="news.html" data-en="News" data-my="သတင်းများ" class="active">News</a></li>
-        <li><a href="activities.html" data-en="Activities" data-my="လှုပ်ရှားမှုများ">Activities</a></li>
-        
-        
         <li><a href="contact.html" data-en="Contact" data-my="ဆက်သွယ်ရန်">Contact</a></li>
     </ul>
             </nav>
@@ -1130,34 +1197,21 @@
                     <!-- Photo 1 -->
                     <div class="photo-card">
                         <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/group1.jpg" alt="Graduation Group Photo">
-                        <div class="photo-overlay">
-                            <div class="photo-info">
-                                <h3 data-en="Graduation Ceremony 2024" data-my="၂၀၂၄ ဘွဲ့နှင်းသဘင်">Graduation Ceremony 2024</h3>
-                                <p class="photo-date" data-en="December 2024" data-my="ဒီဇင်ဘာ ၂၀၂၄">December 2024</p>
-                            </div>
-                        </div>
+                        
                     </div>
                     
                     <!-- Photo 2 -->
                     <div class="photo-card">
                         <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/group2.jpg" alt="Workshop Group Photo">
-                        <div class="photo-overlay">
-                            <div class="photo-info">
-                                <h3 data-en="Digital Marketing Workshop" data-my="ဒီဂျစ်တယ်စျေးကွက်ရှာဖွေရေးဆွေးနွေးပွဲ">Digital Marketing Workshop</h3>
-                                <p class="photo-date" data-en="January 2025" data-my="ဇန်နဝါရီ ၂၀၂၅">January 2025</p>
-                            </div>
-                        </div>
+                       
                     </div>
                     
-                    <!-- Photo 3 -->
+                    <!-- Photo 3 - Only this one is clickable -->
                     <div class="photo-card">
-                        <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/announcement2.jpg" alt="Announcement Event Photo">
-                        <div class="photo-overlay">
-                            <div class="photo-info">
-                                <h3 data-en="Team Building Session" data-my="အဖွဲ့သားများ ညှိနှိုင်းဆွေးနွေးပွဲ">Team Building Session</h3>
-                                <p class="photo-date" data-en="November 2024" data-my="နိုဝင်ဘာ ၂၀၂၄">November 2024</p>
-                            </div>
-                        </div>
+                        <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/announcement2.jpg" 
+                             alt="Announcement Event Photo"
+                             id="clickableImage">
+                        
                     </div>
                 </div>
                 <div class="view-all-btn">
@@ -1262,7 +1316,7 @@
                 </div>
 
                 <!-- News Item 2 -->
-                <div class="news-card" data-category="announcements">
+                <!-- <div class="news-card" data-category="announcements">
                     <div class="news-image">
                         <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/announcement1.jpg" alt="New Digital Literacy Program">
                     </div>
@@ -1278,10 +1332,10 @@
                         </p>
                         <a href="#" class="news-link" data-en="Read More" data-my="ဆက်ဖတ်ရန်">Read More <i class="fas fa-arrow-right"></i></a>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- News Item 3 -->
-                <div class="news-card" data-category="announcements">
+                <!-- <div class="news-card" data-category="announcements">
                     <div class="news-image">
                         <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/announcement2.jpg" alt="Partnership Announcement">
                     </div>
@@ -1297,17 +1351,17 @@
                         </p>
                         <a href="#" class="video-link" data-en="Learn More" data-my="ပိုမိုလေ့လာရန်">Learn More <i class="fas fa-arrow-right"></i></a>
                     </div>
-                </div>
+                </div> -->
             </div>
 
             <!-- Pagination -->
-            <div class="pagination">
+            <!-- <div class="pagination">
                 <a href="#" class="page-link"><i class="fas fa-chevron-left"></i></a>
                 <a href="#" class="page-link active">1</a>
                 <a href="#" class="page-link">2</a>
                 <a href="#" class="page-link">3</a>
                 <a href="#" class="page-link"><i class="fas fa-chevron-right"></i></a>
-            </div>
+            </div> -->
         </div>
     </section>
 
@@ -1318,6 +1372,16 @@
                 <i class="fas fa-times"></i>
             </button>
             <iframe class="modal-video" id="modalVideo" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Single Image Modal -->
+    <div class="image-modal" id="imageModal">
+        <div class="modal-image-content">
+            <button class="image-modal-close" id="imageModalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <img class="modal-image" id="modalImage" src="" alt="">
         </div>
     </div>
 
@@ -1358,7 +1422,7 @@
                     <div class="social-links">
                         <a href="https://www.facebook.com/profile.php?id=61583187345390&mibextid=LQQJ4d&rdid=xyBlhD3SXoruMroe&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1BNqAPcspo%2F%3Fmibextid%3DLQQJ4d#" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
                         <a href="https://www.youtube.com/channel/UCoaBP0vjtLTzBFC5C7ccZJA" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
-                        <a href="https://www.tiktok.com/@edbridgeeducation" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.tiktok.com/@edbridgeformyanmarwomen?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
                 <div class="footer-column">
@@ -1616,6 +1680,64 @@
             }
         });
 
+        // Single Image Modal Functionality
+        const imageModal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const imageModalClose = document.getElementById('imageModalClose');
+        const clickableImage = document.getElementById('clickableImage');
+        
+        // Open image modal when clicking on the third image
+        if (clickableImage) {
+            clickableImage.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Get the image source
+                const imageSrc = this.src;
+                
+                if (imageSrc) {
+                    // Set the image source
+                    modalImage.src = imageSrc;
+                    modalImage.alt = this.alt;
+                    
+                    // Show the modal
+                    imageModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                    
+                    // Preload the full-size image for better experience
+                    const img = new Image();
+                    img.src = imageSrc;
+                    img.onload = function() {
+                        modalImage.src = imageSrc;
+                    };
+                }
+            });
+        }
+        
+        // Close image modal
+        imageModalClose.addEventListener('click', function() {
+            imageModal.classList.remove('active');
+            modalImage.src = '';
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close modal when clicking outside
+        imageModal.addEventListener('click', function(e) {
+            if (e.target === imageModal) {
+                imageModal.classList.remove('active');
+                modalImage.src = '';
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && imageModal.classList.contains('active')) {
+                imageModal.classList.remove('active');
+                modalImage.src = '';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
         // Initialize filter visibility
         document.addEventListener('DOMContentLoaded', function() {
             // Show everything on initial load
@@ -1635,4 +1757,3 @@
     </script>
 </body>
 </html>
-
