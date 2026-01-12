@@ -588,6 +588,7 @@
             height: 100%;
             display: flex;
             align-items: center;
+            justify-content: center;
         }
         
         .contact-image {
@@ -772,7 +773,7 @@
             }
             
             .contact-image-container {
-                height: 400px;
+                height: 500px;
                 order: -1; /* Put image above content on mobile */
             }
         }
@@ -784,7 +785,7 @@
             }
             
             .contact-image-container {
-                height: 350px;
+                height: 400px;
             }
         }
         
@@ -834,6 +835,29 @@
             border-radius: 8px;
             box-shadow: 0 3px 10px rgba(0,0,0,0.1);
             border: 2px solid var(--light);
+        }
+        
+        /* Image overlay text */
+        .image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .image-overlay h3 {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .image-overlay p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.1rem;
         }
     </style>
 </head>
@@ -960,7 +984,7 @@
                 <!-- Big Image Container -->
                 <div class="contact-image-container">
                     <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/contact us image.jpg" 
-                         alt="EdBridge Team - Empowering Myanmar Women" 
+                         alt="About EdBridge - Empowering Myanmar Women" 
                          class="contact-image">
                 </div>
             </div>
