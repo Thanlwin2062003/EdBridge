@@ -568,9 +568,10 @@
         
         .contact-container-extended {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1.2fr 0.8fr; /* Changed to accommodate image */
             gap: 50px;
             margin-top: 50px;
+            align-items: start;
         }
         
         .contact-info-extended {
@@ -578,6 +579,26 @@
             border-radius: 15px;
             padding: 40px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .contact-image-container {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .contact-image:hover {
+            transform: scale(1.03);
         }
         
         .contact-form-extended {
@@ -749,6 +770,11 @@
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
+            
+            .contact-image-container {
+                height: 400px;
+                order: -1; /* Put image above content on mobile */
+            }
         }
         
         @media (max-width: 768px) {
@@ -756,46 +782,59 @@
             .contact-form-extended {
                 padding: 30px;
             }
+            
+            .contact-image-container {
+                height: 350px;
+            }
         }
+        
         /* Telegram Info Styles */
-.telegram-info {
-    margin-top: 5px;
-}
+        .telegram-info {
+            margin-top: 5px;
+        }
 
-.telegram-description {
-    color: #666;
-    line-height: 1.6;
-    margin-bottom: 10px;
-    font-size: 0.95rem;
-}
+        .telegram-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
 
-.telegram-link {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 10px;
-    padding: 10px 15px;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    border-left: 3px solid #0088cc;
-}
+        .telegram-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border-left: 3px solid #0088cc;
+        }
 
-.telegram-link i {
-    color: #0088cc;
-    font-size: 1.2rem;
-}
+        .telegram-link i {
+            color: #0088cc;
+            font-size: 1.2rem;
+        }
 
-.telegram-link a {
-    color: #2a5ca9;
-    text-decoration: none;
-    font-weight: 500;
-    word-break: break-all;
-}
+        .telegram-link a {
+            color: #2a5ca9;
+            text-decoration: none;
+            font-weight: 500;
+            word-break: break-all;
+        }
 
-.telegram-link a:hover {
-    color: #1e429f;
-    text-decoration: underline;
-}
+        .telegram-link a:hover {
+            color: #1e429f;
+            text-decoration: underline;
+        }
+        
+        /* Contact QR Code Styles */
+        .contact-qr {
+            margin-top: 10px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border: 2px solid var(--light);
+        }
     </style>
 </head>
 <body>
@@ -916,6 +955,13 @@
                             </p>
                         </div>
                     </div>
+                </div>
+                
+                <!-- Big Image Container -->
+                <div class="contact-image-container">
+                    <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/contact us image.jpg" 
+                         alt="EdBridge Team - Empowering Myanmar Women" 
+                         class="contact-image">
                 </div>
             </div>
         </div>
@@ -1173,7 +1219,3 @@
 </body>
 
 </html>
-
-
-
-
