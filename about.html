@@ -204,23 +204,42 @@
             border-bottom: none;
         }
         
-        /* Page Hero */
-        .page-hero {
-    background: linear-gradient(rgba(253, 253, 253, 0.652), rgba(25, 19, 19, 0.6)), 
-                url('https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/coverphoto.jpg');
-    background-size: cover;
+      /* Lighter gradient to show image text */
+.page-hero {
+    background: url('https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/coverphoto.jpg');
+    background-size: contain; /* Changed from 'cover' to 'contain' */
     background-position: center;
-    background-repeat: no-repeat; /* Explicitly prevent tiling */
+    background-repeat: no-repeat;
+    background-color: #000; /* Add black background for empty space */
     color: white;
-    padding: 150px 0 100px;
     text-align: center;
+    height: 70vh;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
-        
-        .page-hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: white;
-        }
+
+.page-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    pointer-events: none;
+}
+
+.page-hero .container {
+    position: relative;
+    z-index: 2;
+    padding: 40px;
+    
+    border-radius: 10px;
+    max-width: 800px;
+}
         
         .btn {
             display: inline-block;
