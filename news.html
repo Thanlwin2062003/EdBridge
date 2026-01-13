@@ -5,16 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News & Updates - EdBridge</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" href="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/logo.png" type="image/png" sizes="32x32">
-    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/logo.png" sizes="32x32">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/logo.png" type="image/png">
     <style>
         :root {
-            --primary: #2a5ca9;
-            --secondary: #f9a826;
-            --accent: #e53e3e;
-            --light: #f8f9fa;
-            --dark: #343a40;
-            --success: #28a745;
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #f59e0b;
+            --secondary-dark: #d97706;
+            --accent: #7c3aed;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+            --teal: #0d9488;
+            --purple: #8b5cf6;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --radius: 12px;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         * {
@@ -24,38 +36,39 @@
         }
         
         body {
-            font-family: 'Open Sans', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #FAEBD7;
-            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: #e2e8f0;
+            background-color: #1a202c;
+            overflow-x: hidden;
         }
         
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Playfair Display', serif;
             font-weight: 600;
             margin-bottom: 1rem;
-            color: var(--primary);
+            color: #f7fafc;
+            line-height: 1.3;
         }
         
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 20px;
         }
         
-        /* Header Styles */
+        /* Modern Header */
         header {
-            background: linear-gradient(135deg, var(--primary) 0%, #9f811e 100%);
-            color: white;
-            padding: 1rem 0;
+            background: rgba(26, 32, 44, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            transition: background-color 0.3s;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
         
         .header-container {
@@ -67,17 +80,19 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
         
         .logo img {
-            height: 50px;
+            height: 48px;
             width: auto;
+            border-radius: 50%;
+            box-shadow: var(--shadow);
         }
         
         .logo h1 {
-            font-size: 1.5rem;
-            color: white;
+            font-size: 1.6rem;
+            color: var(--primary);
             margin: 0;
         }
         
@@ -88,27 +103,26 @@
         nav ul {
             display: flex;
             list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 1.5rem;
+            gap: 2rem;
         }
         
         nav ul li a {
-            color: white;
+            color: #e2e8f0;
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s;
+            font-size: 0.95rem;
+            transition: var(--transition);
             padding: 0.5rem 0;
             position: relative;
         }
         
         nav ul li a:hover {
-            color: var(--secondary);
+            color: var(--primary);
         }
         
         nav ul li a.active {
-            color: var(--secondary);
+            color: var(--primary);
+            font-weight: 600;
         }
         
         nav ul li a.active::after {
@@ -118,65 +132,54 @@
             left: 0;
             width: 100%;
             height: 2px;
-            background-color: var(--secondary);
-        }
-        
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--secondary);
-            transition: width 0.3s;
-        }
-        
-        nav ul li a:hover::after {
-            width: 100%;
+            background-color: var(--primary);
+            border-radius: 2px;
         }
         
         .mobile-menu {
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
+            color: #e2e8f0;
         }
         
-        /* Language Switcher Styles */
+        /* Language Switcher */
         .language-switcher {
             position: relative;
-            margin-left: 20px;
         }
 
         .lang-btn {
-            background: rgba(255,255,255,0.2);
-            color: white;
-            border: 1px solid rgba(255,255,255,0.3);
-            padding: 8px 15px;
-            border-radius: 5px;
+            background: rgba(45, 55, 72, 0.7);
+            color: #e2e8f0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: var(--radius);
             cursor: pointer;
             display: flex;
             align-items: center;
             gap: 8px;
             font-size: 0.9rem;
-            transition: all 0.3s;
+            font-weight: 500;
+            transition: var(--transition);
         }
 
         .lang-btn:hover {
-            background: rgba(255,255,255,0.3);
+            background: rgba(55, 65, 81, 0.9);
+            border-color: var(--primary);
         }
 
         .lang-dropdown {
             position: absolute;
             top: 100%;
             right: 0;
-            background: white;
-            border-radius: 5px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            min-width: 120px;
+            background: #2d3748;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            min-width: 140px;
             display: none;
             overflow: hidden;
             z-index: 1001;
+            margin-top: 8px;
         }
 
         .lang-dropdown.show {
@@ -184,16 +187,18 @@
         }
 
         .lang-dropdown a {
-            display: block;
-            padding: 10px 15px;
-            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+            color: #e2e8f0;
             text-decoration: none;
-            transition: background 0.3s;
-            border-bottom: 1px solid #f0f0f0;
+            transition: var(--transition);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .lang-dropdown a:hover {
-            background: #f8f9fa;
+            background: #4a5568;
             color: var(--primary);
         }
 
@@ -201,165 +206,450 @@
             border-bottom: none;
         }
         
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(253, 253, 253, 0.652), rgba(25, 19, 19, 0.6)), url('https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/Cover photo.jpg');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 150px 0 100px;
+        /* Modern Hero */
+        .modern-hero {
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 50%, #4a5568 100%);
+            padding: 180px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .modern-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.6;
+        }
+        
+        .hero-content {
+            max-width: 800px;
             text-align: center;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
         
-        .hero h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: white;
+        .hero-content h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+            color: #f7fafc;
         }
         
-        .hero p {
+        .hero-content p {
             font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
+            color: #cbd5e0;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .btn {
-            display: inline-block;
-            background-color: var(--secondary);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: var(--primary);
             color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
+            padding: 14px 32px;
+            border-radius: var(--radius);
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s;
+            transition: var(--transition);
             border: none;
             cursor: pointer;
+            font-size: 1rem;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
         }
         
         .btn:hover {
-            background-color: #e89a1f;
+            background-color: var(--primary-dark);
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
         }
         
-        .btn-primary {
-            background-color: var(--primary);
+        .btn-secondary {
+            background-color: var(--secondary);
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2);
         }
         
-        .btn-primary:hover {
-            background-color: #1e429f;
+        .btn-secondary:hover {
+            background-color: var(--secondary-dark);
+            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.3);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            box-shadow: none;
+        }
+        
+        .btn-outline:hover {
+            background-color: rgba(37, 99, 235, 0.1);
         }
         
         /* Section Styles */
         section {
-            padding: 80px 0;
+            padding: 100px 0;
+            background-color: transparent;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
         }
         
         .section-title h2 {
-            font-size: 2.2rem;
+            font-size: 2.8rem;
             position: relative;
             display: inline-block;
-            padding-bottom: 10px;
+            margin-bottom: 1.5rem;
         }
         
         .section-title h2::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
             width: 80px;
-            height: 3px;
-            background-color: var(--secondary);
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            font-size: 1.1rem;
+            color: #cbd5e0;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* About Preview Section */
+        .about-content-modern {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+        
+        .about-text-modern h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-text-modern p {
+            font-size: 1.1rem;
+            color: #e2e8f0;
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-image-modern {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+        
+        .about-image-modern img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .about-image-modern:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Highlights Grid - Modern */
+        .highlights-grid-modern {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .highlight-card-modern {
+            background-color: #2d3748;
+            border-radius: var(--radius);
+            padding: 35px 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 4px solid var(--primary);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .highlight-card-modern.animated {
+            animation: slideUp 0.6s forwards;
+        }
+        
+        .highlight-card-modern:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .highlight-icon-modern {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Mission Banner */
+        .mission-banner-modern {
+            background: linear-gradient(135deg, var(--teal) 0%, var(--purple) 100%);
+            color: white;
+            padding: 80px 0;
+            border-radius: var(--radius);
+            margin: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mission-banner-modern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        
+        .mission-banner-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .mission-banner-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .mission-banner-content p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+        }
+        
+        /* Stats Section */
+        .stats-section-modern {
+            background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+            border-radius: var(--radius);
+            padding: 80px;
+            margin: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stats-section-modern::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .stats-grid-modern {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .stat-item-modern {
+            text-align: center;
+        }
+        
+        .stat-number-modern {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .stat-label-modern {
+            font-size: 1.1rem;
+            color: #e2e8f0;
+            font-weight: 500;
+        }
+        
+        /* CTA Section */
+        .cta-section-modern {
+            text-align: center;
+            padding: 100px 0;
+        }
+        
+        .cta-content-modern {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .cta-content-modern h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-content-modern p {
+            font-size: 1.2rem;
+            color: #cbd5e0;
+            margin-bottom: 2.5rem;
         }
         
         /* Footer */
         footer {
-            background-color: var(--dark);
+            background-color: #0f1419;
             color: white;
-            padding: 60px 0 20px;
+            padding: 80px 0 30px;
         }
         
-        .footer-content {
+        .footer-content-modern {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            gap: 50px;
+            margin-bottom: 50px;
         }
         
-        .footer-column h3 {
+        .footer-column-modern h3 {
             color: white;
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+        }
+        
+        .footer-column-modern p {
             margin-bottom: 20px;
-            font-size: 1.3rem;
+            color: #cbd5e1;
+            line-height: 1.7;
         }
         
-        .footer-column p {
-            margin-bottom: 15px;
-            color: #bbb;
-        }
-        
-        .social-links {
+        .social-links-modern {
             display: flex;
             gap: 15px;
-            margin-top: 20px;
+            margin-top: 25px;
         }
         
-        .social-links a {
+        .social-links-modern a {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(218, 11, 11, 0.49);
+            width: 45px;
+            height: 45px;
+            background-color: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             color: white;
             text-decoration: none;
-            transition: background-color 0.3s;
+            transition: var(--transition);
         }
         
-        .social-links a:hover {
+        .social-links-modern a:hover {
             background-color: var(--primary);
+            transform: translateY(-3px);
         }
         
-        .footer-links {
+        .footer-links-modern {
             list-style: none;
         }
         
-        .footer-links li {
-            margin-bottom: 10px;
+        .footer-links-modern li {
+            margin-bottom: 12px;
         }
         
-        .footer-links a {
-            color: #bbb;
+        .footer-links-modern a {
+            color: #cbd5e1;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: var(--transition);
         }
         
-        .footer-links a:hover {
+        .footer-links-modern a:hover {
             color: white;
+            padding-left: 5px;
         }
         
-        .copyright {
+        .copyright-modern {
             text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: #bbb;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
             font-size: 0.9rem;
+        }
+        
+        /* Scroll to Top Button */
+        .scroll-to-top-modern {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .scroll-to-top-modern.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-to-top-modern:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-5px);
+        }
+        
+        /* Animation */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         /* Responsive Styles */
         @media (max-width: 992px) {
-            .about-content {
-                flex-direction: column;
+            .about-content-modern {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
             
-            .contact-container {
-                flex-direction: column;
+            .stats-section-modern {
+                padding: 50px 40px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
             }
         }
         
@@ -371,13 +661,14 @@
             nav ul {
                 display: none;
                 position: absolute;
-                top: 70px;
+                top: 100%;
                 left: 0;
                 width: 100%;
-                background-color: var(--primary);
+                background-color: #2d3748;
                 flex-direction: column;
                 padding: 20px;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
             }
             
             nav ul.show {
@@ -388,675 +679,53 @@
                 margin: 10px 0;
             }
             
-            .hero h2 {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .stats-section-modern {
+                padding: 40px 30px;
+                margin: 60px 0;
+            }
+            
+            .stats-grid-modern {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+            
+            .mission-banner-content h2 {
                 font-size: 2rem;
             }
             
-            .hero p {
-                font-size: 1rem;
+            .mission-banner-content p {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .highlights-grid-modern {
+                grid-template-columns: 1fr;
             }
             
-            .language-switcher {
-                margin-left: 10px;
-            }
-        }
-
-        /* Loading animation for language switching */
-        .loading {
-            opacity: 0.7;
-            pointer-events: none;
-        }
-
-        /* Improved accessibility */
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-
-        /* Improved focus styles for accessibility */
-        a:focus, button:focus {
-            outline: 2px solid var(--secondary);
-            outline-offset: 2px;
-        }
-   
-        
-        /* News Page Specific Styles */
-        .news-hero {
-            background: linear-gradient(rgba(253, 253, 253, 0.652), rgba(25, 19, 19, 0.6)), url('https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/Cover photo.jpg');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 150px 0 100px;
-            text-align: center;
-        }
-        
-        .news-hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: white;
-        }
-        
-        .news-filter {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-        
-        .filter-btn {
-            background: white;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-            padding: 10px 25px;
-            border-radius: 30px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-        
-        .filter-btn.active,
-        .filter-btn:hover {
-            background: var(--primary);
-            color: white;
-        }
-        
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-        
-        .news-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        
-        .news-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .news-image {
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .news-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-        
-        .news-card:hover .news-image img {
-            transform: scale(1.1);
-        }
-        
-        .news-content {
-            padding: 25px;
-        }
-        
-        .news-meta {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 15px;
-            font-size: 0.9rem;
-            color: #666;
-        }
-        
-        .news-category {
-            background: var(--light);
-            color: var(--primary);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-        
-        .news-title {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-        
-        .news-excerpt {
-            color: #666;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-        
-        .news-link {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        .news-link:hover {
-            color: var(--secondary);
-        }
-        
-        .newsletter-section {
-            background: var(--primary);
-            color: white;
-            padding: 60px 0;
-            margin-top: 60px;
-            text-align: center;
-        }
-        
-        .newsletter-form {
-            max-width: 500px;
-            margin: 30px auto;
-            display: flex;
-            gap: 10px;
-        }
-        
-        .newsletter-input {
-            flex: 1;
-            padding: 15px;
-            border: none;
-            border-radius: 5px;
-            font-family: 'Open Sans', sans-serif;
-        }
-        
-        .pagination {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin: 40px 0;
-        }
-        
-        .page-link {
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: white;
-            border: 2px solid var(--light);
-            border-radius: 5px;
-            color: var(--dark);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-        
-        .page-link.active,
-        .page-link:hover {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-        
-        .back-to-home {
-            text-align: center;
-            margin: 50px 0 30px;
-        }
-        
-        /* New Year Message Styles */
-        .new-year-message {
-            background: linear-gradient(135deg, var(--primary) 10%, var(--secondary) 100%);
-            color: white;
-            padding: 40px;
-            border-radius: 15px;
-            margin: 30px 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .new-year-message::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80');
-            background-size: cover;
-            background-position: center;
-            opacity: 0.1;
-            z-index: 0;
-        }
-        
-        .new-year-message-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .new-year-title {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        .new-year-subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 25px;
-            opacity: 0.9;
-        }
-        
-        .new-year-body {
-            line-height: 1.8;
-            margin-bottom: 25px;
-        }
-        
-        .new-year-body p {
-            margin-bottom: 15px;
-        }
-        
-        .new-year-body strong {
-            color: var(--secondary);
-        }
-        
-        .new-year-highlight {
-            background: rgba(255,255,255,0.1);
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px 0;
-            border-left: 4px solid var(--secondary);
-        }
-        
-        .new-year-highlight h4 {
-            color: var(--secondary);
-            margin-bottom: 10px;
-        }
-        
-        .new-year-footer {
-            text-align: right;
-            margin-top: 30px;
-            font-style: italic;
-        }
-        
-        .language-toggle {
-            display: flex;
-            gap: 10px;
-            margin: 20px 0;
-        }
-        
-        .lang-tab {
-            background: rgba(255,255,255,0.2);
-            color: white;
-            border: 1px solid rgba(255,255,255,0.3);
-            padding: 8px 20px;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .lang-tab.active {
-            background: var(--secondary);
-            color: var(--primary);
-            font-weight: 600;
-        }
-        
-        .message-content {
-            display: none;
-        }
-        
-        .message-content.active {
-            display: block;
-        }
-        
-        /* Photo Gallery Styles */
-        .wishletter-gallery {
-            margin-top: 60px;
-        }
-        
-        .gallery-title {
-            text-align: center;
-            margin-bottom: 40px;
-            color: var(--primary);
-        }
-        
-        .wishletter-title {
-            text-align: center;
-            margin-bottom: 40px;
-            color: var(--primary);
-        }
-        
-        /* Gallery grid for group photos */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .wishletter-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        
-        .photo-card, .wishletter-card {
-            position: relative;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-            cursor: pointer;
-        }
-        
-        .photo-card:hover, .wishletter-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .photo-card img, .wishletter-card img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            display: block;
-        }
-        
-        /* Make only the third image clickable with a visual cue */
-        .photo-card:last-child img {
-            cursor: zoom-in;
-            transition: transform 0.3s;
-        }
-        
-        .photo-card:last-child:hover img {
-            transform: scale(1.03);
-        }
-        
-        .photo-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            color: white;
-            padding: 20px;
-            transform: translateY(100%);
-            transition: transform 0.3s;
-        }
-        
-        .photo-card:hover .photo-overlay {
-            transform: translateY(0);
-        }
-        
-        .photo-info {
-            text-align: center;
-        }
-        
-        .photo-date {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-        
-        /* Video Gallery Styles */
-        .video-gallery {
-            margin-top: 60px;
-        }
-        
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-        }
-        
-        .video-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        
-        .video-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .video-thumbnail {
-            position: relative;
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .video-thumbnail img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .video-play-btn {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(0,0,0,0.7);
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .video-play-btn:hover {
-            background: var(--primary);
-            transform: translate(-50%, -50%) scale(1.1);
-        }
-        
-        .video-content {
-            padding: 25px;
-        }
-        
-        .video-meta {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 15px;
-            font-size: 0.9rem;
-            color: #666;
-        }
-        
-        .video-category {
-            background: var(--light);
-            color: var(--primary);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-        
-        .video-title {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-        
-        .video-description {
-            color: #666;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-        
-        .video-link {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-        }
-        
-        .video-link:hover {
-            color: var(--secondary);
-        }
-        
-        /* Video Modal */
-        .video-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.9);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .video-modal.active {
-            display: flex;
-        }
-        
-        .modal-content {
-            width: 90%;
-            max-width: 900px;
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .modal-video {
-            width: 100%;
-            height: 500px;
-            border: none;
-        }
-        
-        .modal-close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(0,0,0,0.7);
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            border: none;
-            font-size: 1.2rem;
-            transition: all 0.3s;
-        }
-        
-        .modal-close:hover {
-            background: var(--accent);
-        }
-        
-        /* Single Image Modal Styles */
-        .image-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.95);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-        
-        .image-modal.active {
-            display: flex;
-        }
-        
-        .modal-image-content {
-            max-width: 90%;
-            max-height: 90vh;
-            position: relative;
-        }
-        
-        .modal-image {
-            width: 100%;
-            height: auto;
-            max-height: 85vh;
-            object-fit: contain;
-            border-radius: 5px;
-            box-shadow: 0 5px 30px rgba(0,0,0,0.5);
-        }
-        
-        .image-modal-close {
-            position: absolute;
-            top: -45px;
-            right: -45px;
-            background: rgba(255,255,255,0.2);
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            border: none;
-            font-size: 1.5rem;
-            transition: all 0.3s;
-        }
-        
-        .image-modal-close:hover {
-            background: var(--accent);
-        }
-        
-        @media (max-width: 768px) {
-            .newsletter-form {
-                flex-direction: column;
+            .stats-grid-modern {
+                grid-template-columns: 1fr;
             }
             
-            .new-year-message {
-                padding: 25px;
+            .stat-number-modern {
+                font-size: 2.8rem;
             }
             
-            .new-year-title {
-                font-size: 1.5rem;
+            .cta-content-modern h2 {
+                font-size: 2.2rem;
             }
-            
-            .new-year-subtitle {
-                font-size: 1rem;
-            }
-            
-            .language-toggle {
-                flex-wrap: wrap;
-            }
-            
-            .gallery-grid,
-            .wishletter-grid,
-            .video-grid {
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-                gap: 15px;
-            }
-            
-            .modal-content {
-                width: 95%;
-            }
-            
-            .modal-video {
-                height: 300px;
-            }
-            
-            .image-modal-close {
-                top: -35px;
-                right: 5px;
-            }
-        }
-        
-        .view-all-btn {
-            text-align: center;
-            margin-top: 40px;
         }
     </style>
 </head>
@@ -1065,7 +734,7 @@
     <header>
         <div class="container header-container">
             <div class="logo">
-                <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/logo.png" alt="EdBridge Logo" class="circle-logo">
+                <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/logo.png" alt="EdBridge Logo">
                 <h1>Ed<span>Bridge</span></h1>
             </div>
             <div class="mobile-menu">
@@ -1086,21 +755,24 @@
                     <i class="fas fa-globe"></i> <span id="currentLang">English</span> <i class="fas fa-chevron-down"></i>
                 </button>
                 <div class="lang-dropdown">
-                    <a href="#" data-lang="en">English</a>
-                    <a href="#" data-lang="my">Myanmar</a>
+                    <a href="#" data-lang="en"><i class="fas fa-language"></i> English</a>
+                    <a href="#" data-lang="my"><i class="fas fa-language"></i> Myanmar</a>
                 </div>
             </div>
         </div>
     </header>
 
     <!-- News Hero -->
-    <section class="news-hero">
+    <section class="news-hero-modern">
         <div class="container">
-            <h1 data-en="News & Updates" data-my="သတင်းများနှင့် အပ်ဒိတ်များ">News & Updates</h1>
-            <p data-en="Stay informed about our latest initiatives, photos, videos and success stories" 
-               data-my="ကျွန်ုပ်တို့၏နောက်ဆုံးပေါ် လုပ်ငန်းစဉ်များ၊ ဓာတ်ပုံများ၊ ဗီဒီယိုများနှင့် အောင်မြင်မှုဇာတ်လမ်းများအကြောင်း အသိပေးချက်ရယူပါ">
-                Stay informed about our latest initiatives, photos, videos and success stories
-            </p>
+            <div class="news-hero-content">
+                <h1 data-en="News & Updates" data-my="သတင်းများနှင့် အပ်ဒိတ်များ">News & Updates</h1>
+                <p data-en="Stay informed about our latest initiatives, success stories, and community events." 
+                   data-my="ကျွန်ုပ်တို့၏နောက်ဆုံးပေါ် လုပ်ငန်းစဉ်များ၊ အောင်မြင်မှုဇာတ်လမ်းများနှင့် အသိုင်းအဝိုင်းပွဲများအကြောင်း အသိပေးချက်ရယူပါ။">
+                    Stay informed about our latest initiatives, success stories, and community events.
+                </p>
+                <a href="#news-content" class="btn btn-secondary" data-en="Explore Updates" data-my="အပ်ဒိတ်များလေ့လာရန်">Explore Updates</a>
+            </div>
         </div>
     </section>
 
@@ -1108,330 +780,275 @@
     <section id="news-content">
         <div class="container">
             <!-- News Filter -->
-            <div class="news-filter">
-                <button class="filter-btn active" data-filter="all" data-en="All News" data-my="သတင်းအားလုံး">All News</button>
-                <button class="filter-btn" data-filter="photos" data-en="Group Photos" data-my="အုပ်စုဓာတ်ပုံများ">Group Photos</button>
-                <button class="filter-btn" data-filter="videos" data-en="Success Videos" data-my="အောင်မြင်မှုဗီဒီယိုများ">Success Videos</button>
-                <button class="filter-btn" data-filter="announcements" data-en="Announcements" data-my="ကြေညာချက်များ">Announcements</button>
-                <button class="filter-btn" data-filter="messages" data-en="Messages" data-my="သတင်းစကား">Messages</button>
+            <div class="news-filter-modern">
+                <button class="filter-btn-modern active" data-filter="all" data-en="All News" data-my="သတင်းအားလုံး">All News</button>
+                <button class="filter-btn-modern" data-filter="announcements" data-en="Announcements" data-my="ကြေညာချက်များ">Announcements</button>
+                <button class="filter-btn-modern" data-filter="events" data-en="Events" data-my="ပွဲစဉ်များ">Events</button>
+                <button class="filter-btn-modern" data-filter="stories" data-en="Success Stories" data-my="အောင်မြင်မှုဇာတ်လမ်းများ">Success Stories</button>
             </div>
 
-            <!-- New Year 2026 Message -->
-            <div class="new-year-message" data-category="messages">
-                <div class="new-year-message-content">
-                    <h2 class="new-year-title" data-en="New Year's Eve Address for 2026" data-my="၂၀၂၆ ခုနှစ် နှစ်သစ်အကြို နှုတ်ခွန်းဆက်သလွှာ">New Year's Eve Address for 2026</h2>
-                    <p class="new-year-subtitle" data-en="EdBridge (for Myanmar Women) Initiative" data-my="EdBridge (for Myanmar Women) အစီအစဉ်">EdBridge (for Myanmar Women) Initiative</p>
+            <!-- New Year Message -->
+            <div class="new-year-message-modern" data-category="announcements">
+                <div class="new-year-content">
+                    <h2 data-en="New Year's Eve Address for 2026" data-my="၂၀၂၆ ခုနှစ် နှစ်သစ်အကြို နှုတ်ခွန်းဆက်သလွှာ">New Year's Eve Address for 2026</h2>
+                    <p data-en="EdBridge (for Myanmar Women) Initiative" data-my="EdBridge (for Myanmar Women) အစီအစဉ်">EdBridge (for Myanmar Women) Initiative</p>
                     
-                    <!-- Language Toggle for Message -->
-                    <div class="language-toggle">
-                        <button class="lang-tab active" data-lang="en-message">English</button>
-                        <button class="lang-tab" data-lang="my-message">မြန်မာ</button>
+                    <!-- Language Tabs -->
+                    <div class="message-language-tabs">
+                        <button class="lang-tab-modern active" data-lang="en-message">English</button>
+                        <button class="lang-tab-modern" data-lang="my-message">မြန်မာ</button>
                     </div>
                     
-                    <!-- English Version -->
-                    <div class="message-content active" id="en-message-content">
-                        <div class="new-year-body">
+                    <!-- English Message -->
+                    <div class="message-content-modern" id="en-message-content">
+                        <h3 data-en="A Message from Our Founder" data-my="တည်ထောင်သူ၏ သတင်းစကား">A Message from Our Founder</h3>
+                        <div class="message-body-modern">
                             <p><strong>To all respected citizens of Myanmar, friends, and prospective collaborators,</strong></p>
                             
                             <p>The EdBridge (for Myanmar Women) Initiative (EBM) team joins me in sending New Year's greetings as we approach 2026 with <strong>full hope</strong> and wish to announce our major goals.</p>
                             
-                            <div class="new-year-highlight">
-                                <h4>Our Mission and Commitment to Support</h4>
-                                <p>The main purpose for establishing this organization is for us, as displaced individuals of various ages and genders who believe in equality, to fulfill the essential <strong>economic and educational needs</strong> of women.</p>
-                            </div>
+                            <p><strong>Our Mission and Commitment to Support</strong></p>
+                            <p>The main purpose for establishing this organization is for us, as displaced individuals of various ages and genders who believe in equality, to fulfill the essential <strong>economic and educational needs</strong> of women.</p>
                             
                             <p>We will effectively support women to achieve the following fundamental requirements:</p>
-                            <ul style="margin-left: 20px; margin-bottom: 20px;">
+                            <ul>
                                 <li>To skillfully master the methods and systems for <strong>operating their own businesses</strong>.</li>
                                 <li>To skillfully use <strong>technology and Digital Tools</strong>.</li>
                                 <li>To ensure smooth progress in <strong>social relations and networking</strong>.</li>
                                 <li>To competently learn <strong>international English language</strong> and to provide special support to those who wish to pursue further education.</li>
                             </ul>
                             
-                            <div class="new-year-highlight">
-                                <h4>Tuition Fees and the Social Business Model</h4>
-                                <p>EBM adopts a social business model approach, positioned between profit-driven corporations and mission-driven non-profit organizations. It applies business principles to ensure sustainability while prioritizing social impact over profit distribution.</p>
-                                <p><strong>Social Impact Fund:</strong> Ten percent (10%) of the revenue generated from paid services will be directly contributed back to support the educational programs for financially disadvantaged women.</p>
-                            </div>
+                            <p><strong>Tuition Fees and the Social Business Model</strong></p>
+                            <p>EBM adopts a social business model approach, positioned between profit-driven corporations and mission-driven non-profit organizations. It applies business principles to ensure sustainability while prioritizing social impact over profit distribution.</p>
+                            <p><strong>Social Impact Fund:</strong> Ten percent (10%) of the revenue generated from paid services will be directly contributed back to support the educational programs for financially disadvantaged women.</p>
                             
-                            <div class="new-year-highlight">
-                                <h4>ASEAN Network Connectivity</h4>
-                                <p>Our team members collaborate remotely and are displaced persons currently residing in <strong>ASEAN countries</strong> (specifically Myanmar, Thailand, and Vietnam). We respectfully invite those who wish to explore business opportunities in these countries to connect and collaborate through our strong network.</p>
-                            </div>
+                            <p><strong>ASEAN Network Connectivity</strong></p>
+                            <p>Our team members collaborate remotely and are displaced persons currently residing in <strong>ASEAN countries</strong> (specifically Myanmar, Thailand, and Vietnam). We respectfully invite those who wish to explore business opportunities in these countries to connect and collaborate through our strong network.</p>
                         </div>
-                        
-                        <div class="new-year-footer">
-                            <p>EdBridge (for Myanmar Women) Founder<br>
+                        <div class="message-signature">
+                            <p data-en="EdBridge (for Myanmar Women) Founder" data-my="EdBridge (for Myanmar Women) တည်ထောင်သူ">EdBridge (for Myanmar Women) Founder<br>
                             <strong>"Shwe"</strong></p>
                         </div>
                     </div>
                     
-                    <!-- Myanmar Version -->
-                    <div class="message-content" id="my-message-content">
-                        <div class="new-year-body">
+                    <!-- Myanmar Message (Hidden by default) -->
+                    <div class="message-content-modern" id="my-message-content" style="display: none;">
+                        <h3 data-en="A Message from Our Founder" data-my="တည်ထောင်သူ၏ သတင်းစကား">တည်ထောင်သူ၏ သတင်းစကား</h3>
+                        <div class="message-body-modern">
                             <p><strong>လေးစားအပ်ပါသော မြန်မာပြည်သူ၊ ပြည်သားအပေါင်း၊ မိတ်ဆွေများ၊ နှင့် ပူးပေါင်းဆောင်ရွက်လိုသူများရှင်၊</strong></p>
                             
                             <p>EdBridge (for Myanmar Women) Initiative (EBM) အဖွဲ့သားများနဲ့အတူ <strong>မျှော်လင့်ချက်အပြည့်ဖြင့်</strong> ကြိုဆိုရမည့် ၂၀၂၆ ခုနှစ် နှစ်သစ်အကြို နှုတ်ခွန်းဆက်သခြင်းနှင့် <strong>ကျွန်ုပ်တို့</strong>၏ ရည်မှန်းချက်များကို အသိပေးအပ်ပါတယ်။</p>
                             
-                            <div class="new-year-highlight">
-                                <h4>ကျွန်ုပ်တို့၏ ရည်မှန်းချက်နှင့် ပံ့ပိုးမှု ကတိကဝတ်</h4>
-                                <p>ဤအဖွဲ့အစည်း တည်ထောင်ရခြင်း၏ အဓိက ရည်ရွယ်ချက်မှာ အသက်အရွယ်၊ ကျား/မ တန်းတူညီမျှမှုရှိသော ရွှေ့ပြောင်းနေထိုင်သူများအနေဖြင့် အမျိုးသမီးများအတွက် အမှန်တကယ် လိုအပ်နေသော <strong>စီးပွားရေးနှင့် ပညာရေးလိုအပ်ချက်များ</strong> ကို ဖြည့်ဆည်းပေးရန် ဖြစ်ပါသည်။</p>
-                            </div>
+                            <p><strong>ကျွန်ုပ်တို့၏ ရည်မှန်းချက်နှင့် ပံ့ပိုးမှု ကတိကဝတ်</strong></p>
+                            <p>ဤအဖွဲ့အစည်း တည်ထောင်ရခြင်း၏ အဓိက ရည်ရွယ်ချက်မှာ အသက်အရွယ်၊ ကျား/မ တန်းတူညီမျှမှုရှိသော ရွှေ့ပြောင်းနေထိုင်သူများအနေဖြင့် အမျိုးသမီးများအတွက် အမှန်တကယ် လိုအပ်နေသော <strong>စီးပွားရေးနှင့် ပညာရေးလိုအပ်ချက်များ</strong> ကို ဖြည့်ဆည်းပေးရန် ဖြစ်ပါသည်။</p>
                             
                             <p><strong>ကျွန်ုပ်တို့</strong>သည် အမျိုးသမီးများအား အောက်ပါ အခြေခံလိုအပ်ချက်များ ရရှိစေရန် ထိရောက်စွာ ပံ့ပိုးပေးသွားပါမည်-</p>
-                            <ul style="margin-left: 20px; margin-bottom: 20px;">
+                            <ul>
                                 <li>ကိုယ်ပိုင်စီးပွားရေး လုပ်ကိုင်မှု နည်းလမ်းစနစ်များကို ကျွမ်းကျင်စွာ တတ်မြောက်စေရန်။</li>
                                 <li>နည်းပညာနှင့် Digital Tools များကို ကျွမ်းကျင်စွာ အသုံးပြုနိုင်စေရန်။</li>
                                 <li>လူမှုဆက်ဆံရေးနှင့် ကွန်ရက်ချိတ်ဆက်မှု အဆင်ပြေချောမွေ့စေရန်။</li>
                                 <li>နိုင်ငံတကာသုံး English စကားကို ပိုင်နိုင်စွာ သင်ယူနိုင်ရန်နှင့် ပညာဆက်လက်သင်ကြားလိုသူများကို အထူးအထောက်အကူပြုရန်။</li>
                             </ul>
                             
-                            <div class="new-year-highlight">
-                                <h4>သင်တန်းကြေးနှင့် လူမှုစီးပွားရေး စနစ် (Social Business Model)</h4>
-                                <p>ကျွန်ုပ်တို့၏EBM သည် အကျိုးအမြတ်အတွက် ဦးတည်သော ကော်ပိုရေးရှင်း များနှင့်အကျိုးအမြတ် မယူသော အဖွဲ့အစည်းများကြားတွင် တည်ရှိပြီး လူမှုစီးပွားရေးပုံစံကို ကျင့်သုံးသည်။</p>
-                                <p><strong>လူမှုအကျိုးပြု ရန်ပုံငွေ:</strong> ထိုအခကြေးငွေမှ ရရှိသော ငွေ၏ <strong>၁၀ ရာခိုင်နှုန်း (10%) ကို</strong> ငွေကြေးမတတ်နိုင်သော အမျိုးသမီးများ၏ ပညာရေးအစီအစဉ်များအတွက် တိုက်ရိုက်ပြန်လည်ထောက်ပံ့ ပေးသွားပါမည်။</p>
-                            </div>
+                            <p><strong>သင်တန်းကြေးနှင့် လူမှုစီးပွားရေး စနစ် (Social Business Model)</strong></p>
+                            <p>ကျွန်ုပ်တို့၏EBM သည် အကျိုးအမြတ်အတွက် ဦးတည်သော ကော်ပိုရေးရှင်း များနှင့်အကျိုးအမြတ် မယူသော အဖွဲ့အစည်းများကြားတွင် တည်ရှိပြီး လူမှုစီးပွားရေးပုံစံကို ကျင့်သုံးသည်။</p>
+                            <p><strong>လူမှုအကျိုးပြု ရန်ပုံငွေ:</strong> ထိုအခကြေးငွေမှ ရရှိသော ငွေ၏ <strong>၁၀ ရာခိုင်နှုန်း (10%) ကို</strong> ငွေကြေးမတတ်နိုင်သော အမျိုးသမီးများ၏ ပညာရေးအစီအစဉ်များအတွက် တိုက်ရိုက်ပြန်လည်ထောက်ပံ့ ပေးသွားပါမည်။</p>
                             
-                            <div class="new-year-highlight">
-                                <h4>အာဆီယံ ကွန်ရက် ချိတ်ဆက်မှု (ASEAN Network)</h4>
-                                <p><strong>ကျွန်ုပ်တို့</strong> အဖွဲ့ဝင်များသည် remote စနစ်ဖြင့် ပူးပေါင်းကာ <strong>အာဆီယံနိုင်ငံများ</strong> အတွင်း (အထူးသဖြင့် မြန်မာ၊ ထိုင်းနှင့် ဗီယက်နမ်နိုင်ငံများတွင်) ရွှေ့ပြောင်းနေထိုင်ကြသူများ ဖြစ်ကြပါသည်။ ထို့ကြောင့်၊ ဤနိုင်ငံများအတွင်း စီးပွားရေးအခွင့်အလမ်းများ ရှာဖွေလိုသူများ အနေဖြင့် ကျွန်ုပ်တို့အဖွဲ့၏ ခိုင်မာသော ကွန်ရက်မှတစ်ဆင့် လာရောက်ချိတ်ဆက် ပူးပေါင်းဆောင်ရွက်နိုင်ပါကြောင်း လေးစားစွာ ဖိတ်ခေါ်အပ်ပါသည်။</p>
-                            </div>
+                            <p><strong>အာဆီယံ ကွန်ရက် ချိတ်ဆက်မှု (ASEAN Network)</strong></p>
+                            <p><strong>ကျွန်ုပ်တို့</strong> အဖွဲ့ဝင်များသည် remote စနစ်ဖြင့် ပူးပေါင်းကာ <strong>အာဆီယံနိုင်ငံများ</strong> အတွင်း (အထူးသဖြင့် မြန်မာ၊ ထိုင်းနှင့် ဗီယက်နမ်နိုင်ငံများတွင်) ရွှေ့ပြောင်းနေထိုင်ကြသူများ ဖြစ်ကြပါသည်။ ထို့ကြောင့်၊ ဤနိုင်ငံများအတွင်း စီးပွားရေးအခွင့်အလမ်းများ ရှာဖွေလိုသူများ အနေဖြင့် ကျွန်ုပ်တို့အဖွဲ့၏ ခိုင်မာသော ကွန်ရက်မှတစ်ဆင့် လာရောက်ချိတ်ဆက် ပူးပေါင်းဆောင်ရွက်နိုင်ပါကြောင်း လေးစားစွာ ဖိတ်ခေါ်အပ်ပါသည်။</p>
                         </div>
-                        
-                        <div class="new-year-footer">
-                            <p>EdBridge (for Myanmar Women) အဖွဲ့ဝင်များအားလုံး ကိုယ်စား၊<br>
+                        <div class="message-signature">
+                            <p data-en="EdBridge (for Myanmar Women) Founder" data-my="EdBridge (for Myanmar Women) တည်ထောင်သူ">EdBridge (for Myanmar Women) အဖွဲ့ဝင်များအားလုံး ကိုယ်စား၊<br>
                             <strong>"ရွှေ"</strong></p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Group Photos Gallery Section -->
-            <div class="wishletter-gallery" data-category="photos">
-                <h2 class="gallery-title" data-en="Our Group Photos" data-my="ကျွန်ုပ်တို့၏ အုပ်စုဓာတ်ပုံများ">Our Group Photos</h2>
-                <div class="gallery-grid">
-                    <!-- Photo 1 -->
-                    <div class="photo-card">
-                        <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/group1.jpg" alt="Graduation Group Photo">
-                    </div>
-                    
-                    <!-- Photo 2 -->
-                    <div class="photo-card">
-                        <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/group2.jpg" alt="Workshop Group Photo">
-                    </div>
-                    
-                    <!-- Photo 3 - Clickable -->
-                    <div class="photo-card">
-                        <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/announcement2.jpg" 
-                             alt="Announcement Event Photo"
-                             class="clickable-image">
-                    </div>
-                </div>
-                <div class="view-all-btn">
-                    <a href="#" class="btn btn-primary" data-en="View All Photos" data-my="ဓာတ်ပုံအားလုံးကြည့်ရန်">View All Photos</a>
-                </div>
-            </div>
-
-            <!-- Wish Letter Gallery Section -->
-            <div class="wishletter-gallery" data-category="photos">
-                <h2 class="wishletter-title" data-en="Wish Letter Gallery" data-my="ဆုတောင်းစာများ">Wish Letter Gallery</h2>
-                <div class="wishletter-grid">
-                    <!-- Photo 1 -->
-                    <div class="wishletter-card">
-                        <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/wish%20letter%20form%20Ni%20Nar%20Mying.jpg" 
-                             alt="Ni Nar Mying's Wish Letter" 
-                             class="clickable-image">
-                    </div>
-                    
-                    <!-- Photo 2 -->
-                    <div class="wishletter-card">
-                        <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/wish%20letter%20form%20Dr.Zaw%20Naing.jpg" 
-                             alt="Dr. Zaw Naing's Wish Letter" 
-                             class="clickable-image">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Video Gallery Section -->
-            <div class="video-gallery" data-category="videos">
-                <h2 class="gallery-title" data-en="Success Story Videos" data-my="အောင်မြင်မှုဇာတ်လမ်းဗီဒီယိုများ">Success Story Videos</h2>
-                <div class="video-grid">
-                    <!-- Video 1 - Suki's Story -->
-                    <div class="video-card">
-                        <div class="video-thumbnail" data-video="https://www.youtube.com/embed/G98j9TaRxYU">
-                            <img src="https://img.youtube.com/vi/G98j9TaRxYU/maxresdefault.jpg" alt="Suki's Success Story">
-                            <div class="video-play-btn">
-                                <i class="fas fa-play"></i>
-                            </div>
-                        </div>
-                        <div class="video-content">
-                            <div class="video-meta">
-                                <span class="video-date" data-en="Dec 15, 2024" data-my="၁၅ ဒီဇင်ဘာ၊ ၂၀၂၄">Dec 15, 2024</span>
-                                <span class="video-category" data-en="Success Story" data-my="အောင်မြင်မှုဇာတ်လမ်း">Suki's Story</span>
-                            </div>
-                            <h3 class="video-title" data-en="From Student to Entrepreneur" data-my="ကျောင်းသူမှ စီးပွားရေးသမားသို့">Suki's story</h3>
-                            <p class="video-description" data-en="Watch how EdBridge helped one of our students start her own business." 
-                               data-my="EdBridge မှ ကျောင်းသူတစ်ဦး ကိုယ်ပိုင်စီးပွားရေးစတင်ရန် မည်သို့ကူညီခဲ့သည်ကို ကြည့်ရှုပါ။">
-                                Tr.Suki share about her experience with EdBridge.
-                            </p>
-                            <a href="https://www.youtube.com/watch?v=G98j9TaRxYU" class="video-link watch-video" data-en="Watch Video" data-my="ဗီဒီယိုကြည့်ရန်">Watch Video <i class="fas fa-play-circle"></i></a>
-                        </div>
-                    </div>
-                    
-                    <!-- Video 2 - Our IT Program -->
-                    <div class="video-card">
-                        <div class="video-thumbnail" data-video="https://www.youtube.com/embed/coRZcLG2AOg">
-                            <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/IT%20vlog.png" alt="IT Program Video">
-                            <div class="video-play-btn">
-                                <i class="fas fa-play"></i>
-                            </div>
-                        </div>
-                        <div class="video-content">
-                            <div class="video-meta">
-                                <span class="video-date" data-en="Dec 10, 2024" data-my="၁၀ ဒီဇင်ဘာ၊ ၂၀၂၄">Dec 10, 2024</span>
-                                <span class="video-category" data-en="Graduation" data-my="ဘွဲ့နှင်းသဘင်">Our IT Program</span>
-                            </div>
-                            <h3 class="video-title" data-en="First Batch Graduation Highlights" data-my="ပထမအသုတ် ဘွဲ့နှင်းသဘင် အဓိကအခိုက်အတန့်များ">About Our IT Program</h3>
-                            <p class="video-description" data-en="Celebrating the achievements of our first graduating class."
-                               data-my="ကျွန်ုပ်တို့၏ ပထမဆုံးဘွဲ့ရအတန်း၏ အောင်မြင်မှုများကို ချီးကျူးဂုဏ်ပြုခြင်း။">
-                               About Our IT Program.
-                            </p>
-                            <a href="https://www.youtube.com/watch?v=coRZcLG2AOg" class="video-link watch-video" data-en="Watch Video" data-my="ဗီဒီယိုကြည့်ရန်">Watch Video <i class="fas fa-play-circle"></i></a>
-                        </div>
-                    </div>
-                    
-                    <!-- Video 3 - MBA Program -->
-                    <div class="video-card">
-                        <div class="video-thumbnail" data-video="https://www.youtube.com/embed/oCGhpeV_eqU">
-                            <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/MBA%20Program.jpg" alt="MBA Program Video">
-                            <div class="video-play-btn">
-                                <i class="fas fa-play"></i>
-                            </div>
-                        </div>
-                        <div class="video-content">
-                            <div class="video-meta">
-                                <span class="video-date" data-en="Nov 25, 2024" data-my="၂၅ နိုဝင်ဘာ၊ ၂၀၂၄">Nov 25, 2024</span>
-                                <span class="video-category" data-en="Training" data-my="သင်တန်း">MBA</span>
-                            </div>
-                            <h3 class="video-title" data-en="Digital Skills Workshop in Action" data-my="လက်တွေ့လုပ်ဆောင်နေသော ဒီဂျစ်တယ်ကျွမ်းကျင်မှုသင်တန်း">MBA Video</h3>
-                            <p class="video-description" data-en="See how our digital skills workshops empower Myanmar women."
-                               data-my="ကျွန်ုပ်တို့၏ ဒီဂျစ်တယ်ကျွမ်းကျင်မှုသင်တန်းများက မြန်မာအမျိုးသမီးများကို မည်သို့အရှိန်အဟုန်မြှင့်ပေးသည်ကို ကြည့်ရှုပါ။">
-                                About Our MBA Program.
-                            </p>
-                            <a href="https://www.youtube.com/shorts/O2EpCiL26WA" class="video-link watch-video" data-en="Watch Video" data-my="ဗီဒီယိုကြည့်ရန်">Watch Video <i class="fas fa-play-circle"></i></a>
-                        </div>
-                    </div>
-                    
-                    <!-- Video 4 - About EDM -->
-                    <div class="video-card">
-                        <div class="video-thumbnail" data-video="https://www.youtube.com/embed/O2EpCiL26WA">
-                            <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/April_khin.jpg" alt="About EDM program">
-                            <div class="video-play-btn">
-                                <i class="fas fa-play"></i>
-                            </div>
-                        </div>
-                        <div class="video-content">
-                            <div class="video-meta">
-                                <span class="video-date" data-en="Nov 25, 2024" data-my="၂၅ နိုဝင်ဘာ၊ ၂၀၂၄">Nov 25, 2024</span>
-                                <span class="video-category" data-en="Training" data-my="သင်တန်း">About EDM </span>
-                            </div>
-                            <h3 class="video-title" data-en="New Opportunities for Migrant Myanmar Women" data-my="ရွှေ့ပြောင်း မြန်မာအ�ျိုးသမီးများအတွက် အခွင့်အလမ်းသစ်">New Opportunities for Migrant Myanmar Women</h3>
-                            <p class="video-description" data-en="See how our digital skills workshops empower Myanmar women."
-                               data-my="ရွှေ့ပြောင်း မြန်မာအမျိုးသမီးများအတွက် အခွင့်အလမ်းသစ်">
-                                About EDM.
-                            </p>
-                            <a href="https://www.youtube.com/shorts/O2EpCiL26WA" class="video-link watch-video" data-en="Watch Video" data-my="ဗီဒီယိုကြည့်ရန်">Watch Video <i class="fas fa-play-circle"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="view-all-btn">
-                    <a href="https://www.youtube.com/channel/UCoaBP0vjtLTzBFC5C7ccZJA" target="_blank" class="btn btn-primary" data-en="View All Videos on YouTube" data-my="YouTube တွင် ဗီဒီယိုအားလုံးကြည့်ရန်">View All Videos on YouTube</a>
-                </div>
-            </div>
-
-            <!-- Announcements Grid -->
-            <div class="news-grid">
-                <!-- New Year News Item -->
-                <div class="news-card" data-category="Events Announcements">
-                    <div class="news-image">
+            <!-- News Grid -->
+            <div class="news-grid-modern">
+                <!-- New Year News -->
+                <div class="news-card-modern" data-category="announcements">
+                    <div class="news-image-modern">
                         <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/newyear.jpg" alt="New Year 2026 Celebration">
+                        <div class="news-category-modern" data-en="Announcement" data-my="ကြေညာချက်">Announcement</div>
                     </div>
-                    <div class="news-content">
-                        <div class="news-meta">
-                            <span class="news-date" data-en="Dec 31, 2025" data-my="၃၁ ဒီဇင်ဘာ၊ ၂၀၂၅">Dec 31, 2025</span>
-                            <span class="news-category" data-en="Announcement" data-my="ကြေညာချက်">Announcement</span>
+                    <div class="news-content-modern">
+                        <div class="news-meta-modern">
+                            <span class="news-date-modern"><i class="far fa-calendar"></i> <span data-en="Dec 31, 2025" data-my="၃၁ ဒီဇင်ဘာ၊ ၂၀၂၅">Dec 31, 2025</span></span>
                         </div>
-                        <h3 class="news-title" data-en="New Year 2026: A Message from Our Founder" data-my="၂၀၂၆ ခုနှစ်: တည်ထောင်သူ၏ သတင်းစကား">New Year 2026: A Message from Our Founder</h3>
-                        <p class="news-excerpt" data-en="Read our founder's special New Year message outlining EdBridge's vision and goals for 2026."
+                        <h3 class="news-title-modern" data-en="New Year 2026: A Message from Our Founder" data-my="၂၀၂၆ ခုနှစ်: တည်ထောင်သူ၏ သတင်းစကား">New Year 2026: A Message from Our Founder</h3>
+                        <p class="news-excerpt-modern" data-en="Read our founder's special New Year message outlining EdBridge's vision and goals for 2026."
                            data-my="၂၀၂၆ ခုနှစ်အတွက် EdBridge ၏မျှော်မှန်းချက်များနှင့် ရည်မှန်းချက်များကို ရေးဆွဲထားသော တည်ထောင်သူ၏အထူးနှစ်သစ်သတင်းစကားကို ဖတ်ရှုပါ။">
                             Read our founder's special New Year message outlining EdBridge's vision.
                         </p>
-                        <a href="#new-year-message" class="news-link" data-en="Read Message" data-my="သတင်းစကားဖတ်ရန်">Read Message <i class="fas fa-arrow-right"></i></a>
+                        <a href="#new-year-message" class="news-link-modern" data-en="Read Message" data-my="သတင်းစကားဖတ်ရန်">Read Message <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-            
-                <!-- Wedu Rising Star Event News Item -->
-                <div class="news-card" data-category="Events Announcements">
-                    <div class="news-image">
+                
+                <!-- Wedu Rising Star Event -->
+                <div class="news-card-modern" data-category="events">
+                    <div class="news-image-modern">
                         <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/Wedu Rising Star and ISA Student Financing Event.jpg" alt="Wedu Rising Star and ISA Student Financing Event">
+                        <div class="news-category-modern" data-en="Event" data-my="ပွဲစဉ်များ">Event</div>
                     </div>
-                    <div class="news-content">
-                        <div class="news-meta">
-                            <span class="news-date" data-en="Jan 14, 2026" data-my="၁၄ ဇန်နဝါရီ၊ ၂၀၂၆">Jan 14, 2026</span>
-                            <span class="news-category" data-en="Event" data-my="ပွဲစဉ်များ">Event</span>
+                    <div class="news-content-modern">
+                        <div class="news-meta-modern">
+                            <span class="news-date-modern"><i class="far fa-calendar"></i> <span data-en="Jan 14, 2026" data-my="၁၄ ဇန်နဝါရီ၊ ၂၀၂၆">Jan 14, 2026</span></span>
                         </div>
-                        <h3 class="news-title" data-en="How to apply Wedu Rising Star & ISA" data-my="Wedu Rising Star & ISA လျှောက်ထားနည်း ကိုမျှဝေခြင်း">How to apply Wedu Rising Star & ISA</h3>
-                        <p class="news-excerpt" data-en="Read our founder's special How to apply Wedu Rising Star & ISA"
-                           data-my="ပညာရေးကို ဆက်လက်လေ့လာလိုသော်လည်း ငွေကြေးအခက်အခဲကြောင့်
-အခွင့်အလမ်းမလွတ်စေဖို့
-
-🌟 Wedu Rising Star နှင့် ISA Student Financing အစီအစဉ်များကို
-ဘယ်လိုလျှောက်ထားရမလဲ ဆိုတာကို တစ်ဆင့်ချင်း ရှင်းပြပေးသွားမှာဖြစ်ပါတယ်။
-
-👩‍🎓 အမျိုးသမီးခေါင်းဆောင်များအတွက်
-📚 ပညာရေးအထောက်အပံ့
-💼 အနာဂတ်ဝင်ငွေအခြေခံ (ISA) Financing
-
-🎤 Speaker – Shwe Edbridge
-Founder Wedu ISA ကို ကိုယ်တိုင်ရရှိထားသူ
-လက်တွေ့အတွေ့အကြုံအပေါ်အခြေခံပြီး
-Wedu Rising Star & ISA လျှောက်ထားနည်းကို မျှဝေပါမယ်။
-
-🤝 EdBridge Myanmar Women မှ မျှဝေခြင်း">
-                          
-Don't let tuition fees hold you back! 🎓✨
-
-Are you looking for ways to fund your education? Join us as we explain how to apply for the Wedu Rising Star and ISA Student Financing programs.
-
-Speaker: Shwe Edbridge (Founder, EdBridge) As a Wedu ISA recipient, Shwe will provide a step-by-step guide based on her personal experience to help you secure the support you need.
-
-Education support for women leaders
-
-Future-income-based financing (ISA)
-
-Brought to you by EdBridge Myanmar Women.
+                        <h3 class="news-title-modern" data-en="How to apply Wedu Rising Star & ISA" data-my="Wedu Rising Star & ISA လျှောက်ထားနည်း ကိုမျှဝေခြင်း">How to apply Wedu Rising Star & ISA</h3>
+                        <p class="news-excerpt-modern" data-en="Learn how to fund your education through Wedu Rising Star and ISA Student Financing programs."
+                           data-my="Wedu Rising Star နှင့် ISA Student Financing အစီအစဉ်များမှတစ်ဆင့် သင့်ပညာရေးအတွက် ငွေကြေးမည်သို့ရနိုင်ကြောင်း လေ့လာပါ။">
+                            Learn how to fund your education through Wedu Rising Star and ISA Student Financing.
                         </p>
-                        <a href="https://forms.gle/Zn1Lxzzq7v6ZUUMbA" class="news-link" data-en="Join Us" data-my="တက်ရောက်ဖို့ ဖိတ်ခေါ်အပ်ပါတယ်">Join Us <i class="fas fa-arrow-right"></i></a>
+                        <a href="https://forms.gle/Zn1Lxzzq7v6ZUUMbA" target="_blank" class="news-link-modern" data-en="Join Event" data-my="ပွဲစဉ်တွင်ပါဝင်ရန်">Join Event <i class="fas fa-arrow-right"></i></a>
                     </div>
+                </div>
+            </div>
+
+            <!-- Photo Gallery -->
+            <div class="gallery-section-modern">
+                <div class="section-title">
+                    <h2 data-en="Our Photo Gallery" data-my="ကျွန်ုပ်တို့၏ ဓာတ်ပုံပြခန်း">Our Photo Gallery</h2>
+                    <p data-en="Moments that inspire and stories that connect" data-my="လှုံ့ဆော်ပေးသောအခိုက်အတန့်များနှင့် ချိတ်ဆက်ပေးသောဇာတ်လမ်းများ">Moments that inspire and stories that connect</p>
+                </div>
+                
+                <div class="gallery-grid-modern">
+                    <div class="gallery-item-modern">
+                        <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/group1.jpg" alt="Graduation Group Photo">
+                        <div class="gallery-overlay-modern">
+                            <h4 class="gallery-title-modern" data-en="Graduation Ceremony" data-my="ဘွဲ့နှင်းသဘင်">Graduation Ceremony</h4>
+                            <p class="gallery-description-modern" data-en="Celebrating our first batch of graduates" data-my="ကျွန်ုပ်တို့၏ ပထမဆုံးဘွဲ့ရအတန်းကို ဂုဏ်ပြုခြင်း">Celebrating our first batch</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item-modern">
+                        <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/group2.jpg" alt="Workshop Group Photo">
+                        <div class="gallery-overlay-modern">
+                            <h4 class="gallery-title-modern" data-en="Digital Skills Workshop" data-my="ဒီဂျစ်တယ်ကျွမ်းကျင်မှုသင်တန်း">Digital Skills Workshop</h4>
+                            <p class="gallery-description-modern" data-en="Empowering women with digital tools" data-my="ဒီဂျစ်တယ်ကိရိယာများဖြင့် အမျိုးသမီးများအား စွမ်းဆောင်ရည်မြှင့်တင်ခြင်း">Empowering with digital tools</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item-modern clickable-image">
+                        <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/announcement2.jpg" alt="Announcement Event Photo">
+                        <div class="gallery-overlay-modern">
+                            <h4 class="gallery-title-modern" data-en="Community Announcement" data-my="အသိုင်းအဝိုင်းကြေညာချက်">Community Announcement</h4>
+                            <p class="gallery-description-modern" data-en="Sharing important updates with our community" data-my="ကျွန်ုပ်တို့၏အသိုင်းအဝိုင်းနှင့် အရေးကြီးအပ်ဒိတ်များမျှဝေခြင်း">Sharing important updates</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="#" class="btn btn-outline" data-en="View All Photos" data-my="ဓာတ်ပုံအားလုံးကြည့်ရန်">View All Photos</a>
+                </div>
+            </div>
+
+            <!-- Video Gallery -->
+            <div class="video-gallery-modern">
+                <div class="section-title">
+                    <h2 data-en="Success Story Videos" data-my="အောင်မြင်မှုဇာတ်လမ်းဗီဒီယိုများ">Success Story Videos</h2>
+                    <p data-en="Inspiring stories of transformation and achievement" data-my="ပြောင်းလဲမှုနှင့် အောင်မြင်မှုများ၏ စိတ်လှုပ်ရှားဖွယ်ဇာတ်လမ်းများ">Inspiring stories of transformation and achievement</p>
+                </div>
+                
+                <div class="video-grid-modern">
+                    <!-- Video 1 -->
+                    <div class="video-card-modern" data-category="stories">
+                        <div class="video-thumbnail-modern">
+                            <img src="https://img.youtube.com/vi/G98j9TaRxYU/maxresdefault.jpg" alt="Suki's Success Story">
+                            <div class="video-play-modern" data-video="https://www.youtube.com/embed/G98j9TaRxYU">
+                                <i class="fas fa-play fa-2x"></i>
+                            </div>
+                        </div>
+                        <div class="video-content-modern">
+                            <h3 class="video-title-modern" data-en="Suki's Journey: From Student to Entrepreneur" data-my="ဆူကီ၏ ခရီးသည်: ကျောင်းသူမှ စီးပွားရေးသမားသို့">Suki's Journey: From Student to Entrepreneur</h3>
+                            <p class="video-description-modern" data-en="Watch how EdBridge helped Suki start her own business and achieve financial independence."
+                               data-my="EdBridge မှ ဆူကီအား ကိုယ်ပိုင်စီးပွားရေးစတင်ရန်နှင့် ငွေကြေးလွတ်လပ်မှုရရှိရန် မည်သို့ကူညီခဲ့သည်ကို ကြည့်ရှုပါ။">
+                                Suki shares her transformative experience with EdBridge.
+                            </p>
+                            <a href="#" class="news-link-modern watch-video-btn" data-video="https://www.youtube.com/embed/G98j9TaRxYU" data-en="Watch Video" data-my="ဗီဒီယိုကြည့်ရန်">Watch Video <i class="fas fa-play-circle"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Video 2 -->
+                    <div class="video-card-modern" data-category="stories">
+                        <div class="video-thumbnail-modern">
+                            <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/IT%20vlog.png" alt="IT Program Video">
+                            <div class="video-play-modern" data-video="https://www.youtube.com/embed/coRZcLG2AOg">
+                                <i class="fas fa-play fa-2x"></i>
+                            </div>
+                        </div>
+                        <div class="video-content-modern">
+                            <h3 class="video-title-modern" data-en="Our IT Program: Building Digital Futures" data-my="ကျွန်ုပ်တို့၏ IT အစီအစဉ်: ဒီဂျစ်တယ်အနာဂတ်များ တည်ဆောက်ခြင်း">Our IT Program: Building Digital Futures</h3>
+                            <p class="video-description-modern" data-en="Explore our comprehensive IT training program designed for Myanmar women."
+                               data-my="မြန်မာအမျိုးသမီးများအတွက် ရည်ရွယ်ထားသော ကျွန်ုပ်တို့၏ ကျယ်ပြန့်သော IT လေ့ကျင့်ရေးအစီအစဉ်ကို လေ့လာပါ။">
+                                About our IT training program and its impact.
+                            </p>
+                            <a href="#" class="news-link-modern watch-video-btn" data-video="https://www.youtube.com/embed/coRZcLG2AOg" data-en="Watch Video" data-my="ဗီဒီယိုကြည့်ရန်">Watch Video <i class="fas fa-play-circle"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Video 3 -->
+                    <div class="video-card-modern" data-category="stories">
+                        <div class="video-thumbnail-modern">
+                            <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/MBA%20Program.jpg" alt="MBA Program Video">
+                            <div class="video-play-modern" data-video="https://www.youtube.com/embed/oCGhpeV_eqU">
+                                <i class="fas fa-play fa-2x"></i>
+                            </div>
+                        </div>
+                        <div class="video-content-modern">
+                            <h3 class="video-title-modern" data-en="MBA Program: Leadership Development" data-my="MBA အစီအစဉ်: ခေါင်းဆောင်မှုဖွံ့ဖြိုးတိုးတက်ရေး">MBA Program: Leadership Development</h3>
+                            <p class="video-description-modern" data-en="Learn about our MBA program designed to develop future women leaders."
+                               data-my="အနာဂတ်အမျိုးသမီးခေါင်းဆောင်များ ဖွံ့ဖြိုးတိုးတက်စေရန် ရည်ရွယ်ထားသော ကျွန်ုပ်တို့၏ MBA အစီအစဉ်အကြောင်း လေ့လာပါ။">
+                                About our MBA program for leadership development.
+                            </p>
+                            <a href="#" class="news-link-modern watch-video-btn" data-video="https://www.youtube.com/embed/oCGhpeV_eqU" data-en="Watch Video" data-my="ဗီဒီယိုကြည့်ရန်">Watch Video <i class="fas fa-play-circle"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="https://www.youtube.com/channel/UCoaBP0vjtLTzBFC5C7ccZJA" target="_blank" class="btn btn-outline" data-en="View More on YouTube" data-my="YouTube တွင် ပိုမိုကြည့်ရှုရန်">View More on YouTube</a>
+                </div>
+            </div>
+
+            <!-- Newsletter Section -->
+            <div class="newsletter-section-modern">
+                <div class="newsletter-content">
+                    <h2 data-en="Stay Updated" data-my="နောက်ဆုံးရသတင်းများရယူရန်">Stay Updated</h2>
+                    <p data-en="Subscribe to our newsletter for the latest news, events, and success stories."
+                       data-my="နောက်ဆုံးရသတင်းများ၊ ပွဲစဉ်များနှင့် အောင်မြင်မှုဇာတ်လမ်းများအတွက် ကျွန်ုပ်တို့၏ သတင်းလွှာကို စာရင်းသွင်းပါ။">
+                        Subscribe to our newsletter for the latest news, events, and success stories.
+                    </p>
+                    
+                    <form class="newsletter-form-modern">
+                        <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                        <button type="submit" class="btn btn-secondary" data-en="Subscribe" data-my="စာရင်းသွင်းရန်">Subscribe</button>
+                    </form>
+                    
+                    <p style="font-size: 0.9rem; opacity: 0.8;" data-en="We respect your privacy. Unsubscribe at any time." 
+                       data-my="သင့်ကိုယ်ရေးကိုယ်တာကို ကျွန်ုပ်တို့လေးစားပါသည်။ မည်သည့်အချိန်တွင်မဆို စာရင်းမှ ပယ်ဖျက်နိုင်ပါသည်။">
+                        We respect your privacy. Unsubscribe at any time.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Video Modal -->
-    <div class="video-modal" id="videoModal">
+    <div class="modal" id="videoModal">
         <div class="modal-content">
             <button class="modal-close" id="modalClose">
                 <i class="fas fa-times"></i>
             </button>
-            <iframe class="modal-video" id="modalVideo" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe class="modal-iframe" id="modalVideo" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </div>
 
-    <!-- Single Image Modal -->
+    <!-- Image Modal -->
     <div class="image-modal" id="imageModal">
         <div class="modal-image-content">
-            <button class="image-modal-close" id="imageModalClose">
+            <button class="modal-close" id="imageModalClose">
                 <i class="fas fa-times"></i>
             </button>
             <img class="modal-image" id="modalImage" src="" alt="">
@@ -1440,30 +1057,30 @@ Brought to you by EdBridge Myanmar Women.
 
     <!-- Back to Home -->
     <div class="container">
-        <div class="back-to-home">
-            <a href="index.html" class="btn btn-primary" data-en="Back to Home" data-my="မူလစာမျက်နှာသို့ ပြန်သွားရန်">Back to Home</a>
+        <div class="back-to-home-modern">
+            <a href="index.html" class="btn btn-outline" data-en="Back to Home" data-my="မူလစာမျက်နှာသို့ ပြန်သွားရန်">Back to Home</a>
         </div>
     </div>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
+            <div class="footer-content-modern">
+                <div class="footer-column-modern">
                     <h3>EdBridge</h3>
                     <p data-en="Education Bridge for Myanmar Women - Empowering Myanmar migrant women through education and digital skills training." 
                        data-my="မြန်မာအမျိုးသမီးများအတွက်ပညာရေးတံတား - ပညာရေးနှင့်ဒီဂျစ်တယ်ကျွမ်းကျင်မှုသင်တန်းများဖြင့် မြန်မာရွှေ့ပြောင်းအမျိုးသမီးများကိုစွမ်းဆောင်ရည်မြှင့်တင်ခြင်း။">
                         Education Bridge for Myanmar Women.
                     </p>
-                    <div class="social-links">
+                    <div class="social-links-modern">
                         <a href="https://www.facebook.com/profile.php?id=61583187345390&mibextid=LQQJ4d&rdid=xyBlhD3SXoruMroe&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1BNqAPcspo%2F%3Fmibextid%3DLQQJ4d" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
                         <a href="https://www.youtube.com/channel/UCoaBP0vjtLTzBFC5C7ccZJA" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
                         <a href="https://www.tiktok.com/@edbridgeformyanmarwomen?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
+                <div class="footer-column-modern">
+                    <h3 data-en="Quick Links" data-my="အမြန်လင့်ခ်များ">Quick Links</h3>
+                    <ul class="footer-links-modern">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="services.html">Services</a></li>
@@ -1471,20 +1088,25 @@ Brought to you by EdBridge Myanmar Women.
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
+                <div class="footer-column-modern">
                     <h3 data-en="Contact Info" data-my="ဆက်သွယ်ရန်အချက်အလက်">Contact Info</h3>
                     <p><i class="fas fa-envelope"></i> edbridgeeducation448@gmail.com</p>
                     <p><i class="fab fa-youtube"></i> <span data-en="YouTube: EdBridge Education" data-my="YouTube: EdBridge Education">YouTube: EdBridge Education</span></p>
                 </div>
             </div>
-            <div class="copyright">
+            <div class="copyright-modern">
                 <p data-en="&copy; 2025 EdBridge - Education Bridge for Myanmar Women." 
                    data-my="&copy; 2025 EdBridge - မြန်မာအမျိုးသမီးများအတွက်ပညာရေးတံတား။">
-                    &copy; 2025 EdBridge.
+                    &copy; 2025 EdBridge. All rights reserved.
                 </p>
             </div>
         </div>
     </footer>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-to-top-modern" id="scrollToTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
 
     <script>
         // Language Switcher
@@ -1509,19 +1131,13 @@ Brought to you by EdBridge Myanmar Women.
                 const lang = this.getAttribute('data-lang');
                 
                 document.body.classList.add('loading');
-                const langText = this.textContent;
-                currentLang.textContent = langText;
+                const langText = this.querySelector('span') ? this.querySelector('span').textContent : this.textContent;
+                currentLang.textContent = langText.split(' ')[1] || langText;
                 langDropdown.classList.remove('show');
                 
                 setTimeout(() => {
                     changeLanguage(lang);
                     document.body.classList.remove('loading');
-                    
-                    if (lang === 'my') {
-                        alert('မြန်မာဘာသာသို့ ပြောင်းလဲပြီးပါပြီ။');
-                    } else {
-                        alert('Language changed to English.');
-                    }
                 }, 300);
             });
         });
@@ -1544,15 +1160,41 @@ Brought to you by EdBridge Myanmar Women.
                 }
             });
             
-            // Update language tabs in new year message
-            document.querySelectorAll('.lang-tab').forEach(tab => {
-                tab.textContent = tab.getAttribute(`data-${lang}`);
-            });
+            // Update active message language
+            updateMessageLanguage(lang);
             
             if (lang === 'en') {
                 document.title = "News & Updates - EdBridge";
             } else if (lang === 'my') {
                 document.title = "သတင်းများနှင့် အပ်ဒိတ်များ - EdBridge";
+            }
+        }
+        
+        // Message Language Tabs
+        function updateMessageLanguage(lang) {
+            const englishMessage = document.getElementById('en-message-content');
+            const myanmarMessage = document.getElementById('my-message-content');
+            const englishTab = document.querySelector('.lang-tab-modern[data-lang="en-message"]');
+            const myanmarTab = document.querySelector('.lang-tab-modern[data-lang="my-message"]');
+            
+            if (lang === 'en') {
+                if (englishMessage && myanmarMessage) {
+                    englishMessage.style.display = 'block';
+                    myanmarMessage.style.display = 'none';
+                }
+                if (englishTab && myanmarTab) {
+                    englishTab.classList.add('active');
+                    myanmarTab.classList.remove('active');
+                }
+            } else if (lang === 'my') {
+                if (englishMessage && myanmarMessage) {
+                    englishMessage.style.display = 'none';
+                    myanmarMessage.style.display = 'block';
+                }
+                if (englishTab && myanmarTab) {
+                    englishTab.classList.remove('active');
+                    myanmarTab.classList.add('active');
+                }
             }
         }
 
@@ -1561,61 +1203,11 @@ Brought to you by EdBridge Myanmar Women.
             document.querySelector('nav ul').classList.toggle('show');
         });
 
-        // News Filter Functionality
-        document.querySelectorAll('.filter-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                // Remove active class from all buttons
-                document.querySelectorAll('.filter-btn').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                
-                // Add active class to clicked button
-                this.classList.add('active');
-                
-                const filter = this.getAttribute('data-filter');
-                const newsCards = document.querySelectorAll('.news-card');
-                const newYearMessage = document.querySelector('.new-year-message');
-                const photoGalleries = document.querySelectorAll('.wishletter-gallery');
-                const videoGallery = document.querySelector('.video-gallery');
-                
-                // Handle new year message visibility
-                if (newYearMessage) {
-                    if (filter === 'all' || filter === 'messages' || filter === 'announcements') {
-                        newYearMessage.style.display = 'block';
-                    } else {
-                        newYearMessage.style.display = 'none';
-                    }
-                }
-                
-                // Handle photo galleries visibility
-                if (photoGalleries.length > 0) {
-                    photoGalleries.forEach(gallery => {
-                        if (filter === 'all' || filter === 'photos') {
-                            gallery.style.display = 'block';
-                        } else {
-                            gallery.style.display = 'none';
-                        }
-                    });
-                }
-                
-                // Handle video gallery visibility
-                if (videoGallery) {
-                    if (filter === 'all' || filter === 'videos') {
-                        videoGallery.style.display = 'block';
-                    } else {
-                        videoGallery.style.display = 'none';
-                    }
-                }
-                
-                // Handle news cards visibility
-                if (newsCards.length > 0) {
-                    newsCards.forEach(card => {
-                        if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                            card.style.display = 'block';
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    document.querySelector('nav ul').classList.remove('show');
                 }
             });
         });
@@ -1623,18 +1215,183 @@ Brought to you by EdBridge Myanmar Women.
         // Header background on scroll
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+            
             if(window.scrollY > 100) {
-                header.style.backgroundColor = 'rgba(42, 92, 169, 0.95)';
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
             } else {
                 header.style.backgroundColor = '';
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
             }
+            
+            // Show/hide scroll to top button
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+            
+            // Trigger animations for elements in view
+            animateElementsInView();
         });
 
-        // New Year Message Language Toggle
-        document.querySelectorAll('.lang-tab').forEach(tab => {
+        // Scroll to top functionality
+        document.getElementById('scrollToTop').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Animation on scroll
+        function animateElementsInView() {
+            // News cards
+            const newsCards = document.querySelectorAll('.news-card-modern');
+            newsCards.forEach((card, index) => {
+                const position = card.getBoundingClientRect();
+                if (position.top < window.innerHeight - 100 && !card.classList.contains('animated')) {
+                    setTimeout(() => {
+                        card.classList.add('animated');
+                    }, index * 200);
+                }
+            });
+            
+            // Gallery items
+            const galleryItems = document.querySelectorAll('.gallery-item-modern');
+            galleryItems.forEach((item, index) => {
+                const position = item.getBoundingClientRect();
+                if (position.top < window.innerHeight - 100 && !item.classList.contains('animated')) {
+                    setTimeout(() => {
+                        item.classList.add('animated');
+                    }, index * 200);
+                }
+            });
+            
+            // Video cards
+            const videoCards = document.querySelectorAll('.video-card-modern');
+            videoCards.forEach((card, index) => {
+                const position = card.getBoundingClientRect();
+                if (position.top < window.innerHeight - 100 && !card.classList.contains('animated')) {
+                    setTimeout(() => {
+                        card.classList.add('animated');
+                    }, index * 200);
+                }
+            });
+        }
+
+        // Initial animation trigger
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                animateElementsInView();
+            }, 500);
+        });
+
+        // News Filter Functionality
+        document.querySelectorAll('.filter-btn-modern').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.filter-btn-modern').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                const filter = this.getAttribute('data-filter');
+                const newsCards = document.querySelectorAll('.news-card-modern');
+                const newYearMessage = document.querySelector('.new-year-message-modern');
+                const gallerySection = document.querySelector('.gallery-section-modern');
+                const videoGallery = document.querySelector('.video-gallery-modern');
+                
+                // Handle new year message visibility
+                if (newYearMessage) {
+                    if (filter === 'all' || filter === 'announcements') {
+                        newYearMessage.style.display = 'block';
+                        setTimeout(() => {
+                            newYearMessage.style.opacity = '1';
+                        }, 10);
+                    } else {
+                        newYearMessage.style.opacity = '0';
+                        setTimeout(() => {
+                            newYearMessage.style.display = 'none';
+                        }, 300);
+                    }
+                }
+                
+                // Handle gallery section visibility
+                if (gallerySection) {
+                    if (filter === 'all') {
+                        gallerySection.style.display = 'block';
+                        setTimeout(() => {
+                            gallerySection.style.opacity = '1';
+                        }, 10);
+                    } else {
+                        gallerySection.style.opacity = '0';
+                        setTimeout(() => {
+                            gallerySection.style.display = 'none';
+                        }, 300);
+                    }
+                }
+                
+                // Handle video gallery visibility
+                if (videoGallery) {
+                    if (filter === 'all' || filter === 'stories') {
+                        videoGallery.style.display = 'block';
+                        setTimeout(() => {
+                            videoGallery.style.opacity = '1';
+                        }, 10);
+                    } else {
+                        videoGallery.style.opacity = '0';
+                        setTimeout(() => {
+                            videoGallery.style.display = 'none';
+                        }, 300);
+                    }
+                }
+                
+                // Handle news cards visibility
+                newsCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'flex';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 10);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // Message Language Tabs
+        document.querySelectorAll('.lang-tab-modern').forEach(tab => {
             tab.addEventListener('click', function() {
                 // Remove active class from all tabs
-                document.querySelectorAll('.lang-tab').forEach(t => {
+                document.querySelectorAll('.lang-tab-modern').forEach(t => {
                     t.classList.remove('active');
                 });
                 
@@ -1642,31 +1399,19 @@ Brought to you by EdBridge Myanmar Women.
                 this.classList.add('active');
                 
                 const lang = this.getAttribute('data-lang');
-                const messageContents = document.querySelectorAll('.message-content');
+                const englishMessage = document.getElementById('en-message-content');
+                const myanmarMessage = document.getElementById('my-message-content');
                 
-                // Hide all message contents
-                messageContents.forEach(content => {
-                    content.classList.remove('active');
-                });
-                
-                // Show selected message content
-                document.getElementById(`${lang}-content`).classList.add('active');
-            });
-        });
-
-        // Scroll to new year message when clicking "Read Message" link
-        document.querySelectorAll('a[href="#new-year-message"]').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const newYearMessage = document.querySelector('.new-year-message');
-                if (newYearMessage) {
-                    newYearMessage.scrollIntoView({ behavior: 'smooth' });
-                    
-                    // Highlight the message briefly
-                    newYearMessage.style.boxShadow = '0 0 30px rgba(249, 168, 38, 0.7)';
-                    setTimeout(() => {
-                        newYearMessage.style.boxShadow = '0 10px 30px rgba(0,0,0,0.15)';
-                    }, 1500);
+                if (lang === 'en-message') {
+                    if (englishMessage && myanmarMessage) {
+                        englishMessage.style.display = 'block';
+                        myanmarMessage.style.display = 'none';
+                    }
+                } else if (lang === 'my-message') {
+                    if (englishMessage && myanmarMessage) {
+                        englishMessage.style.display = 'none';
+                        myanmarMessage.style.display = 'block';
+                    }
                 }
             });
         });
@@ -1677,27 +1422,22 @@ Brought to you by EdBridge Myanmar Women.
         const modalClose = document.getElementById('modalClose');
         
         // Open video modal when clicking video play buttons
-        document.querySelectorAll('.watch-video, .video-play-btn').forEach(button => {
+        document.querySelectorAll('.watch-video-btn, .video-play-modern').forEach(button => {
             button.addEventListener('click', function(e) {
                 e.preventDefault();
                 
-                // Find the video URL from the thumbnail
-                let thumbnail = this.closest('.video-thumbnail');
-                if (!thumbnail && this.classList.contains('watch-video')) {
-                    thumbnail = this.closest('.video-card').querySelector('.video-thumbnail');
+                let videoUrl = this.getAttribute('data-video');
+                if (!videoUrl && this.classList.contains('video-play-modern')) {
+                    videoUrl = this.getAttribute('data-video');
                 }
                 
-                if (thumbnail) {
-                    const videoUrl = thumbnail.getAttribute('data-video');
-                    
-                    if (videoUrl && modalVideo) {
-                        // Set the video source
-                        modalVideo.src = videoUrl;
-                        // Show the modal
-                        if (videoModal) {
-                            videoModal.classList.add('active');
-                            document.body.style.overflow = 'hidden';
-                        }
+                if (videoUrl && modalVideo) {
+                    // Set the video source
+                    modalVideo.src = videoUrl + '?autoplay=1';
+                    // Show the modal
+                    if (videoModal) {
+                        videoModal.classList.add('active');
+                        document.body.style.overflow = 'hidden';
                     }
                 }
             });
@@ -1740,32 +1480,42 @@ Brought to you by EdBridge Myanmar Women.
             }
         });
 
-        // Single Image Modal Functionality
+        // Image Modal Functionality
         const imageModal = document.getElementById('imageModal');
         const modalImage = document.getElementById('modalImage');
         const imageModalClose = document.getElementById('imageModalClose');
         
-        // Open image modal when clicking on any clickable image
+        // Open image modal when clicking on gallery images
         document.addEventListener('click', function(e) {
-            // Check if clicked element is a clickable image
-            let clickableImg = null;
+            // Check if clicked element is a clickable image or inside a clickable gallery item
+            let clickableElement = null;
             
             if (e.target.classList.contains('clickable-image')) {
-                clickableImg = e.target;
-            } else if (e.target.parentElement && e.target.parentElement.classList.contains('clickable-image')) {
-                clickableImg = e.target.parentElement;
+                clickableElement = e.target;
+            } else if (e.target.closest('.clickable-image')) {
+                clickableElement = e.target.closest('.clickable-image');
+            } else if (e.target.classList.contains('gallery-item-modern')) {
+                clickableElement = e.target;
             }
             
-            if (clickableImg) {
+            if (clickableElement) {
                 e.preventDefault();
                 
                 // Get the image source
-                const imageSrc = clickableImg.src;
+                let imageSrc = '';
+                if (clickableElement.tagName === 'IMG') {
+                    imageSrc = clickableElement.src;
+                } else {
+                    const imgElement = clickableElement.querySelector('img');
+                    if (imgElement) {
+                        imageSrc = imgElement.src;
+                    }
+                }
                 
                 if (imageSrc && modalImage) {
                     // Set the image source
                     modalImage.src = imageSrc;
-                    modalImage.alt = clickableImg.alt;
+                    modalImage.alt = clickableElement.alt || 'Gallery Image';
                     
                     // Show the modal
                     if (imageModal) {
@@ -1776,11 +1526,6 @@ Brought to you by EdBridge Myanmar Women.
                     // Preload the full-size image for better experience
                     const img = new Image();
                     img.src = imageSrc;
-                    img.onload = function() {
-                        if (modalImage) {
-                            modalImage.src = imageSrc;
-                        }
-                    };
                 }
             }
         });
@@ -1822,21 +1567,46 @@ Brought to you by EdBridge Myanmar Women.
             }
         });
 
-        // Initialize filter visibility
-        document.addEventListener('DOMContentLoaded', function() {
-            // Show everything on initial load
-            document.querySelectorAll('.wishletter-gallery, .video-gallery').forEach(element => {
-                element.style.display = 'block';
-            });
-            
-            // Initialize language for tabs
-            document.querySelectorAll('.lang-tab').forEach(tab => {
-                const lang = currentLanguage;
-                const langText = tab.getAttribute(`data-${lang}`);
-                if (langText) {
-                    tab.textContent = langText;
+        // Newsletter Form Submission
+        const newsletterForm = document.querySelector('.newsletter-form-modern');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const emailInput = this.querySelector('.newsletter-input');
+                const email = emailInput.value.trim();
+                
+                if (email) {
+                    // In a real implementation, you would send this to your server
+                    alert(currentLanguage === 'en' ? 'Thank you for subscribing!' : 'စာရင်းသွင်းပေးတဲ့အတွက် ကျေးဇူးတင်ပါတယ်!');
+                    emailInput.value = '';
                 }
             });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set initial language
+            changeLanguage(currentLanguage);
+            
+            // Initialize message language tabs
+            const englishTab = document.querySelector('.lang-tab-modern[data-lang="en-message"]');
+            const myanmarTab = document.querySelector('.lang-tab-modern[data-lang="my-message"]');
+            
+            if (englishTab && myanmarTab) {
+                englishTab.addEventListener('click', function() {
+                    document.querySelectorAll('.lang-tab-modern').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    document.getElementById('en-message-content').style.display = 'block';
+                    document.getElementById('my-message-content').style.display = 'none';
+                });
+                
+                myanmarTab.addEventListener('click', function() {
+                    document.querySelectorAll('.lang-tab-modern').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    document.getElementById('en-message-content').style.display = 'none';
+                    document.getElementById('my-message-content').style.display = 'block';
+                });
+            }
         });
     </script>
 </body>
