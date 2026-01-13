@@ -41,6 +41,7 @@
             color: #e2e8f0;
             background-color: #1a202c;
             overflow-x: hidden;
+            transition: var(--transition);
         }
         
         h1, h2, h3, h4, h5, h6 {
@@ -69,6 +70,7 @@
             z-index: 1000;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
         }
         
         .header-container {
@@ -369,6 +371,7 @@
             position: relative;
             overflow: hidden;
             box-shadow: var(--shadow-lg);
+            transition: var(--transition);
         }
         
         .new-year-message-modern::before {
@@ -434,6 +437,7 @@
             text-align: left;
             margin-top: 30px;
             border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition);
         }
         
         .message-content-modern h3 {
@@ -486,6 +490,8 @@
             height: 100%;
             display: flex;
             flex-direction: column;
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .news-card-modern:hover {
@@ -575,6 +581,7 @@
         /* Gallery Section */
         .gallery-section-modern {
             margin: 80px 0;
+            transition: var(--transition);
         }
         
         .gallery-grid-modern {
@@ -633,6 +640,7 @@
         /* Video Gallery */
         .video-gallery-modern {
             margin: 80px 0;
+            transition: var(--transition);
         }
         
         .video-grid-modern {
@@ -717,6 +725,7 @@
             align-items: center;
             justify-content: center;
             padding: 20px;
+            transition: opacity 0.3s ease;
         }
         
         .modal.active {
@@ -774,6 +783,7 @@
             align-items: center;
             justify-content: center;
             padding: 20px;
+            transition: opacity 0.3s ease;
         }
         
         .image-modal.active {
@@ -794,8 +804,6 @@
             border-radius: 5px;
             box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
         }
-        
-       
         
         /* Footer */
         footer {
@@ -912,6 +920,70 @@
             margin: 60px 0 30px;
         }
         
+        /* Wish Letter Gallery Section */
+        .wishletter-gallery {
+            margin: 80px 0;
+            padding: 40px 0;
+        }
+        
+        .wishletter-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .wishletter-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        .wishletter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .wishletter-card {
+            background: #2d3748;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 500px;
+            position: relative;
+        }
+        
+        .wishletter-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .wishletter-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background-color: #1a202c;
+            padding: 20px;
+            cursor: pointer;
+            transition: transform 0.5s ease;
+        }
+        
+        .wishletter-card:hover img {
+            transform: scale(1.02);
+        }
+        
         /* Responsive Styles */
         @media (max-width: 992px) {
             .news-grid-modern {
@@ -926,12 +998,20 @@
                 grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             }
             
+            .wishletter-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+            
             .hero-content h1 {
                 font-size: 2.5rem;
             }
             
             .section-title h2 {
                 font-size: 2.5rem;
+            }
+            
+            .wishletter-card {
+                height: 400px;
             }
         }
         
@@ -973,12 +1053,12 @@
                 font-size: 2.2rem;
             }
             
-            .new-year-message-modern {
-                padding: 40px 30px;
+            .wishletter-title {
+                font-size: 2rem;
             }
             
-            .newsletter-form-modern {
-                flex-direction: column;
+            .new-year-message-modern {
+                padding: 40px 30px;
             }
             
             .message-language-tabs {
@@ -992,6 +1072,10 @@
             
             .modal-iframe {
                 height: 300px;
+            }
+            
+            .wishletter-card {
+                height: 350px;
             }
         }
         
@@ -1008,6 +1092,10 @@
                 grid-template-columns: 1fr;
             }
             
+            .wishletter-grid {
+                grid-template-columns: 1fr;
+            }
+            
             .news-card-modern,
             .video-card-modern {
                 margin-bottom: 30px;
@@ -1016,91 +1104,15 @@
             .message-content-modern {
                 padding: 25px;
             }
+            
+            .wishletter-card {
+                height: 300px;
+            }
+            
+            .wishletter-title {
+                font-size: 1.8rem;
+            }
         }
-        /* Wish Letter Gallery Section */
-.wishletter-gallery {
-    margin: 80px 0;
-    padding: 40px 0;
-}
-
-.wishletter-title {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 40px;
-    position: relative;
-    display: inline-block;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.wishletter-title::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(to right, var(--primary), var(--secondary));
-    border-radius: 2px;
-}
-
-.wishletter-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.wishletter-card {
-    background: #2d3748;
-    border-radius: var(--radius);
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-    height: 500px;
-    position: relative;
-}
-
-.wishletter-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
-}
-
-.wishletter-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    background-color: #1a202c;
-    padding: 20px;
-    cursor: pointer;
-    transition: transform 0.5s ease;
-}
-
-.wishletter-card:hover img {
-    transform: scale(1.02);
-}
-
-/* Responsive styles for wish letter gallery */
-@media (max-width: 768px) {
-    .wishletter-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .wishletter-card {
-        height: 400px;
-    }
-    
-    .wishletter-title {
-        font-size: 2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .wishletter-card {
-        height: 300px;
-    }
-}
         
         /* Animation */
         @keyframes fadeInUp {
@@ -1110,6 +1122,15 @@
         
         .animated {
             animation: fadeInUp 0.6s forwards;
+        }
+        
+        /* Loading State */
+        .loading {
+            cursor: wait;
+        }
+        
+        .loading * {
+            pointer-events: none;
         }
     </style>
 </head>
@@ -1169,6 +1190,7 @@
                 <button class="filter-btn-modern" data-filter="announcements" data-en="Announcements" data-my="ကြေညာချက်များ">Announcements</button>
                 <button class="filter-btn-modern" data-filter="events" data-en="Events" data-my="ပွဲစဉ်များ">Events</button>
                 <button class="filter-btn-modern" data-filter="stories" data-en="Success Stories" data-my="အောင်မြင်မှုဇာတ်လမ်းများ">Success Stories</button>
+                <button class="filter-btn-modern" data-filter="photos" data-en="Photos" data-my="ဓာတ်ပုံများ">Photos</button>
             </div>
 
             <!-- New Year Message -->
@@ -1291,7 +1313,7 @@
             </div>
 
             <!-- Photo Gallery -->
-            <div class="gallery-section-modern">
+            <div class="gallery-section-modern" data-category="photos">
                 <div class="section-title">
                     <h2 data-en="Our Photo Gallery" data-my="ကျွန်ုပ်တို့၏ ဓာတ်ပုံပြခန်း">Our Photo Gallery</h2>
                     <p data-en="Moments that inspire and stories that connect" data-my="လှုံ့ဆော်ပေးသောအခိုက်အတန့်များနှင့် ချိတ်ဆက်ပေးသောဇာတ်လမ်းများ">Moments that inspire and stories that connect</p>
@@ -1299,7 +1321,7 @@
                 
                 <div class="gallery-grid-modern">
                     <div class="gallery-item-modern">
-                        <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/group1.jpg" alt="Graduation Group Photo">
+                        <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/group1.jpg" alt="Graduation Group Photo" class="clickable-image">
                         <div class="gallery-overlay-modern">
                             <h4 class="gallery-title-modern" data-en="Graduation Ceremony" data-my="ဘွဲ့နှင်းသဘင်">Graduation Ceremony</h4>
                             <p class="gallery-description-modern" data-en="Celebrating our first batch of graduates" data-my="ကျွန်ုပ်တို့၏ ပထမဆုံးဘွဲ့ရအတန်းကို ဂုဏ်ပြုခြင်း">Celebrating our first batch</p>
@@ -1307,15 +1329,15 @@
                     </div>
                     
                     <div class="gallery-item-modern">
-                        <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/group2.jpg" alt="Workshop Group Photo">
+                        <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/group2.jpg" alt="Workshop Group Photo" class="clickable-image">
                         <div class="gallery-overlay-modern">
                             <h4 class="gallery-title-modern" data-en="Digital Skills Workshop" data-my="ဒီဂျစ်တယ်ကျွမ်းကျင်မှုသင်တန်း">Digital Skills Workshop</h4>
                             <p class="gallery-description-modern" data-en="Empowering women with digital tools" data-my="ဒီဂျစ်တယ်ကိရိယာများဖြင့် အမျိုးသမီးများအား စွမ်းဆောင်ရည်မြှင့်တင်ခြင်း">Empowering with digital tools</p>
                         </div>
                     </div>
                     
-                    <div class="gallery-item-modern clickable-image">
-                        <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/announcement2.jpg" alt="Announcement Event Photo">
+                    <div class="gallery-item-modern">
+                        <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/announcement2.jpg" alt="Announcement Event Photo" class="clickable-image">
                         <div class="gallery-overlay-modern">
                             <h4 class="gallery-title-modern" data-en="Community Announcement" data-my="အသိုင်းအဝိုင်းကြေညာချက်">Community Announcement</h4>
                             <p class="gallery-description-modern" data-en="Sharing important updates with our community" data-my="ကျွန်ုပ်တို့၏အသိုင်းအဝိုင်းနှင့် အရေးကြီးအပ်ဒိတ်များမျှဝေခြင်း">Sharing important updates</p>
@@ -1329,7 +1351,7 @@
             </div>
 
             <!-- Video Gallery -->
-            <div class="video-gallery-modern">
+            <div class="video-gallery-modern" data-category="stories">
                 <div class="section-title">
                     <h2 data-en="Success Story Videos" data-my="အောင်မြင်မှုဇာတ်လမ်းဗီဒီယိုများ">Success Story Videos</h2>
                     <p data-en="Inspiring stories of transformation and achievement" data-my="ပြောင်းလဲမှုနှင့် အောင်မြင်မှုများ၏ စိတ်လှုပ်ရှားဖွယ်ဇာတ်လမ်းများ">Inspiring stories of transformation and achievement</p>
@@ -1397,52 +1419,53 @@
             </div>
 
            <!-- Wish Letter Gallery Section -->
-<section id="wish-letter-gallery">
-    <div class="container">
-        <div class="wishletter-gallery" data-category="photos">
-            <h2 class="wishletter-title" data-en="Wish Letter Gallery" data-my="ဆုတောင်းစာများ">Wish Letter Gallery</h2>
-            <p class="section-subtitle" style="text-align: center; margin-bottom: 40px; color: #cbd5e0;" 
-               data-en="Heartfelt messages and wishes from our community"
-               data-my="ကျွန်ုပ်တို့၏ အသိုင်းအဝိုင်းမှ စိတ်နှလုံးအကြွင်းမဲ့ သတင်းစကားများနှင့် ဆုတောင်းချက်များ">
-                Heartfelt messages and wishes from our community
-            </p>
-            <div class="wishletter-grid">
-                <!-- Photo 1 -->
-                <div class="wishletter-card">
-                    <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/wish%20letter%20form%20Ni%20Nar%20Mying.jpg" 
-                         alt="Ni Nar Mying's Wish Letter" 
-                         class="clickable-image"
-                         data-description="Ni Nar Mying's heartfelt wish letter for EdBridge">
-                    <div class="image-overlay" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.7); color: white; padding: 15px; text-align: center;">
-                        <p data-en="Ni Nar Mying's Wish Letter" data-my="နီနာမြိုင်၏ ဆုတောင်းစာ">Ni Nar Mying's Wish Letter</p>
+           <div class="wishletter-gallery" data-category="photos">
+                <h2 class="wishletter-title" data-en="Wish Letter Gallery" data-my="ဆုတောင်းစာများ">Wish Letter Gallery</h2>
+                <p class="section-subtitle" style="text-align: center; margin-bottom: 40px; color: #cbd5e0;" 
+                   data-en="Heartfelt messages and wishes from our community"
+                   data-my="ကျွန်ုပ်တို့၏ အသိုင်းအဝိုင်းမှ စိတ်နှလုံးအကြွင်းမဲ့ သတင်းစကားများနှင့် ဆုတောင်းချက်များ">
+                    Heartfelt messages and wishes from our community
+                </p>
+                <div class="wishletter-grid">
+                    <!-- Photo 1 -->
+                    <div class="wishletter-card">
+                        <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/wish%20letter%20form%20Ni%20Nar%20Mying.jpg" 
+                             alt="Ni Nar Mying's Wish Letter" 
+                             class="clickable-image"
+                             data-description="Ni Nar Mying's heartfelt wish letter for EdBridge">
+                        <div class="image-overlay" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.7); color: white; padding: 15px; text-align: center;">
+                            <p data-en="Ni Nar Mying's Wish Letter" data-my="နီနာမြိုင်၏ ဆုတောင်းစာ">Ni Nar Mying's Wish Letter</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Photo 2 -->
+                    <div class="wishletter-card">
+                        <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/wish%20letter%20form%20Dr.Zaw%20Naing.jpg" 
+                             alt="Dr. Zaw Naing's Wish Letter" 
+                             class="clickable-image"
+                             data-description="Dr. Zaw Naing's inspiring wish letter">
+                        <div class="image-overlay" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.7); color: white; padding: 15px; text-align: center;">
+                            <p data-en="Dr. Zaw Naing's Wish Letter" data-my="ဒေါက်တာဇေနိုင်င့် ဆုတောင်းစာ">Dr. Zaw Naing's Wish Letter</p>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Photo 2 -->
-                <div class="wishletter-card">
-                    <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/wish%20letter%20form%20Dr.Zaw%20Naing.jpg" 
-                         alt="Dr. Zaw Naing's Wish Letter" 
-                         class="clickable-image"
-                         data-description="Dr. Zaw Naing's inspiring wish letter">
-                    <div class="image-overlay" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.7); color: white; padding: 15px; text-align: center;">
-                        <p data-en="Dr. Zaw Naing's Wish Letter" data-my="ဒေါက်တာဇေနိုင်င့် ဆုတောင်းစာ">Dr. Zaw Naing's Wish Letter</p>
-                    </div>
+                <div style="text-align: center; margin-top: 40px;">
+                    <p style="color: #cbd5e0; margin-bottom: 20px;" 
+                       data-en="Share your wish letter with us!"
+                       data-my="သင့်ဆုတောင်းစာကို ကျွန်ုပ်တို့နှင့် မျှဝေပါ!">
+                        Share your wish letter with us!
+                    </p>
+                    <a href="contact.html" class="btn btn-outline" data-en="Contact Us" data-my="ဆက်သွယ်ရန်">
+                        <i class="fas fa-envelope"></i> Contact Us
+                    </a>
                 </div>
             </div>
-            
-            <div style="text-align: center; margin-top: 40px;">
-                <p style="color: #cbd5e0; margin-bottom: 20px;" 
-                   data-en="Share your wish letter with us!"
-                   data-my="သင့်ဆုတောင်းစာကို ကျွန်ုပ်တို့နှင့် မျှဝေပါ!">
-                    Share your wish letter with us!
-                </p>
-                <a href="contact.html" class="btn btn-outline" data-en="Contact Us" data-my="ဆက်သွယ်ရန်">
-                    <i class="fas fa-envelope"></i> Contact Us
-                </a>
+
+            <!-- Back to Home Button -->
+            <div class="back-to-home-modern">
+                <a href="index.html" class="btn btn-outline" data-en="Back to Home" data-my="မူလစာမျက်နှာသို့ ပြန်သွားရန်">Back to Home</a>
             </div>
-        </div>
-    </div>
-</section>
         </div>
     </section>
 
@@ -1463,13 +1486,7 @@
                 <i class="fas fa-times"></i>
             </button>
             <img class="modal-image" id="modalImage" src="" alt="">
-        </div>
-    </div>
-
-    <!-- Back to Home -->
-    <div class="container">
-        <div class="back-to-home-modern">
-            <a href="index.html" class="btn btn-outline" data-en="Back to Home" data-my="မူလစာမျက်နှာသို့ ပြန်သွားရန်">Back to Home</a>
+            <div id="imageDescription" style="color: white; text-align: center; padding: 15px; background: rgba(0,0,0,0.7); margin-top: 10px; border-radius: 5px;"></div>
         </div>
     </div>
 
@@ -1492,11 +1509,11 @@
                 <div class="footer-column-modern">
                     <h3 data-en="Quick Links" data-my="အမြန်လင့်ခ်များ">Quick Links</h3>
                     <ul class="footer-links-modern">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="news.html">News & Updates</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="index.html" data-en="Home" data-my="မူလ စာမျက်နှာ">Home</a></li>
+                        <li><a href="about.html" data-en="About Us" data-my="အကြောင်း">About Us</a></li>
+                        <li><a href="services.html" data-en="Services" data-my="ဝန်ဆောင်မှုများ">Services</a></li>
+                        <li><a href="news.html" data-en="News & Updates" data-my="သတင်းများနှင့် အပ်ဒိတ်များ">News & Updates</a></li>
+                        <li><a href="contact.html" data-en="Contact" data-my="ဆက်သွယ်ရန်">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-column-modern">
@@ -1556,7 +1573,8 @@
         function changeLanguage(lang) {
             currentLanguage = lang;
             
-            document.querySelectorAll('[data-en]').forEach(element => {
+            // Update all elements with data-en and data-my attributes
+            document.querySelectorAll('[data-en], [data-my]').forEach(element => {
                 if (element.hasAttribute(`data-${lang}`)) {
                     if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
                         const placeholderAttr = element.getAttribute(`data-${lang}-placeholder`);
@@ -1566,19 +1584,23 @@
                             element.placeholder = element.getAttribute(`data-${lang}`);
                         }
                     } else {
-                        element.textContent = element.getAttribute(`data-${lang}`);
+                        const text = element.getAttribute(`data-${lang}`);
+                        if (text) {
+                            element.textContent = text;
+                        }
                     }
                 }
             });
             
-            // Update active message language
-            updateMessageLanguage(lang);
-            
+            // Update page title
             if (lang === 'en') {
                 document.title = "News & Updates - EdBridge";
             } else if (lang === 'my') {
                 document.title = "သတင်းများနှင့် အပ်ဒိတ်များ - EdBridge";
             }
+            
+            // Update active message language
+            updateMessageLanguage(lang);
         }
         
         // Message Language Tabs
@@ -1632,7 +1654,7 @@
                 header.style.backgroundColor = 'rgba(26, 32, 44, 0.98)';
                 header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
             } else {
-                header.style.backgroundColor = '';
+                header.style.backgroundColor = 'rgba(26, 32, 44, 0.95)';
                 header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
             }
             
@@ -1708,6 +1730,17 @@
                     }, index * 200);
                 }
             });
+            
+            // Wish letter cards
+            const wishletterCards = document.querySelectorAll('.wishletter-card');
+            wishletterCards.forEach((card, index) => {
+                const position = card.getBoundingClientRect();
+                if (position.top < window.innerHeight - 100 && !card.classList.contains('animated')) {
+                    setTimeout(() => {
+                        card.classList.add('animated');
+                    }, index * 200);
+                }
+            });
         }
 
         // Initial animation trigger
@@ -1733,6 +1766,7 @@
                 const newYearMessage = document.querySelector('.new-year-message-modern');
                 const gallerySection = document.querySelector('.gallery-section-modern');
                 const videoGallery = document.querySelector('.video-gallery-modern');
+                const wishletterGallery = document.querySelector('.wishletter-gallery');
                 
                 // Handle new year message visibility
                 if (newYearMessage) {
@@ -1751,7 +1785,7 @@
                 
                 // Handle gallery section visibility
                 if (gallerySection) {
-                    if (filter === 'all') {
+                    if (filter === 'all' || filter === 'photos') {
                         gallerySection.style.display = 'block';
                         setTimeout(() => {
                             gallerySection.style.opacity = '1';
@@ -1775,6 +1809,21 @@
                         videoGallery.style.opacity = '0';
                         setTimeout(() => {
                             videoGallery.style.display = 'none';
+                        }, 300);
+                    }
+                }
+                
+                // Handle wishletter gallery visibility
+                if (wishletterGallery) {
+                    if (filter === 'all' || filter === 'photos') {
+                        wishletterGallery.style.display = 'block';
+                        setTimeout(() => {
+                            wishletterGallery.style.opacity = '1';
+                        }, 10);
+                    } else {
+                        wishletterGallery.style.opacity = '0';
+                        setTimeout(() => {
+                            wishletterGallery.style.display = 'none';
                         }, 300);
                     }
                 }
@@ -1844,7 +1893,7 @@
                 
                 if (videoUrl && modalVideo) {
                     // Set the video source
-                    modalVideo.src = videoUrl + '?autoplay=1';
+                    modalVideo.src = videoUrl + '?autoplay=1&rel=0';
                     // Show the modal
                     if (videoModal) {
                         videoModal.classList.add('active');
@@ -1895,18 +1944,17 @@
         const imageModal = document.getElementById('imageModal');
         const modalImage = document.getElementById('modalImage');
         const imageModalClose = document.getElementById('imageModalClose');
+        const imageDescription = document.getElementById('imageDescription');
         
-        // Open image modal when clicking on gallery images
+        // Open image modal when clicking on clickable images
         document.addEventListener('click', function(e) {
-            // Check if clicked element is a clickable image or inside a clickable gallery item
+            // Check if clicked element is a clickable image or inside a clickable element
             let clickableElement = null;
             
             if (e.target.classList.contains('clickable-image')) {
                 clickableElement = e.target;
             } else if (e.target.closest('.clickable-image')) {
                 clickableElement = e.target.closest('.clickable-image');
-            } else if (e.target.classList.contains('gallery-item-modern')) {
-                clickableElement = e.target;
             }
             
             if (clickableElement) {
@@ -1914,19 +1962,36 @@
                 
                 // Get the image source
                 let imageSrc = '';
+                let imageAlt = '';
+                let imageDesc = '';
+                
                 if (clickableElement.tagName === 'IMG') {
                     imageSrc = clickableElement.src;
+                    imageAlt = clickableElement.alt;
+                    imageDesc = clickableElement.getAttribute('data-description') || '';
                 } else {
                     const imgElement = clickableElement.querySelector('img');
                     if (imgElement) {
                         imageSrc = imgElement.src;
+                        imageAlt = imgElement.alt;
+                        imageDesc = clickableElement.getAttribute('data-description') || '';
                     }
                 }
                 
                 if (imageSrc && modalImage) {
                     // Set the image source
                     modalImage.src = imageSrc;
-                    modalImage.alt = clickableElement.alt || 'Gallery Image';
+                    modalImage.alt = imageAlt;
+                    
+                    // Set image description
+                    if (imageDescription) {
+                        if (imageDesc) {
+                            imageDescription.textContent = imageDesc;
+                            imageDescription.style.display = 'block';
+                        } else {
+                            imageDescription.style.display = 'none';
+                        }
+                    }
                     
                     // Show the modal
                     if (imageModal) {
@@ -1934,7 +1999,7 @@
                         document.body.style.overflow = 'hidden';
                     }
                     
-                    // Preload the full-size image for better experience
+                    // Preload the image for better experience
                     const img = new Image();
                     img.src = imageSrc;
                 }
@@ -1950,6 +2015,9 @@
                 if (modalImage) {
                     modalImage.src = '';
                 }
+                if (imageDescription) {
+                    imageDescription.textContent = '';
+                }
                 document.body.style.overflow = 'auto';
             });
         }
@@ -1962,6 +2030,9 @@
                     if (modalImage) {
                         modalImage.src = '';
                     }
+                    if (imageDescription) {
+                        imageDescription.textContent = '';
+                    }
                     document.body.style.overflow = 'auto';
                 }
             });
@@ -1973,6 +2044,9 @@
                 imageModal.classList.remove('active');
                 if (modalImage) {
                     modalImage.src = '';
+                }
+                if (imageDescription) {
+                    imageDescription.textContent = '';
                 }
                 document.body.style.overflow = 'auto';
             }
