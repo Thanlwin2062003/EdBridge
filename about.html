@@ -5,19 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us & Our Model - EdBridge</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap">
     <link rel="icon" href="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/logo.png" type="image/png" sizes="32x32">
-    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/logo.png" sizes="32x32">
     <style>
         :root {
-            --primary: #2a5ca9;
-            --secondary: #f9a826;
-            --accent: #e53e3e;
-            --light: #f8f9fa;
-            --dark: #343a40;
-            --success: #28a745;
-            --teal: #2d9c92; /* New teal color for reinvestment section */
-            --purple: #7a4baf; /* New purple accent */
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #f59e0b;
+            --secondary-dark: #d97706;
+            --accent: #7c3aed;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+            --teal: #0d9488;
+            --purple: #8b5cf6;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --radius: 12px;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         * {
@@ -27,38 +36,39 @@
         }
         
         body {
-            font-family: 'Open Sans', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #FAEBD7;
-            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--dark);
+            background-color: #fefefe;
+            overflow-x: hidden;
         }
         
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Playfair Display', serif;
             font-weight: 600;
             margin-bottom: 1rem;
-            color: var(--primary);
+            color: var(--dark);
+            line-height: 1.3;
         }
         
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 20px;
         }
         
-        /* Header Styles */
+        /* Modern Header */
         header {
-            background: linear-gradient(135deg, var(--primary) 0%, #9f811e 100%);
-            color: white;
-            padding: 1rem 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            transition: background-color 0.3s;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
         
         .header-container {
@@ -70,17 +80,19 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
         
         .logo img {
-            height: 50px;
+            height: 48px;
             width: auto;
+            border-radius: 50%;
+            box-shadow: var(--shadow);
         }
         
         .logo h1 {
-            font-size: 1.5rem;
-            color: white;
+            font-size: 1.6rem;
+            color: var(--primary);
             margin: 0;
         }
         
@@ -91,27 +103,26 @@
         nav ul {
             display: flex;
             list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 1.5rem;
+            gap: 2rem;
         }
         
         nav ul li a {
-            color: white;
+            color: var(--dark);
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s;
+            font-size: 0.95rem;
+            transition: var(--transition);
             padding: 0.5rem 0;
             position: relative;
         }
         
         nav ul li a:hover {
-            color: var(--secondary);
+            color: var(--primary);
         }
         
         nav ul li a.active {
-            color: var(--secondary);
+            color: var(--primary);
+            font-weight: 600;
         }
         
         nav ul li a.active::after {
@@ -121,52 +132,40 @@
             left: 0;
             width: 100%;
             height: 2px;
-            background-color: var(--secondary);
-        }
-        
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--secondary);
-            transition: width 0.3s;
-        }
-        
-        nav ul li a:hover::after {
-            width: 100%;
+            background-color: var(--primary);
+            border-radius: 2px;
         }
         
         .mobile-menu {
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
+            color: var(--dark);
         }
         
         /* Language Switcher */
         .language-switcher {
             position: relative;
-            margin-left: 20px;
         }
 
         .lang-btn {
-            background: rgba(255,255,255,0.2);
-            color: white;
-            border: 1px solid rgba(255,255,255,0.3);
-            padding: 8px 15px;
-            border-radius: 5px;
+            background: var(--light);
+            color: var(--dark);
+            border: 1px solid var(--gray-light);
+            padding: 8px 16px;
+            border-radius: var(--radius);
             cursor: pointer;
             display: flex;
             align-items: center;
             gap: 8px;
             font-size: 0.9rem;
-            transition: all 0.3s;
+            font-weight: 500;
+            transition: var(--transition);
         }
 
         .lang-btn:hover {
-            background: rgba(255,255,255,0.3);
+            background: #f1f5f9;
+            border-color: var(--primary);
         }
 
         .lang-dropdown {
@@ -174,12 +173,13 @@
             top: 100%;
             right: 0;
             background: white;
-            border-radius: 5px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            min-width: 120px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            min-width: 140px;
             display: none;
             overflow: hidden;
             z-index: 1001;
+            margin-top: 8px;
         }
 
         .lang-dropdown.show {
@@ -187,16 +187,18 @@
         }
 
         .lang-dropdown a {
-            display: block;
-            padding: 10px 15px;
-            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+            color: var(--dark);
             text-decoration: none;
-            transition: background 0.3s;
+            transition: var(--transition);
             border-bottom: 1px solid #f0f0f0;
         }
 
         .lang-dropdown a:hover {
-            background: #f8f9fa;
+            background: #f8fafc;
             color: var(--primary);
         }
 
@@ -204,294 +206,356 @@
             border-bottom: none;
         }
         
-      /* Lighter gradient to show image text */
-.page-hero {
-    background: url('https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/coverphoto.jpg');
-    background-size: contain; /* Changed from 'cover' to 'contain' */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: #000; /* Add black background for empty space */
-    color: white;
-    text-align: center;
-    height: 70vh;
-    min-height: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-
-.page-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    
-    pointer-events: none;
-}
-
-.page-hero .container {
-    position: relative;
-    z-index: 2;
-    padding: 40px;
-    
-    border-radius: 10px;
-    max-width: 800px;
-}
+        /* Hero Section */
+        .modern-hero {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #fef3c7 100%);
+            padding: 180px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .modern-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%232563eb' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.6;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            text-align: center;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
         
         .btn {
-            display: inline-block;
-            background-color: var(--secondary);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: var(--primary);
             color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
+            padding: 14px 32px;
+            border-radius: var(--radius);
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s;
+            transition: var(--transition);
             border: none;
             cursor: pointer;
+            font-size: 1rem;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
         }
         
         .btn:hover {
-            background-color: #e89a1f;
+            background-color: var(--primary-dark);
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
         }
         
-        .btn-primary {
-            background-color: var(--primary);
+        .btn-secondary {
+            background-color: var(--secondary);
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2);
         }
         
-        .btn-primary:hover {
-            background-color: #1e429f;
+        .btn-secondary:hover {
+            background-color: var(--secondary-dark);
+            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.3);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            box-shadow: none;
+        }
+        
+        .btn-outline:hover {
+            background-color: rgba(37, 99, 235, 0.05);
         }
         
         /* Section Styles */
         section {
-            padding: 80px 0;
+            padding: 100px 0;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
         }
         
         .section-title h2 {
-            font-size: 2.2rem;
+            font-size: 2.8rem;
             position: relative;
             display: inline-block;
-            padding-bottom: 10px;
+            margin-bottom: 1.5rem;
         }
         
         .section-title h2::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
             width: 80px;
-            height: 3px;
-            background-color: var(--secondary);
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
         }
         
-        /* Tab Navigation */
-        .section-tabs {
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Tab Navigation - Modern */
+        .modern-tabs {
             display: flex;
             justify-content: center;
-            margin-bottom: 40px;
-            border-bottom: 2px solid #eee;
-            flex-wrap: wrap;
+            gap: 0;
+            background: var(--light);
+            border-radius: var(--radius);
+            padding: 8px;
+            margin: 0 auto 50px;
+            max-width: 800px;
+            box-shadow: var(--shadow);
         }
         
-        .tab-btn {
-            padding: 15px 30px;
-            background: none;
+        .modern-tab-btn {
+            padding: 18px 32px;
+            background: transparent;
             border: none;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
-            color: #666;
+            color: var(--gray);
             cursor: pointer;
             position: relative;
-            transition: all 0.3s;
+            transition: var(--transition);
+            border-radius: calc(var(--radius) - 4px);
+            flex: 1;
+            text-align: center;
         }
         
-        .tab-btn:hover {
+        .modern-tab-btn:hover {
             color: var(--primary);
         }
         
-        .tab-btn.active {
+        .modern-tab-btn.active {
             color: var(--primary);
+            background: white;
+            box-shadow: var(--shadow);
         }
         
-        .tab-btn.active::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background-color: var(--secondary);
-        }
-        
+        /* Content Sections */
         .content-section {
             display: none;
         }
         
         .content-section.active {
             display: block;
-            animation: fadeIn 0.5s ease;
+            animation: fadeInUp 0.6s ease;
         }
         
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
-        /* About Content */
-        .about-content {
-            display: flex;
+        /* About Content - Modern */
+        .about-content-modern {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
             align-items: center;
-            gap: 40px;
-            margin-bottom: 60px;
+            margin-bottom: 80px;
         }
         
-        .about-text {
-            flex: 1;
+        .about-text-modern h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
         }
         
-        .about-image {
-            flex: 1;
-            border-radius: 10px;
+        .about-text-modern p {
+            font-size: 1.1rem;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-image-modern {
+            border-radius: var(--radius);
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow-lg);
+            position: relative;
         }
         
-        .about-image img {
+        .about-image-modern img {
             width: 100%;
             height: auto;
             display: block;
+            transition: transform 0.5s ease;
         }
         
-        .circle-logo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
+        .about-image-modern:hover img {
+            transform: scale(1.05);
         }
         
-        /* Timeline */
-        .timeline {
+        /* Modern Timeline */
+        .modern-timeline {
             position: relative;
-            max-width: 800px;
-            margin: 50px auto;
+            max-width: 900px;
+            margin: 60px auto;
         }
         
-        .timeline::before {
+        .modern-timeline::before {
             content: '';
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
             width: 2px;
             height: 100%;
-            background-color: var(--primary);
+            background: linear-gradient(to bottom, var(--primary), var(--secondary));
         }
         
-        .timeline-item {
-            margin-bottom: 40px;
+        .modern-timeline-item {
+            margin-bottom: 60px;
             position: relative;
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.6s ease, transform 0.6s ease;
         }
         
-        .timeline-item.visible {
+        .modern-timeline-item.visible {
             opacity: 1;
             transform: translateY(0);
         }
         
-        .timeline-content {
+        .modern-timeline-content {
             background-color: white;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-radius: var(--radius);
+            padding: 35px;
+            box-shadow: var(--shadow);
             width: 45%;
-            transition: transform 0.3s;
+            transition: var(--transition);
+            border-left: 4px solid var(--primary);
         }
         
-        .timeline-content:hover {
+        .modern-timeline-content:hover {
             transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
         }
         
-        .timeline-item:nth-child(odd) .timeline-content {
+        .modern-timeline-item:nth-child(odd) .modern-timeline-content {
             margin-left: 55%;
         }
         
-        .timeline-item:nth-child(even) .timeline-content {
+        .modern-timeline-item:nth-child(even) .modern-timeline-content {
             margin-right: 55%;
         }
         
-        .timeline-year {
+        .modern-timeline-year {
             position: absolute;
             top: 0;
-            background-color: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-weight: 600;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 700;
             left: 50%;
             transform: translateX(-50%);
             z-index: 1;
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
         }
         
-        /* Mission Section */
-        .mission-card-large {
-            background-color: white;
-            border-radius: 15px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            margin-bottom: 40px;
-            text-align: center;
-            transition: transform 0.3s;
+        /* Mission Section - Modern */
+        .mission-modern {
+            background: linear-gradient(135deg, #f0f9ff 0%, #fefce8 100%);
+            border-radius: var(--radius);
+            padding: 60px;
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
         }
         
-        .mission-card-large:hover {
-            transform: translateY(-5px);
+        .mission-modern::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
         }
         
-        .mission-icon-large {
+        .mission-modern::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .mission-icon-modern {
             font-size: 4rem;
             color: var(--primary);
             margin-bottom: 2rem;
-            animation: pulse 2s infinite;
         }
         
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+        .mission-modern h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
         }
         
-        .values-grid {
+        .mission-modern p {
+            font-size: 1.1rem;
+            color: var(--dark);
+            margin-bottom: 2rem;
+        }
+        
+        .values-grid-modern {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
-            margin-top: 40px;
+            margin-top: 60px;
         }
         
-        .value-card {
+        .value-card-modern {
             background-color: white;
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-radius: var(--radius);
+            padding: 35px 30px;
+            box-shadow: var(--shadow);
             text-align: center;
-            transition: transform 0.3s;
+            transition: var(--transition);
+            border-top: 4px solid var(--primary);
             opacity: 0;
             transform: translateY(20px);
         }
         
-        .value-card.animated {
+        .value-card-modern.animated {
             animation: slideUp 0.6s forwards;
         }
         
@@ -502,225 +566,144 @@
             }
         }
         
-        .value-card:hover {
+        .value-card-modern:hover {
             transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
         }
         
-        .value-icon {
-            font-size: 2.5rem;
-            color: var(--secondary);
+        .value-icon-modern {
+            font-size: 2.8rem;
+            color: var(--primary);
             margin-bottom: 1.5rem;
         }
         
-        /* Team Section */
-        .team-section-title {
-            text-align: center;
-            margin: 60px 0 40px;
+        /* Team Section - Modern */
+        .team-section-modern {
             position: relative;
         }
         
-        .team-section-title h2 {
-            font-size: 2rem;
-            color: var(--primary);
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-        
-        .team-section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background-color: var(--secondary);
-        }
-        
-        .team-intro {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 50px;
-        }
-        
-        .team-grid-extended {
+        .team-grid-modern {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 30px;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
         
-        .team-member-extended {
+        .team-member-modern {
             background-color: white;
-            border-radius: 15px;
+            border-radius: var(--radius);
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
             text-align: center;
             opacity: 0;
             transform: translateY(20px);
         }
         
-        .team-member-extended.animated {
+        .team-member-modern.animated {
             animation: slideUp 0.6s forwards;
         }
         
-        .team-member-extended:hover {
+        .team-member-modern:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            box-shadow: var(--shadow-lg);
         }
         
-        .member-image-large {
-            height: 300px;
+        .member-image-modern {
+            height: 280px;
             overflow: hidden;
             position: relative;
         }
         
-        .member-image-large img {
+        .member-image-modern img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s;
+            transition: transform 0.5s ease;
         }
         
-        .team-member-extended:hover .member-image-large img {
+        .team-member-modern:hover .member-image-modern img {
             transform: scale(1.1);
         }
         
-        .member-info-extended {
-            padding: 25px;
+        .member-info-modern {
+            padding: 25px 20px;
         }
         
-        .member-info-extended h3 {
+        .member-info-modern h3 {
             margin-bottom: 8px;
             font-size: 1.3rem;
         }
         
-        .member-role-extended {
+        .member-role-modern {
             color: var(--primary);
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             font-size: 0.9rem;
         }
         
-        .member-bio {
-            color: #666;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-top: 10px;
-        }
-        
-        .member-social {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 15px;
-        }
-        
-        .member-social a {
-            width: 35px;
-            height: 35px;
-            background-color: var(--light);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        
-        .member-social a:hover {
-            background-color: var(--primary);
-            color: white;
-            transform: translateY(-3px);
-        }
-        
-        .join-team {
-            background-color: var(--light);
-            padding: 60px 0;
-            text-align: center;
-            margin-top: 50px;
-        }
-        
-        .join-team-content {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        
-        /* Model Explanation */
-        .model-explanation {
-            background-color: white;
-            border-radius: 15px;
-            padding: 50px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            margin-bottom: 60px;
-            line-height: 1.8;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        
-        .model-explanation.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .model-visualization {
+        /* Model Section - Modern */
+        .model-visualization-modern {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
-            margin: 50px 0;
+            margin: 60px 0;
         }
         
-        .model-visual-item {
+        .model-visual-item-modern {
             text-align: center;
-            padding: 30px;
-            border-radius: 15px;
-            transition: transform 0.3s;
+            padding: 40px 30px;
+            border-radius: var(--radius);
+            transition: var(--transition);
+            background: white;
+            box-shadow: var(--shadow);
             opacity: 0;
             transform: translateY(20px);
         }
         
-        .model-visual-item.animated {
+        .model-visual-item-modern.animated {
             animation: slideUp 0.6s forwards;
         }
         
-        .model-visual-item:hover {
+        .model-visual-item-modern:hover {
             transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
         }
         
-        .visual-icon {
-            font-size: 4rem;
+        .visual-icon-modern {
+            font-size: 3.5rem;
             margin-bottom: 20px;
-            animation: float 3s ease-in-out infinite;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-        
-        /* Model Flow */
-        .model-flow {
-            background-color: var(--light);
-            padding: 60px 0;
-            margin: 60px 0;
-        }
-        
-        .flow-container {
-            max-width: 1000px;
-            margin: 0 auto;
+        /* Model Flow - Modern */
+        .model-flow-modern {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            padding: 80px 0;
+            margin: 80px 0;
             position: relative;
+            overflow: hidden;
         }
         
-        .flow-step {
+        .model-flow-modern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232563eb' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .flow-step-modern {
             background-color: white;
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: var(--radius);
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
             position: relative;
             border-left: 5px solid var(--primary);
             opacity: 0;
@@ -728,87 +711,66 @@
             transition: opacity 0.6s ease, transform 0.6s ease;
         }
         
-        .flow-step.visible {
+        .flow-step-modern.visible {
             opacity: 1;
             transform: translateX(0);
         }
         
-        .flow-step:nth-child(even) {
+        .flow-step-modern:nth-child(even) {
             transform: translateX(30px);
         }
         
-        .flow-step:nth-child(even).visible {
+        .flow-step-modern:nth-child(even).visible {
             transform: translateX(0);
         }
         
-        .step-number {
+        .step-number-modern {
             position: absolute;
-            top: -15px;
-            left: -15px;
-            background-color: var(--primary);
+            top: -20px;
+            left: -20px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             color: white;
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 700;
-            font-size: 1.2rem;
-            animation: bounce 2s infinite;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
         }
         
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        /* Reinvestment Section - UPDATED COLOR SCHEME */
-        .reinvestment-section {
+        /* Reinvestment Section - Modern */
+        .reinvestment-modern {
             background: linear-gradient(135deg, var(--teal) 0%, var(--purple) 100%);
             color: white;
             padding: 80px 0;
-            border-radius: 20px;
+            border-radius: var(--radius);
             margin: 80px 0;
             position: relative;
             overflow: hidden;
         }
         
-        .reinvestment-section::before {
+        .reinvestment-modern::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
-            background-size: 50px 50px;
-            opacity: 0.3;
-            animation: moveBackground 20s linear infinite;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
         }
         
-        @keyframes moveBackground {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
-        }
-        
-        .reinvestment-section .section-title h2 {
+        .reinvestment-modern .section-title h2 {
             color: white;
-            position: relative;
-            z-index: 2;
         }
         
-        .reinvestment-section .section-title h2::after {
-            background-color: rgba(255, 255, 255, 0.8);
-        }
-        
-        .reinvestment-section .section-title p {
+        .reinvestment-modern .section-title p {
             color: rgba(255, 255, 255, 0.9);
-            position: relative;
-            z-index: 2;
         }
         
-        .reinvestment-grid {
+        .reinvestment-grid-modern {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
@@ -817,89 +779,36 @@
             z-index: 2;
         }
         
-        .reinvestment-card {
+        .reinvestment-card-modern {
             background: rgba(255, 255, 255, 0.15);
             padding: 35px 25px;
-            border-radius: 15px;
+            border-radius: var(--radius);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: var(--transition);
             opacity: 0;
             transform: translateY(20px);
             position: relative;
             overflow: hidden;
         }
         
-        .reinvestment-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
-            z-index: -1;
-        }
-        
-        .reinvestment-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.7s ease;
-        }
-        
-        .reinvestment-card:hover::after {
-            left: 100%;
-        }
-        
-        .reinvestment-card.animated {
+        .reinvestment-card-modern.animated {
             animation: slideUp 0.6s forwards;
         }
         
-        .reinvestment-card:hover {
-            transform: translateY(-15px) scale(1.03);
+        .reinvestment-card-modern:hover {
+            transform: translateY(-10px);
             background: rgba(255, 255, 255, 0.25);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
         }
         
-        .reinvestment-card h3 {
-            color: white;
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        .reinvestment-card h3::after {
-            content: '';
+        .percentage-badge-modern {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 2px;
-        }
-        
-        .reinvestment-card p {
-            color: rgba(255, 255, 255, 0.9);
-            line-height: 1.7;
-            font-size: 0.95rem;
-        }
-        
-        /* Percentage Badge */
-        .percentage-badge {
-            position: absolute;
-            top: -15px;
-            right: -15px;
+            top: -25px;
+            right: 30px;
             background: linear-gradient(135deg, #ffd700 0%, #ff9900 100%);
             color: #333;
-            width: 70px;
-            height: 70px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             display: flex;
             flex-direction: column;
@@ -912,220 +821,128 @@
             animation: pulseGold 2s infinite;
         }
         
-        .percentage-badge span:first-child {
-            font-size: 1.8rem;
-            line-height: 1;
-        }
-        
-        .percentage-badge span:last-child {
-            font-size: 0.7rem;
-            font-weight: 600;
-            margin-top: -3px;
-        }
-        
         @keyframes pulseGold {
-            0% { transform: scale(1); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); }
-            50% { transform: scale(1.05); box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); }
-            100% { transform: scale(1); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); }
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
         
-        /* Impact Stats */
-        .impact-stats {
+        /* Impact Stats - Modern */
+        .impact-stats-modern {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 30px;
-            margin: 50px 0;
+            margin: 60px 0;
         }
         
-        .impact-stat {
+        .impact-stat-modern {
             text-align: center;
-            padding: 30px;
+            padding: 40px 20px;
             background: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
             opacity: 0;
             transform: translateY(20px);
+            border-top: 4px solid var(--primary);
         }
         
-        .impact-stat.animated {
+        .impact-stat-modern.animated {
             animation: slideUp 0.6s forwards;
         }
         
-        .impact-stat:hover {
-            transform: translateY(-5px);
+        .impact-stat-modern:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
         }
         
-        .stat-number {
-            font-size: 2.5rem;
+        .stat-number-modern {
+            font-size: 3rem;
             font-weight: 700;
             color: var(--primary);
             margin-bottom: 10px;
-            animation: countUp 2s ease-out;
+            font-family: 'Inter', sans-serif;
         }
         
-        @keyframes countUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .stat-label {
-            font-weight: 600;
-            color: #666;
-        }
-        
-        /* Interactive Model Diagram */
-        .model-diagram-container {
-            background-color: white;
-            border-radius: 15px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            margin: 50px 0;
-            overflow: hidden;
-        }
-        
-        .model-diagram {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 30px;
-            position: relative;
-        }
-        
-        .model-node {
-            width: 200px;
-            padding: 25px;
-            background-color: var(--light);
-            border-radius: 10px;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-        
-        .model-node:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-        }
-        
-        .model-node-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-        
-        .model-node:nth-child(2) .model-node-icon {
-            color: var(--accent);
-        }
-        
-        .model-node:nth-child(3) .model-node-icon {
-            color: var(--secondary);
-        }
-        
-        .model-connector {
-            position: absolute;
-            height: 2px;
-            background-color: var(--primary);
-            z-index: 1;
-            opacity: 0.5;
-        }
-        
-        .model-connector.active {
-            background-color: var(--secondary);
-            opacity: 1;
-            animation: pulseConnector 2s infinite;
-        }
-        
-        @keyframes pulseConnector {
-            0% { opacity: 0.5; }
-            50% { opacity: 1; }
-            100% { opacity: 0.5; }
-        }
-        
-        /* Back to Home */
-        .back-to-home {
-            text-align: center;
-            margin-top: 50px;
-        }
-        
-        /* Footer */
+        /* Footer - Modern */
         footer {
             background-color: var(--dark);
             color: white;
-            padding: 60px 0 20px;
+            padding: 80px 0 30px;
         }
         
-        .footer-content {
+        .footer-content-modern {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            gap: 50px;
+            margin-bottom: 50px;
         }
         
-        .footer-column h3 {
+        .footer-column-modern h3 {
             color: white;
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+        }
+        
+        .footer-column-modern p {
             margin-bottom: 20px;
-            font-size: 1.3rem;
+            color: #cbd5e1;
+            line-height: 1.7;
         }
         
-        .footer-column p {
-            margin-bottom: 15px;
-            color: #bbb;
-        }
-        
-        .social-links {
+        .social-links-modern {
             display: flex;
             gap: 15px;
-            margin-top: 20px;
+            margin-top: 25px;
         }
         
-        .social-links a {
+        .social-links-modern a {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(218, 11, 11, 0.49);
+            width: 45px;
+            height: 45px;
+            background-color: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             color: white;
             text-decoration: none;
-            transition: background-color 0.3s;
+            transition: var(--transition);
         }
         
-        .social-links a:hover {
+        .social-links-modern a:hover {
             background-color: var(--primary);
+            transform: translateY(-3px);
         }
         
-        .footer-links {
+        .footer-links-modern {
             list-style: none;
         }
         
-        .footer-links li {
-            margin-bottom: 10px;
+        .footer-links-modern li {
+            margin-bottom: 12px;
         }
         
-        .footer-links a {
-            color: #bbb;
+        .footer-links-modern a {
+            color: #cbd5e1;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: var(--transition);
         }
         
-        .footer-links a:hover {
+        .footer-links-modern a:hover {
             color: white;
+            padding-left: 5px;
         }
         
-        .copyright {
+        .copyright-modern {
             text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: #bbb;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
             font-size: 0.9rem;
         }
         
         /* Scroll to Top Button */
-        .scroll-to-top {
+        .scroll-to-top-modern {
             position: fixed;
             bottom: 30px;
             right: 30px;
@@ -1140,57 +957,49 @@
             cursor: pointer;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.3s;
+            transition: var(--transition);
             z-index: 999;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
-        .scroll-to-top.show {
+        .scroll-to-top-modern.show {
             opacity: 1;
             visibility: visible;
         }
         
-        .scroll-to-top:hover {
-            background-color: var(--secondary);
+        .scroll-to-top-modern:hover {
+            background-color: var(--primary-dark);
             transform: translateY(-5px);
         }
         
         /* Responsive Styles */
         @media (max-width: 992px) {
-            .about-content {
-                flex-direction: column;
+            .about-content-modern {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
             
-            .timeline-content {
-                width: 90%;
-                margin-left: 5% !important;
-                margin-right: 5% !important;
-            }
-            
-            .timeline::before {
+            .modern-timeline::before {
                 left: 30px;
             }
             
-            .timeline-year {
+            .modern-timeline-content {
+                width: 85%;
+                margin-left: 15% !important;
+                margin-right: 0 !important;
+            }
+            
+            .modern-timeline-year {
                 left: 30px;
                 transform: none;
             }
             
-            .model-diagram {
-                flex-direction: column;
+            .mission-modern {
+                padding: 40px;
             }
             
-            .model-connector {
-                width: 2px;
-                height: 60px;
-                left: 50%;
-                transform: translateX(-50%);
-            }
-            
-            .reinvestment-section {
-                padding: 60px 0;
-                margin: 60px 0;
-                border-radius: 15px;
+            .hero-content h1 {
+                font-size: 2.5rem;
             }
         }
         
@@ -1202,13 +1011,14 @@
             nav ul {
                 display: none;
                 position: absolute;
-                top: 70px;
+                top: 100%;
                 left: 0;
                 width: 100%;
-                background-color: var(--primary);
+                background-color: white;
                 flex-direction: column;
                 padding: 20px;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                border-top: 1px solid var(--gray-light);
             }
             
             nav ul.show {
@@ -1219,79 +1029,75 @@
                 margin: 10px 0;
             }
             
-            .page-hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .language-switcher {
-                margin-left: 10px;
-            }
-            
-            .section-tabs {
+            .modern-tabs {
                 flex-direction: column;
+                gap: 5px;
             }
             
-            .tab-btn {
-                width: 100%;
-                text-align: center;
+            .modern-tab-btn {
+                padding: 15px;
             }
             
-            .team-grid-extended {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .model-visualization-modern {
                 grid-template-columns: 1fr;
             }
             
-            .model-explanation {
-                padding: 30px;
+            .impact-stats-modern {
+                grid-template-columns: repeat(2, 1fr);
             }
             
-            .flow-step {
-                padding: 25px;
+            .footer-content-modern {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
             
-            .reinvestment-section {
-                padding: 50px 0;
-                margin: 50px 0;
-            }
-            
-            .percentage-badge {
-                width: 60px;
-                height: 60px;
+            .percentage-badge-modern {
+                width: 70px;
+                height: 70px;
                 font-size: 1rem;
             }
             
-            .percentage-badge span:first-child {
+            .percentage-badge-modern span:first-child {
                 font-size: 1.5rem;
             }
         }
         
-        /* Loading animation for language switching */
-        .loading {
-            opacity: 0.7;
-            pointer-events: none;
-        }
-        
-        /* Improved accessibility */
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-        
-        /* Improved focus styles for accessibility */
-        a:focus, button:focus {
-            outline: 2px solid var(--secondary);
-            outline-offset: 2px;
-        }
-        
-        /* Animation for tab switching */
-        .tab-content {
-            transition: opacity 0.3s ease;
+        @media (max-width: 576px) {
+            .impact-stats-modern {
+                grid-template-columns: 1fr;
+            }
+            
+            .team-grid-modern {
+                grid-template-columns: 1fr;
+            }
+            
+            .modern-timeline-content {
+                width: 90%;
+            }
+            
+            .mission-modern {
+                padding: 30px;
+            }
+            
+            .flow-step-modern {
+                padding: 30px 25px;
+            }
+            
+            .stat-number-modern {
+                font-size: 2.5rem;
+            }
         }
     </style>
 </head>
@@ -1300,7 +1106,7 @@
     <header>
         <div class="container header-container">
             <div class="logo">
-                <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/logo.png" alt="EdBridge Logo" class="circle-logo">
+                <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/logo.png" alt="EdBridge Logo">
                 <h1>Ed<span>Bridge</span></h1>
             </div>
             <div class="mobile-menu">
@@ -1308,8 +1114,8 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="index.html" data-en="Home" data-my="မူလ စာမျက်နှာ" class="active">Home</a></li>
-                    <li><a href="about.html" data-en="About" data-my="အကြောင်း">About</a></li>
+                    <li><a href="index.html" data-en="Home" data-my="မူလ စာမျက်နှာ">Home</a></li>
+                    <li><a href="about.html" data-en="About" data-my="အကြောင်း" class="active">About</a></li>
                     <li><a href="services.html" data-en="Services" data-my="ဝန်ဆောင်မှုများ">Services</a></li>
                     <li><a href="news.html" data-en="News" data-my="သတင်းများ">News</a></li>
                     <li><a href="contact.html" data-en="Contact" data-my="ဆက်သွယ်ရန်">Contact</a></li>
@@ -1321,84 +1127,92 @@
                     <i class="fas fa-globe"></i> <span id="currentLang">English</span> <i class="fas fa-chevron-down"></i>
                 </button>
                 <div class="lang-dropdown">
-                    <a href="#" data-lang="en">English</a>
-                    <a href="#" data-lang="my">Myanmar</a>
+                    <a href="#" data-lang="en"><i class="fas fa-language"></i> English</a>
+                    <a href="#" data-lang="my"><i class="fas fa-language"></i> Myanmar</a>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Page Hero -->
-    <section class="page-hero">
+    <!-- Modern Hero -->
+    <section class="modern-hero">
         <div class="container">
-            <h1 data-en="About EdBridge & Our Model" data-my="EdBridge အကြောင်းနှင့် ကျွန်ုပ်တို့၏မော်ဒယ်">About EdBridge & Our Model</h1>
-            <p data-en="Our story, mission, team, and sustainable social enterprise model" data-my="ကျွန်ုပ်တို့၏ဇာတ်လမ်း၊ မစ်ရှင်၊ အဖွဲ့နှင့် ရေရှည်တည်တံ့သော လူမှုရေးစီးပွားရေးမော်ဒယ်">Our story, mission, team, and sustainable social enterprise model</p>
+            <div class="hero-content">
+                <h1 data-en="About EdBridge & Our Model" data-my="EdBridge အကြောင်းနှင့် ကျွန်ုပ်တို့၏မော်ဒယ်">About EdBridge & Our Model</h1>
+                <p data-en="Our story, mission, team, and sustainable social enterprise model" data-my="ကျွန်ုပ်တို့၏ဇာတ်လမ်း၊ မစ်ရှင်၊ အဖွဲ့နှင့် ရေရှည်တည်တံ့သော လူမှုရေးစီးပွားရေးမော်ဒယ်">Our story, mission, team, and sustainable social enterprise model</p>
+                <a href="#about-section" class="btn" data-en="Explore Our Story" data-my="ကျွန်ုပ်တို့၏ဇာတ်လမ်းကို စူးစမ်းပါ">Explore Our Story</a>
+            </div>
         </div>
     </section>
 
-    <!-- Tab Navigation -->
+    <!-- Modern Tab Navigation -->
     <div class="container">
-        <div class="section-tabs">
-            <button class="tab-btn active" data-tab="about">About</button>
-            <button class="tab-btn" data-tab="mission">Mission & Vision</button>
-            <button class="tab-btn" data-tab="team">Our Team</button>
-            <button class="tab-btn" data-tab="model">Our Model</button>
+        <div class="modern-tabs">
+            <button class="modern-tab-btn active" data-tab="about">
+                <i class="fas fa-history"></i> <span data-en="Our Story" data-my="ကျွန်ုပ်တို့၏ဇာတ်လမ်း">Our Story</span>
+            </button>
+            <button class="modern-tab-btn" data-tab="mission">
+                <i class="fas fa-bullseye"></i> <span data-en="Mission & Vision" data-my="မစ်ရှင်နှင့် ဗျူဟာ">Mission & Vision</span>
+            </button>
+            <button class="modern-tab-btn" data-tab="team">
+                <i class="fas fa-users"></i> <span data-en="Our Team" data-my="ကျွန်ုပ်တို့၏ အဖွဲ့">Our Team</span>
+            </button>
+            <button class="modern-tab-btn" data-tab="model">
+                <i class="fas fa-project-diagram"></i> <span data-en="Our Model" data-my="ကျွန်ုပ်တို့၏ မော်ဒယ်">Our Model</span>
+            </button>
         </div>
     </div>
 
     <!-- About Section -->
     <section id="about-section" class="content-section active">
         <div class="container">
-            <div class="section-title">
-                <h2 data-en="Our Story" data-my="ကျွန်ုပ်တို့၏ဇာတ်လမ်း">Our Story</h2>
-            </div>
-            
-            <div class="about-content">
-                <div class="about-text">
+            <div class="about-content-modern">
+                <div class="about-text-modern">
+                    <h2 data-en="Our Story" data-my="ကျွန်ုပ်တို့၏ဇာတ်လမ်း">Our Story</h2>
                     <p data-en="EdBridge (for Myanmar Women) Initiative was founded by displaced Myanmar individuals who believe in equality and the power of education. Shaped by lived experience, we support women affected by conflict and displacement through practical, inclusive learning opportunities."
-                       data-my="EdBridge (for Myanmar Women) Initiative ကို တန်းတူညီမျှမှုနှင့် ပညာရေး၏ စွမ်းအားကို ယုံကြည်သော ရွှေ့ပြောင်းနေထိုင်သည့် မြန်မာကျောင်းသားကျောင်းသူများက တည်ထောင်ခဲ့ပါသည်။
-ကိုယ်တွေ့ကြုံခဲ့ရသည့် ခက်ခဲသော ဘဝအတွေ့အကြုံများဖြင့် ပုံဖော်ထားသည့် ကျွန်ုပ်တို့၏ ရည်ရွယ်ချက်မှာ ပဋိပက္ခနှင့် နေရပ်စွန့်ခွာရခြင်း၏ သက်ရောက်မှု ခံစားရသော အမျိုးသမီးများအား ကူညီထောက်ပံ့ရန် ဖြစ်ပါသည်။">
-                       EdBridge (for Myanmar Women) Initiative was founded by displaced Myanmar individuals who believe in equality and the power of education. Shaped by lived experience, we support women affected by conflict and displacement through practical, inclusive learning opportunities.
+                       data-my="EdBridge (for Myanmar Women) Initiative ကို တန်းတူညီမျှမှုနှင့် ပညာရေး၏ စွမ်းအားကို ယုံကြည်သော ရွှေ့ပြောင်းနေထိုင်သည့် မြန်မာကျောင်းသားကျောင်းသူများက တည်ထောင်ခဲ့ပါသည်။">
+                       EdBridge (for Myanmar Women) Initiative was founded by displaced Myanmar individuals who believe in equality and the power of education.
                     </p>
-                    
+                    <p data-en="Our journey began with a simple idea: education can bridge gaps and create opportunities even in the most challenging circumstances. Today, we're building pathways to empowerment for women across the region."
+                       data-my="ကျွန်ုပ်တို့၏ခရီးစဉ်သည် ရိုးရှင်းသောအယူအဆတစ်ခုဖြင့် စတင်ခဲ့သည်- ပညာရေးသည် ကွာဟချက်များကို ပေါင်းကူးပေးပြီး အခက်အခဲဆုံးအခြေအနေများတွင်ပင် အခွင့်အလမ်းများကို ဖန်တီးနိုင်သည်။">
+                       Education can bridge gaps and create opportunities even in the most challenging circumstances.
+                    </p>
                 </div>
-                <div class="about-image">
+                <div class="about-image-modern">
                     <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/About%20Section.jpg" alt="EdBridge team">
                 </div>
             </div>
             
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-year">2025</div>
-                    <div class="timeline-content">
+            <div class="modern-timeline">
+                <div class="modern-timeline-item">
+                    <div class="modern-timeline-year">2025</div>
+                    <div class="modern-timeline-content">
                         <h3 data-en="Foundation" data-my="အခြေခံ">Foundation</h3>
                         <p data-en="In 2025, EBM focuses on building strong foundations through pilot education programs, system development, and regional collaboration across ASEAN countries."
                            data-my="၂၀၂၅ ခုနှစ်တွင် EBM သည် မိတ်ဆက် ပညာရေးအစီအစဉ်များ (Pilot Programs)၊ လုပ်ငန်းလည်ပတ်မှု စနစ်များ တည်ဆောက်ခြင်း နှင့် အာဆီယံဒေသတွင်း ပူးပေါင်းဆောင်ရွက်မှုများမှတစ်ဆင့် ခိုင်မာသော အခြေခံအုတ်မြစ်များကို အဓိကထား ချမှတ်ခဲ့ပါသည်။">
-                           In 2025, EBM focuses on building strong foundations through pilot education programs, system development, and regional collaboration across ASEAN countries.
+                           Building strong foundations through pilot education programs and regional collaboration.
                         </p>
                     </div>
                 </div>
                 
-                <div class="timeline-item">
-                    <div class="timeline-year">2026</div>
-                    <div class="timeline-content">
+                <div class="modern-timeline-item">
+                    <div class="modern-timeline-year">2026</div>
+                    <div class="modern-timeline-content">
                         <h3 data-en="First Programs" data-my="ပထမဆုံးအစီအစဉ်များ">First Programs</h3>
                         <p data-en="EBM launches its first Education Talk Show, introducing entrepreneurship, digital skills, networking, and English education to empower women with essential knowledge and confidence."
-                           data-my="EBM သည် ၎င်း၏ ပထမဆုံးသော ပညာရေး စကားဝိုင်း (Education Talk Show) များကို စတင်မည် ဖြစ်ပါသည်။ စွန့်ဦးတီထွင်မှု၊ ဒစ်ဂျစ်တယ် စွမ်းရည်၊ ကွန်ရက်ချိတ်ဆက်မှု၊ နှင့် အင်္ဂလိပ်စာ ပညာရေးဆိုင်ရာ အခြေခံဗဟုသုတများ ပေးအပ်ကာ အမျိုးသမီးများ၏ ယုံကြည်မှုနှင့် မရှိမဖြစ်လိုအပ်သော အသိပညာများကို မြှင့်တင်ပေးပါမည်။
-">
-                            EBM launches its first Education Talk Show, introducing entrepreneurship, digital skills, networking, and English education to empower women with essential knowledge and confidence.
+                           data-my="EBM သည် ၎င်း၏ ပထမဆုံးသော ပညာရေး စကားဝိုင်း (Education Talk Show) များကို စတင်မည် ဖြစ်ပါသည်။">
+                           Launching Education Talk Shows to empower women with essential knowledge and confidence.
                         </p>
                     </div>
                 </div>
                 
-                <div class="timeline-item">
-                    <div class="timeline-year">Future</div>
-                    <div class="timeline-content">
+                <div class="modern-timeline-item">
+                    <div class="modern-timeline-year">Future</div>
+                    <div class="modern-timeline-content">
                         <h3 data-en="Expansion" data-my="တိုးချဲ့မှု">Expansion</h3>
                         <p data-en="EBM will gradually expand its training programs, partnerships, and regional reach to support more displaced Myanmar women through sustainable, education-driven solutions."
-                           data-my="ရေရှည်တည်တံ့သော၊ ပညာရေးကို အခြေခံသည့် ဖြေရှင်းနည်းများမှတစ်ဆင့် နေရပ်စွန့်ခွာရသော မြန်မာအမျိုးသမီးများ ပိုမိုများပြားစွာ အထောက်အပံ့ရရှိစေရန်အတွက် EBM သည် ၎င်း၏ လေ့ကျင့်ရေးအစီအစဉ်များ၊ ပူးပေါင်းဆောင်ရွက်မှုများနှင့် ဒေသတွင်း လွှမ်းခြုံနိုင်မှုကို တဖြည်းဖြည်း ချဲ့ထွင်သွားမည် ဖြစ်ပါသည်။
-">
-                            EBM will gradually expand its training programs, partnerships, and regional reach to support more displaced Myanmar women through sustainable, education-driven solutions.
+                           data-my="ရေရှည်တည်တံ့သော၊ ပညာရေးကို အခြေခံသည့် ဖြေရှင်းနည်းများမှတစ်ဆင့် နေရပ်စွန့်ခွာရသော မြန်မာအမျိုးသမီးများ ပိုမိုများပြားစွာ အထောက်အပံ့ရရှိစေရန်အတွက် EBM သည် ၎င်း၏ လေ့ကျင့်ရေးအစီအစဉ်များကို တိုးချဲ့မည်။">
+                           Expanding training programs and partnerships to support more women through sustainable solutions.
                         </p>
                     </div>
                 </div>
@@ -1411,75 +1225,71 @@
         <div class="container">
             <div class="section-title">
                 <h2 data-en="Our Mission & Vision" data-my="ကျွန်ုပ်တို့၏ မစ်ရှင်နှင့် ဗျူဟာ">Our Mission & Vision</h2>
+                <p data-en="Guiding principles that drive our work and impact" data-my="ကျွန်ုပ်တို့၏လုပ်ငန်းနှင့် သက်ရောက်မှုကို ဦးတည်စေသော လမ်းညွှန်အခြေခံမူများ">Guiding principles that drive our work and impact</p>
             </div>
             
-            <div class="mission-card-large">
-                <div class="mission-icon-large">
+            <div class="mission-modern">
+                <div class="mission-icon-modern">
                     <i class="fas fa-bullseye"></i>
                 </div>
                 <h2 data-en="Our Mission" data-my="ကျွန်ုပ်တို့၏ မစ်ရှင်">Our Mission</h2>
                 <p data-en="To empower displaced Myanmar women through education, skills training, and sustainable pathways to economic independence."
-                   data-my="ပညာရေး၊ စွမ်းရည်လေ့ကျင့်မှု၊ နှင့် စီးပွားရေး လွတ်လပ်ခွင့်ဆီသို့ ရေရှည်တည်တံ့သော လမ်းကြောင်းများမှတစ်ဆင့် နေရပ်စွန့်ခွာရသော မြန်မာအမျိုးသမီးများအား စွမ်းဆောင်ရည် မြှင့်တင်ပေးရန်။
-">
-                    To empower displaced Myanmar women through education, skills training, and sustainable pathways to economic independence.
+                   data-my="ပညာရေး၊ စွမ်းရည်လေ့ကျင့်မှု၊ နှင့် စီးပွားရေး လွတ်လပ်ခွင့်ဆီသို့ ရေရှည်တည်တံ့သော လမ်းကြောင်းများမှတစ်ဆင့် နေရပ်စွန့်ခွာရသော မြန်မာအမျိုးသမီးများအား စွမ်းဆောင်ရည် မြှင့်တင်ပေးရန်။">
+                    Empowering displaced Myanmar women through education, skills training, and sustainable pathways.
                 </p>
-            </div>
-            
-            <div class="mission-card-large">
-                <div class="mission-icon-large">
+                
+                <div class="mission-icon-modern" style="margin-top: 40px;">
                     <i class="fas fa-eye"></i>
                 </div>
                 <h2 data-en="Our Vision" data-my="ကျွန်ုပ်တို့၏ အမြင်">Our Vision</h2>
                 <p data-en="A future where all Myanmar women have equal access to education, opportunity, and regional connection."
-                   data-my="
-မြန်မာအမျိုးသမီးများအားလုံး ပညာရေး၊ အခွင့်အလမ်းနှင့် ဒေသတွင်း ကွန်ရက်ချိတ်ဆက်မှုတို့ကို တန်းတူရရှိနိုင်သည့် အနာဂတ်တစ်ခုကို ဖော်ဆောင်ရန်။
-">
+                   data-my="မြန်မာအမျိုးသမီးများအားလုံး ပညာရေး၊ အခွင့်အလမ်းနှင့် ဒေသတွင်း ကွန်ရက်ချိတ်ဆက်မှုတို့ကို တန်းတူရရှိနိုင်သည့် အနာဂတ်တစ်ခုကို ဖော်ဆောင်ရန်။">
                     A future where all Myanmar women have equal access to education, opportunity, and regional connection.
                 </p>
             </div>
             
-            <div class="values-grid">
-                <div class="value-card">
-                    <div class="value-icon">
+            <div class="values-grid-modern">
+                <div class="value-card-modern">
+                    <div class="value-icon-modern">
                         <i class="fas fa-heart"></i>
                     </div>
                     <h3 data-en="Empowerment" data-my="စွမ်းဆောင်ရည်">Empowerment</h3>
                     <p data-en="We believe in empowering women through education and skills development."
                        data-my="ပညာရေးနှင့် ကျွမ်းကျင်မှုဖွံ့ဖြိုးတိုးတက်မှုများဖြင့် အမျိုးသမီးများကို စွမ်းဆောင်ရည်မြှင့်တင်ရန် ကျွန်ုပ်တို့ယုံကြည်ပါသည်။">
-                        Empowering women through education.
+                        Empowering women through education and skills development.
                     </p>
                 </div>
                 
-                <div class="value-card">
-                    <div class="value-icon">
+                <div class="value-card-modern">
+                    <div class="value-icon-modern">
                         <i class="fas fa-handshake"></i>
                     </div>
                     <h3 data-en="Sustainability" data-my="ရေရှည်တည်တံ့မှု">Sustainability</h3>
                     <p data-en="We create solutions that are financially and socially sustainable for the long term."
                        data-my="ရေရှည်အတွက် ငွေကြေးနှင့် လူမှုရေးအရ တည်တံ့ခိုင်မြဲသော ဖြေရှင်းချက်များကို ကျွန်ုပ်တို့ဖန်တီးပါသည်။">
-                        Creating sustainable solutions.
+                        Creating sustainable solutions for the long term.
                     </p>
                 </div>
                 
-                <div class="value-card">
-                    <div class="value-icon">
+                <div class="value-card-modern">
+                    <div class="value-icon-modern">
                         <i class="fas fa-users"></i>
                     </div>
                     <h3 data-en="Community" data-my="လူမှုအသိုင်းအဝိုင်း">Community</h3>
                     <p data-en="We build strong communities that support and uplift each member."
                        data-my="အဖွဲ့ဝင်တစ်ဦးစီကို ပံ့ပိုးကူညီပြီး မြှင့်တင်ပေးသော ခိုင်မာသောလူမှုအသိုင်းအဝိုင်းများကို ကျွန်ုပ်တို့တည်ဆောက်ပါသည်။">
-                        Building supportive communities.
+                        Building supportive communities that uplift each member.
                     </p>
                 </div>
                 
-                <div class="value-card">
-                    <div class="value-icon">
+                <div class="value-card-modern">
+                    <div class="value-icon-modern">
                         <i class="fas fa-graduation-cap"></i>
                     </div>
                     <h3 data-en="Excellence" data-my="ထူးချွန်မှု">Excellence</h3>
                     <p data-en="We strive for excellence in all our programs and services."
                        data-my="ကျွန်ုပ်တို့၏ အစီအစဉ်များနှင့် ဝန်ဆောင်မှုအားလုံးတွင် ထူးချွန်မှုကို ရှာဖွေကြိုးစားပါသည်။">
-                        Striving for excellence.
+                        Striving for excellence in all our programs and services.
                     </p>
                 </div>
             </div>
@@ -1489,136 +1299,106 @@
     <!-- Team Section -->
     <section id="team-section" class="content-section">
         <div class="container">
-            <div class="team-intro">
+            <div class="section-title">
                 <h2 data-en="Our Dedicated Team" data-my="ကျွန်ုပ်တို့၏ အာရုံစိုက်ထားသော အဖွဲ့">Our Dedicated Team</h2>
-                <p data-en="At EdBridge, we're fortunate to have a team of passionate, skilled, and dedicated individuals who believe in our mission. Each team member brings unique expertise and perspective to help us achieve our goals."
-                   data-my="EdBridge တွင် ကျွန်ုပ်တို့၏မစ်ရှင်ကို ယုံကြည်သော စိတ်အားထက်သန်မှု၊ ကျွမ်းကျင်မှုနှင့် အာရုံစိုက်မှုရှိသူများပါဝင်သော အဖွဲ့ရှိရန် ကျွန်ုပ်တို့ ကံကောင်းပါသည်။ အဖွဲ့ဝင်တစ်ဦးစီသည် ကျွန်ုပ်တို့၏ရည်မှန်းချက်များအောင်မြင်စေရန် ထူးခြားသော ကျွမ်းကျင်မှုနှင့် အမြင်များ ယူဆောင်လာပါသည်။">
-                    At EdBridge, we're fortunate to have a team of passionate, skilled, and dedicated individuals.
-                </p>
+                <p data-en="Passionate individuals working together to empower women through education" data-my="ပညာရေးမှတစ်ဆင့် အမျိုးသမီးများစွမ်းဆောင်ရည်မြှင့်တင်ရန် အတူတကွလုပ်ကိုင်နေသော စိတ်အားထက်သန်သူများ">Passionate individuals working together to empower women through education</p>
             </div>
             
-            <div class="team-section-title">
-                <h2 data-en="Leadership Team" data-my="ခေါင်းဆောင်များအဖွဲ့">Leadership Team</h2>
-                <p data-en="Our founders and directors leading the mission" data-my="ကျွန်ုပ်တို့၏တည်ထောင်သူများနှင့် ဒါရိုက်တာများ မစ်ရှင်ကို ဦးဆောင်နေခြင်း">Our founders and directors leading the mission</p>
-            </div>
-            
-            <div class="team-grid-extended">
+            <div class="team-grid-modern">
                 <!-- Team Member 1 -->
-                <div class="team-member-extended">
-                    <div class="member-image-large">
+                <div class="team-member-modern">
+                    <div class="member-image-modern">
                         <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/Shwe%20Yee.jpg" alt="Shwe Yee">
                     </div>
-                    <div class="member-info-extended">
+                    <div class="member-info-modern">
                         <h3>Shwe</h3>
-                        <div class="member-role-extended" data-en="Founder / Managing Director" data-my="တည်ထောင်သူနဲ့ စီမံခန့်ခွဲမူဒါရိုက်တာ">Founder / Managing Director</div>
+                        <div class="member-role-modern" data-en="Founder / Managing Director" data-my="တည်ထောင်သူနဲ့ စီမံခန့်ခွဲမူဒါရိုက်တာ">Founder / Managing Director</div>
                     </div>
                 </div>
 
                 <!-- Team Member 2 -->
-                <div class="team-member-extended">
-                    <div class="member-image-large">
+                <div class="team-member-modern">
+                    <div class="member-image-modern">
                         <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/Thanlwin.jpg" alt="Thanlwin">
                     </div>
-                    <div class="member-info-extended">
+                    <div class="member-info-modern">
                         <h3>Thanlwin</h3>
-                        <div class="member-role-extended" data-en="Co-founder / IT Specialist" data-my="ပူးတွဲတည်ထောင်သူနဲ့ IT မန်နေဂျာ">Co-founder / IT Specialist</div>
+                        <div class="member-role-modern" data-en="Co-founder / IT Specialist" data-my="ပူးတွဲတည်ထောင်သူနဲ့ IT မန်နေဂျာ">Co-founder / IT Specialist</div>
                     </div>
                 </div>
 
                 <!-- Team Member 3 -->
-                <div class="team-member-extended">
-                    <div class="member-image-large">
+                <div class="team-member-modern">
+                    <div class="member-image-modern">
                         <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/May%20Thet%20Khaing.jpg" alt="May Thet Khaing">
                     </div>
-                    <div class="member-info-extended">
+                    <div class="member-info-modern">
                         <h3>May Thet Khaing</h3>
-                        <div class="member-role-extended" data-en="Co-founder / Marketing Manager" data-my="ပူးတွဲတည်ထောင်သူနဲ့ စျေးကွက်မန်နေဂျာ">Co-founder / Marketing Manager</div>
+                        <div class="member-role-modern" data-en="Co-founder / Marketing Manager" data-my="ပူးတွဲတည်ထောင်သူနဲ့ စျေးကွက်မန်နေဂျာ">Co-founder / Marketing Manager</div>
                     </div>
                 </div>
-
-                <!-- Team Member 4 -->
-                <!-- <div class="team-member-extended">
-                    <div class="member-image-large">
-                        <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/Nyein.jpg" alt="Nyein">
-                    </div>
-                    <div class="member-info-extended">
-                        <h3>Nway Nyein</h3>
-                        <div class="member-role-extended" data-en="Co-founder / General Manager" data-my=" ပူးတွဲတည်ထောင်သူနဲ့  အထွေထွေမန်နေဂျာ">Co-founder / General Manager</div>
-                    </div>
-                </div> -->
 
                 <!-- Team Member 5 -->
-                <div class="team-member-extended">
-                    <div class="member-image-large">
+                <div class="team-member-modern">
+                    <div class="member-image-modern">
                         <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/Ei%20Phyu%20Khin.jpg" alt="Ei Phyu Khin">
                     </div>
-                    <div class="member-info-extended">
+                    <div class="member-info-modern">
                         <h3>Ei Phyu Khin</h3>
-                        <div class="member-role-extended" data-en="Finance Manager" data-my="ငွေကြေးစီမံခန့်ခွဲရေးမန်နေဂျာ
-">Finance Manager</div>
+                        <div class="member-role-modern" data-en="Finance Manager" data-my="ငွေကြေးစီမံခန့်ခွဲရေးမန်နေဂျာ">Finance Manager</div>
                     </div>
                 </div>
             </div>
             
-            <div class="team-section-title">
+             <!-- Training & Education Team -->
+            <div class="team-section-title" style="margin-top: 80px;">
                 <h2 data-en="Training & Education Team" data-my="သင်တန်းနှင့် ပညာရေးအဖွဲ့">Training & Education Team</h2>
-              <!--  <p data-en="Our expert trainers and educators" data-my="ကျွန်ုပ်တို့၏ကျွမ်းကျင်သင်တန်းပေးသူများနှင့် ပညာရေးသမားများ">Our expert trainers and educators</p>-->
+                <!-- <p data-en="Our expert trainers and educators" data-my="ကျွန်ုပ်တို့၏ကျွမ်းကျင်သင်တန်းပေးသူများနှင့် ပညာရေးသမားများ">Our expert trainers and educators</p> -->
             </div>
             
-            <div class="team-grid-extended">
-                <!-- Team Member 6 -->
-                <div class="team-member-extended">
-                    <div class="member-image-large">
+            <div class="team-grid-modern">
+                <!-- Team Member 6 - Suki -->
+                <div class="team-member-modern">
+                    <div class="member-image-modern">
                         <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/SUKI.jpg" alt="SUKI">
                     </div>
-                    <div class="member-info-extended">
+                    <div class="member-info-modern">
                         <h3>Tr Suki</h3>
-                        <div class="member-role-extended" data-en="Training Team Leader" data-my="သင်တန်းအဖွဲ့ခေါင်းဆောင်">Training Team Leader</div>
+                        <div class="member-role-modern" data-en="Training Team Leader" data-my="သင်တန်းအဖွဲ့ခေါင်းဆောင်">Training Team Leader</div>
                     </div>
                 </div>
 
-                <!-- Team Member 7 -->
-                <div class="team-member-extended">
-                    <div class="member-image-large">
+                <!-- Team Member 7 - Saw Ye Aung -->
+                <div class="team-member-modern">
+                    <div class="member-image-modern">
                         <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/Saw.jpg" alt="Saw">
                     </div>
-                    <div class="member-info-extended">
+                    <div class="member-info-modern">
                         <h3>Saw Ye Aung</h3>
-                        <div class="member-role-extended" data-en="Trainer" data-my="သင်တန်းဆရာ">Trainer</div>
+                        <div class="member-role-modern" data-en="Trainer" data-my="သင်တန်းဆရာ">Trainer</div>
                     </div>
                 </div>
 
-                <!-- Team Member 8 -->
-                <div class="team-member-extended">
-                    <div class="member-image-large">
+                <!-- Team Member 8 - Su -->
+                <div class="team-member-modern">
+                    <div class="member-image-modern">
                         <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/SU.jpg" alt="SU">
                     </div>
-                    <div class="member-info-extended">
+                    <div class="member-info-modern">
                         <h3>Tr Su</h3>
-                        <div class="member-role-extended" data-en="Training Team Member" data-my=" သင်တန်းဆရာမ">Training Team Member</div>
+                        <div class="member-role-modern" data-en="Training Team Member" data-my="သင်တန်းဆရာမ">Training Team Member</div>
                     </div>
                 </div>
 
-                <!-- Team Member 9 -->
-                <div class="team-member-extended">
-                    <div class="member-image-large">
+                <!-- Team Member 9 - Le Cho Tha -->
+                <div class="team-member-modern">
+                    <div class="member-image-modern">
                         <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/Leo.jpg" alt="Leo">
                     </div>
-                    <div class="member-info-extended">
+                    <div class="member-info-modern">
                         <h3>Le Cho Tha</h3>
-                        <div class="member-role-extended" data-en="Training Team Staff" data-my=" သင်တန်းအဖွဲ့ ဝန်ထမ်း">Training Team Staff</div>
+                        <div class="member-role-modern" data-en="Training Team Staff" data-my="သင်တန်းအဖွဲ့ ဝန်ထမ်း">Training Team Staff</div>
                     </div>
-                </div>
-            </div>
-            
-            <div class="join-team">
-                <div class="join-team-content">
-                    <h2 data-en="Join Our Team" data-my="ကျွန်ုပ်တို့၏အဖွဲ့တွင် ပါဝင်ပါ">Join Our Team</h2>
-                    <p data-en="We're always looking for passionate individuals who want to make a difference. If you share our vision for empowering Myanmar women through education, we'd love to hear from you."
-                       data-my="ကျွန်ုပ်တို့သည် အပြောင်းအလဲဖြစ်စေလိုသောစိတ်အားထက်သန်သူများကို အမြဲရှာဖွေနေပါသည်။ ပညာရေးမှတစ်ဆင့် မြန်မာအမျိုးသမီးများစွမ်းဆောင်ရည်မြှင့်တင်ရန် ကျွန်ုပ်တို့၏မျှော်မှန်းချက်ကို သင်မျှဝေပါက သင့်ထံမှကြားရလိုပါသည်။">
-                        We're always looking for passionate individuals who want to make a difference.
-                    </p>
-                    <a href="contact.html" class="btn btn-primary" style="margin-top: 30px;" data-en="Contact Us About Opportunities" data-my="အခွင့်အလမ်းများအကြောင်း ဆက်သွယ်ပါ">Contact Us About Opportunities</a>
                 </div>
             </div>
         </div>
@@ -1632,141 +1412,84 @@
                 <p data-en="A hybrid social enterprise combining social impact and sustainable business." data-my="လူမှုရေးမစ်ရှင်ကို ရေရှည်တည်တံ့သောစီးပွားရေးလုပ်ငန်းအလေ့အထများနှင့် ပေါင်းစပ်ခြင်း">A hybrid social enterprise combining social impact and sustainable business.</p>
             </div>
             
-            <div class="model-explanation">
-                <h2 data-en="The EdBridge Hybrid Model" data-my="EdBridge ဟိုက်ဘရစ်မော်ဒယ်">The EdBridge Hybrid Model</h2>
-                <p data-en="EdBridge operates as a hybrid social enterprise, blending the best aspects of non-profit and business models to create maximum impact while ensuring financial sustainability. We combine the heart of a non-profit with the mind of a business to create sustainable educational solutions for Myanmar migrant women and their children."
-                   data-my="EdBridge သည် ဟိုက်ဘရစ်လူမှုရေးစီးပွားရေးလုပ်ငန်းတစ်ခုအဖြစ် လည်ပတ်ကာ ငွေကြေးရေရှည်တည်တံ့မှုကို သေချာစေရင်း အများဆုံးသက်ရောက်မှုဖန်တီးရန် အကျိုးအမြတ်မယူသောအဖွဲ့အစည်းနှင့် စီးပွားရေးမော်ဒယ်များ၏အကောင်းဆုံးသောရှုထောင့်များကို ရောစပ်သည်။ မြန်မာရွှေ့ပြောင်းအမျိုးသမီးများနှင့် ၎င်းတို့၏သားသမီးများအတွက် ရေရှည်တည်တံ့သောပညာရေးဖြေရှင်းချက်များဖန်တီးရန် အကျိုးအမြတ်မယူသောအဖွဲ့အစည်း၏စိတ်နှလုံးကို စီးပွားရေး၏အသိဥာဏ်နှင့် ပေါင်းစပ်သည်။">
-                   A hybrid social enterprise combining social impact and sustainable business.
-                </p>
-                
-                <div class="model-visualization">
-                    <div class="model-visual-item" style="background-color: rgba(42, 92, 169, 0.1); border-left: 4px solid var(--primary);">
-                        <div class="visual-icon" style="color: var(--primary);">
-                            <i class="fas fa-heart"></i>
-                        </div>
-                        <h3 data-en="Non-Profit Heart" data-my="အကျိုးအမြတ်မယူသောစိတ်နှလုံး">Non-Profit Heart</h3>
-                        <p data-en="Social mission to improve education access and empower women"
-                           data-my="ပညာရေးအခွင့်အလမ်းများတိုးတက်စေရန်နှင့် အမျိုးသမီးများစွမ်းဆောင်ရည်မြှင့်တင်ရန် လူမှုရေးမစ်ရှင်">Social mission to improve education access</p>
+            <div class="model-visualization-modern">
+                <div class="model-visual-item-modern">
+                    <div class="visual-icon-modern">
+                        <i class="fas fa-heart"></i>
                     </div>
-                    
-                    <div class="model-visual-item" style="background-color: rgba(233, 62, 62, 0.1); border-left: 4px solid var(--accent);">
-                        <div class="visual-icon" style="color: var(--accent);">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h3 data-en="Business Mind" data-my="စီးပွားရေးအသိဥာဏ်">Business Mind</h3>
-                        <p data-en="Sustainable operations and revenue generation for long-term impact"
-                           data-my="ရေရှည်သက်ရောက်မှုအတွက် ရေရှည်တည်တံ့သောလုပ်ငန်းလည်ပတ်မှုနှင့် ဝင်ငွေဖန်တီးမှု">Sustainable operations and revenue generation</p>
-                    </div>
-                    
-                    <div class="model-visual-item" style="background-color: rgba(249, 168, 38, 0.1); border-left: 4px solid var(--secondary);">
-                        <div class="visual-icon" style="color: var(--secondary);">
-                            <i class="fas fa-hands-helping"></i>
-                        </div>
-                        <h3 data-en="Hybrid Impact" data-my="ဟိုက်ဘရစ်သက်ရောက်မှု">Hybrid Impact</h3>
-                        <p data-en="Maximum social impact through sustainable financial model"
-                           data-my="ရေရှည်တည်တံ့သောငွေကြေးမော်ဒယ်မှတစ်ဆင့် အများဆုံးလူမှုရေးသက်ရောက်မှု">Maximum social impact through sustainable model</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Interactive Model Diagram -->
-            <div class="model-diagram-container">
-                <div class="section-title">
-                    <h3 data-en="Interactive Model Visualization" data-my="အပြန်အလှန်တုံ့ပြန်သော မော်ဒယ်ပုံဖော်ခြင်း">Interactive Model Visualization</h3>
-                    <p data-en="Click on each component to learn more" data-my="အသေးစိတ်လေ့လာရန် အစိတ်အပိုင်းတစ်ခုစီကို နှိပ်ပါ">Click on each component to learn more</p>
+                    <h3 data-en="Non-Profit Heart" data-my="အကျိုးအမြတ်မယူသောစိတ်နှလုံး">Non-Profit Heart</h3>
+                    <p data-en="Social mission to improve education access and empower women"
+                       data-my="ပညာရေးအခွင့်အလမ်းများတိုးတက်စေရန်နှင့် အမျိုးသမီးများစွမ်းဆောင်ရည်မြှင့်တင်ရန် လူမှုရေးမစ်ရှင်">Social mission to improve education access</p>
                 </div>
                 
-                <div class="model-diagram">
-                    <div class="model-node" data-step="1">
-                        <div class="model-node-icon">
-                            <i class="fas fa-hand-holding-usd"></i>
-                        </div>
-                        <h4 data-en="Revenue Generation" data-my="ဝင်ငွေဖန်တီးမှု">Revenue Generation</h4>
-                        <p data-en="Marketing agency services" data-my="စျေးကွက်ရှာဖွေရေးအေဂျင်စီဝန်ဆောင်မှုများ">Marketing agency services</p>
+                <div class="model-visual-item-modern">
+                    <div class="visual-icon-modern">
+                        <i class="fas fa-chart-line"></i>
                     </div>
-                    
-                    <div class="model-connector" id="connector1"></div>
-                    
-                    <div class="model-node" data-step="2">
-                        <div class="model-node-icon">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <h4 data-en="Free Training" data-my="အခမဲ့သင်တန်း">Free Training</h4>
-                        <p data-en="10% profit reinvestment" data-my="၁၀% အမြတ်ငွေပြန်လည်ရင်းနှီးမြှုပ်နှံမှု">10% profit reinvestment</p>
-                    </div>
-                    
-                    <div class="model-connector" id="connector2"></div>
-                    
-                    <div class="model-node" data-step="3">
-                        <div class="model-node-icon">
-                            <i class="fas fa-briefcase"></i>
-                        </div>
-                        <h4 data-en="Career Opportunities" data-my="အလုပ်အကိုင်အခွင့်အလမ်းများ">Career Opportunities</h4>
-                        <p data-en="Employment & freelancing" data-my="အလုပ်အကိုင်နှင့် freelance အလုပ်">Employment & freelancing</p>
-                    </div>
+                    <h3 data-en="Business Mind" data-my="စီးပွားရေးအသိဥာဏ်">Business Mind</h3>
+                    <p data-en="Sustainable operations and revenue generation for long-term impact"
+                       data-my="ရေရှည်သက်ရောက်မှုအတွက် ရေရှည်တည်တံ့သောလုပ်ငန်းလည်ပတ်မှုနှင့် ဝင်ငွေဖန်တီးမှု">Sustainable operations and revenue generation</p>
                 </div>
                 
-                <div class="model-diagram-info" id="modelInfo" style="margin-top: 30px; padding: 20px; background-color: rgba(42, 92, 169, 0.05); border-radius: 10px; display: none;">
-                    <h4 id="infoTitle" data-en="Click on a component above" data-my="အထက်ပါအစိတ်အပိုင်းတစ်ခုကို နှိပ်ပါ">Click on a component above</h4>
-                    <p id="infoDescription" data-en="Select a model component to see details" data-my="အသေးစိတ်ကြည့်ရှုရန် မော်ဒယ်အစိတ်အပိုင်းတစ်ခုကို ရွေးပါ">Select a model component to see details</p>
+                <div class="model-visual-item-modern">
+                    <div class="visual-icon-modern">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3 data-en="Hybrid Impact" data-my="ဟိုက်ဘရစ်သက်ရောက်မှု">Hybrid Impact</h3>
+                    <p data-en="Maximum social impact through sustainable financial model"
+                       data-my="ရေရှည်တည်တံ့သောငွေကြေးမော်ဒယ်မှတစ်ဆင့် အများဆုံးလူမှုရေးသက်ရောက်မှု">Maximum social impact through sustainable model</p>
                 </div>
             </div>
             
             <!-- Model Flow -->
-            <div class="model-flow">
+            <div class="model-flow-modern">
                 <div class="container">
                     <div class="section-title">
                         <h2 data-en="How Our Model Works" data-my="ကျွန်ုပ်တို့၏မော်ဒယ်အလုပ်လုပ်ပုံ">How Our Model Works</h2>
                         <p data-en="The sustainable cycle of empowerment and reinvestment" data-my="စွမ်းဆောင်ရည်မြှင့်တင်ခြင်းနှင့် ပြန်လည်ရင်းနှီးမြှုပ်နှံခြင်း၏ရေရှည်တည်တံ့သောသံသရာ">The sustainable cycle of empowerment and reinvestment</p>
                     </div>
                     
-                    <div class="flow-container">
-                        <!-- Step 1 -->
-                        <div class="flow-step">
-                            <div class="step-number">1</div>
-                            <h3 data-en="Revenue Generation" data-my="ဝင်ငွေဖန်တီးမှု">Revenue Generation</h3>
-                            <p data-en="Our EBM Marketing Agency provides digital marketing services to businesses, generating sustainable revenue."
-                               data-my="ကျွန်ုပ်တို့၏ EBM Marketing Agency သည် စီးပွားရေးလုပ်ငန်းများအတွက် ဒီဂျစ်တယ်စျေးကွက်ရှာဖွေရေးဝန်ဆောင်မှုများကို ပေးအပ်ကာ ရေရှည်တည်တံ့သောဝင်ငွေဖန်တီးပေးသည်။">
-                                Our Marketing Agency provides services generating sustainable revenue.
-                            </p>
-                        </div>
-                        
-                        <!-- Step 2 -->
-                        <div class="flow-step">
-                            <div class="step-number">2</div>
-                            <h3 data-en="Free Training Programs" data-my="အခမဲ့သင်တန်းအစီအစဉ်များ">Free Training Programs</h3>
-                            <p data-en="10% of agency profits are reinvested into free digital marketing education programs specifically for Myanmar women."
-                               data-my="အေဂျင်စီအမြတ်၏ ၁၀% ကို မြန်မာအမျိုးသမီးများအတွက်သီးသန့် အခမဲ့ဒီဂျစ်တယ်စျေးကွက်ရှာဖွေရေးပညာရေးအစီအစဉ်များတွင် ပြန်လည်ရင်းနှီးမြှုပ်နှံသည်။">
-                                10% of agency profits fund free training programs for women.
-                            </p>
-                        </div>
-                        
-                        <!-- Step 3 -->
-                        <div class="flow-step">
-                            <div class="step-number">3</div>
-                            <h3 data-en="Skill Development" data-my="ကျွမ်းကျင်မှုဖွံ့ဖြိုးတိုးတက်မှု">Skill Development</h3>
-                            <p data-en="Women gain valuable digital marketing skills through our free training, increasing their employability and income potential."
-                               data-my="အမျိုးသမီးများသည် ကျွန်ုပ်တို့၏အခမဲ့သင်တန်းမှတစ်ဆင့် တန်ဖိုးရှိသောဒီဂျစ်တယ်စျေးကွက်ရှာဖွေရေးကျွမ်းကျင်မှုများရရှိပြီး ၎င်းတို့၏အလုပ်အကိုင်ရရှိနိုင်မှုနှင့် ဝင်ငွေအလားအလာကို တိုးမြင့်စေသည်။">
-                                Women gain valuable skills increasing employability and income potential.
-                            </p>
-                        </div>
-                        
-                        <!-- Step 4 -->
-                        <div class="flow-step">
-                            <div class="step-number">4</div>
-                            <h3 data-en="Career Opportunities" data-my="အလုပ်အကိုင်အခွင့်အလမ်းများ">Career Opportunities</h3>
-                            <p data-en="Graduates find employment or freelance work, some joining our agency team, creating a continuous cycle of empowerment."
-                               data-my="ဘွဲ့ရများသည် အလုပ်အကိုင်သို့မဟုတ် freelance အလုပ်များရရှိပြီး အချို့သည် ကျွန်ုပ်တို့၏အေဂျင်စီအဖွဲ့တွင် ပါဝင်ကာ စွမ်းဆောင်ရည်မြှင့်တင်မှု၏ဆက်လက်ဖြစ်ပေါ်နေသောသံသရာကို ဖန်တီးပေးသည်။">
-                                Graduates find employment, some joining our agency team.
-                            </p>
-                        </div>
+                    <div class="flow-step-modern">
+                        <div class="step-number-modern">1</div>
+                        <h3 data-en="Revenue Generation" data-my="ဝင်ငွေဖန်တီးမှု">Revenue Generation</h3>
+                        <p data-en="Our EBM Marketing Agency provides digital marketing services to businesses, generating sustainable revenue."
+                           data-my="ကျွန်ုပ်တို့၏ EBM Marketing Agency သည် စီးပွားရေးလုပ်ငန်းများအတွက် ဒီဂျစ်တယ်စျေးကွက်ရှာဖွေရေးဝန်ဆောင်မှုများကို ပေးအပ်ကာ ရေရှည်တည်တံ့သောဝင်ငွေဖန်တီးပေးသည်။">
+                            Our Marketing Agency provides services generating sustainable revenue.
+                        </p>
+                    </div>
+                    
+                    <div class="flow-step-modern">
+                        <div class="step-number-modern">2</div>
+                        <h3 data-en="Free Training Programs" data-my="အခမဲ့သင်တန်းအစီအစဉ်များ">Free Training Programs</h3>
+                        <p data-en="10% of agency profits are reinvested into free digital marketing education programs specifically for Myanmar women."
+                           data-my="အေဂျင်စီအမြတ်၏ ၁၀% ကို မြန်မာအမျိုးသမီးများအတွက်သီးသန့် အခမဲ့ဒီဂျစ်တယ်စျေးကွက်ရှာဖွေရေးပညာရေးအစီအစဉ်များတွင် ပြန်လည်ရင်းနှီးမြှုပ်နှံသည်။">
+                            10% of agency profits fund free training programs for women.
+                        </p>
+                    </div>
+                    
+                    <div class="flow-step-modern">
+                        <div class="step-number-modern">3</div>
+                        <h3 data-en="Skill Development" data-my="ကျွမ်းကျင်မှုဖွံ့ဖြိုးတိုးတက်မှု">Skill Development</h3>
+                        <p data-en="Women gain valuable digital marketing skills through our free training, increasing their employability and income potential."
+                           data-my="အမျိုးသမီးများသည် ကျွန်ုပ်တို့၏အခမဲ့သင်တန်းမှတစ်ဆင့် တန်ဖိုးရှိသောဒီဂျစ်တယ်စျေးကွက်ရှာဖွေရေးကျွမ်းကျင်မှုများရရှိပြီး ၎င်းတို့၏အလုပ်အကိုင်ရရှိနိုင်မှုနှင့် ဝင်ငွေအလားအလာကို တိုးမြင့်စေသည်။">
+                            Women gain valuable skills increasing employability and income potential.
+                        </p>
+                    </div>
+                    
+                    <div class="flow-step-modern">
+                        <div class="step-number-modern">4</div>
+                        <h3 data-en="Career Opportunities" data-my="အလုပ်အကိုင်အခွင့်အလမ်းများ">Career Opportunities</h3>
+                        <p data-en="Graduates find employment or freelance work, some joining our agency team, creating a continuous cycle of empowerment."
+                           data-my="ဘွဲ့ရများသည် အလုပ်အကိုင်သို့မဟုတ် freelance အလုပ်များရရှိပြီး အချို့သည် ကျွန်ုပ်တို့၏အေဂျင်စီအဖွဲ့တွင် ပါဝင်ကာ စွမ်းဆောင်ရည်မြှင့်တင်မှု၏ဆက်လက်ဖြစ်ပေါ်နေသောသံသရာကို ဖန်တီးပေးသည်။">
+                            Graduates find employment, some joining our agency team.
+                        </p>
                     </div>
                 </div>
             </div>
             
-            <!-- Reinvestment Section - UPDATED COLOR SCHEME -->
-            <div class="reinvestment-section">
-                <div class="percentage-badge">
+            <!-- Reinvestment Section -->
+            <div class="reinvestment-modern">
+                <div class="percentage-badge-modern">
                     <span>10%</span>
                     <span>COMMITMENT</span>
                 </div>
@@ -1777,16 +1500,16 @@
                         <p data-en="Our promise to reinvest profits back into women's education" data-my="အမျိုးသမီးများပညာရေးအတွက် အမြတ်ငွေများကို ပြန်လည်ရင်းနှီးမြှုပ်နှံရန် ကျွန်ုပ်တို့၏ကတိ">Our promise to reinvest profits back into women's education</p>
                     </div>
                     
-                    <div class="reinvestment-grid">
-                        <div class="reinvestment-card">
+                    <div class="reinvestment-grid-modern">
+                        <div class="reinvestment-card-modern">
                             <h3 data-en="Free Training" data-my="အခမဲ့သင်တန်း">Free Training</h3>
                             <p data-en="All digital marketing courses are provided free of charge to Myanmar women."
-                               data-my="ဒီဂျစ်တယ်စျေးကွက်ရှာဖွေရေးသင်တန်းအားလုံးကို မြန်မာအ�ျိုးသမီးများအတွက် အခမဲ့ပေးအပ်သည်။">
+                               data-my="ဒီဂျစ်တယ်စျေးကွက်ရှာဖွေရေးသင်တန်းအားလုံးကို မြန်မာအမျိုးသမီးများအတွက် အခမဲ့ပေးအပ်သည်။">
                                 All digital marketing courses free for Myanmar women.
                             </p>
                         </div>
                         
-                        <div class="reinvestment-card">
+                        <div class="reinvestment-card-modern">
                             <h3 data-en="Equipment & Resources" data-my="ပစ္စည်းကိရိယာများနှင့် အရင်းအမြစ်များ">Equipment & Resources</h3>
                             <p data-en="Providing laptops, software licenses, and learning materials to participants."
                                data-my="ပါဝင်သူများအတွက် လက်တော့ပ်များ၊ ဆော့ဖ်ဝဲလိုင်စင်များနှင့် သင်ယူမှုပစ္စည်းများ ပေးအပ်ခြင်း။">
@@ -1794,7 +1517,7 @@
                             </p>
                         </div>
                         
-                        <div class="reinvestment-card">
+                        <div class="reinvestment-card-modern">
                             <h3 data-en="Career Support" data-my="အလုပ်အကိုင်ထောက်ပံ့မှု">Career Support</h3>
                             <p data-en="Job placement assistance, resume building, and interview preparation services."
                                data-my="အလုပ်အကိုင်နေရာချထားမှုအကူအညီ၊ ကိုယ်ရေးမှတ်တမ်းတည်ဆောက်ခြင်းနှင့် အင်တာဗျူးပြင်ဆင်ခြင်းဝန်ဆောင်မှုများ။">
@@ -1802,7 +1525,7 @@
                             </p>
                         </div>
                         
-                        <div class="reinvestment-card">
+                        <div class="reinvestment-card-modern">
                             <h3 data-en="Community Building" data-my="လူမှုအသိုင်းအဝိုင်းတည်ဆောက်ခြင်း">Community Building</h3>
                             <p data-en="Organizing networking events, mentorship programs, and community activities."
                                data-my="ကွန်ယက်ချိတ်ဆက်မှုပွဲများ၊ အကြံပေးအစီအစဉ်များနှင့် လူမှုအသိုင်းအဝိုင်းလှုပ်ရှားမှုများ စီစဉ်ခြင်း။">
@@ -1819,85 +1542,82 @@
                 <p data-en="Measuring success through empowerment and opportunity" data-my="စွမ်းဆောင်ရည်မြှင့်တင်ခြင်းနှင့် အခွင့်အလမ်းများမှတစ်ဆင့် အောင်မြင်မှုကို တိုင်းတာခြင်း">Measuring success through empowerment and opportunity</p>
             </div>
             
-            <div class="impact-stats">
-                <div class="impact-stat">
-                    <div class="stat-number">250+</div>
+            <div class="impact-stats-modern">
+                <div class="impact-stat-modern">
+                    <div class="stat-number-modern">250+</div>
                     <div class="stat-label" data-en="Women Trained" data-my="သင်တန်းတက်ရောက်ခဲ့သော အမျိုးသမီးများ">Women Trained</div>
                 </div>
                 
-                <div class="impact-stat">
-                    <div class="stat-number">85%</div>
+                <div class="impact-stat-modern">
+                    <div class="stat-number-modern">85%</div>
                     <div class="stat-label" data-en="Job Placement Rate" data-my="အလုပ်အကိုင်နေရာချထားမှုနှုန်း">Job Placement Rate</div>
                 </div>
                 
-                <div class="impact-stat">
-                    <div class="stat-number">$50K+</div>
-                    <div class="stat-label" data-en="Reinvested in Education" data-my="ပညာရေးတွင် ပြန်လည်ရင်းနှီးမြှုပ်နှံ">Reinvested in Education</div>
+                <div class="impact-stat-modern">
+                    <div class="stat-number-modern">$50K+</div>
+                    <div class="stat-label" data-en="Reinvested in Education" data-my="ပညာရေးတွင် ပြန်လည်ရင်း�နှီးမြှုပ်နှံ">Reinvested in Education</div>
                 </div>
                 
-                <div class="impact-stat">
-                    <div class="stat-number">15</div>
+                <div class="impact-stat-modern">
+                    <div class="stat-number-modern">15</div>
                     <div class="stat-label" data-en="Partner Companies" data-my="မိတ်ဖက်ကုမ္ပဏီများ">Partner Companies</div>
                 </div>
+            </div>
+            
+            <div class="text-center" style="margin-top: 60px;">
+                <a href="index.html" class="btn btn-outline" data-en="Back to Home" data-my="မူလစာမျက်နှာသို့ ပြန်သွားရန်">Back to Home</a>
             </div>
         </div>
     </section>
 
-    <!-- Back to Home -->
-    <div class="container">
-        <div class="back-to-home">
-            <a href="index.html" class="btn btn-primary" data-en="Back to Home" data-my="မူလစာမျက်နှာသို့ ပြန်သွားရန်">Back to Home</a>
-        </div>
-    </div>
-
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
+            <div class="footer-content-modern">
+                <div class="footer-column-modern">
                     <h3>EdBridge</h3>
                     <p data-en="Education Bridge for Myanmar Women - Empowering Myanmar migrant women through education and digital skills training." 
                        data-my="မြန်မာအမျိုးသမီးများအတွက်ပညာရေးတံတား - ပညာရေးနှင့်ဒီဂျစ်တယ်ကျွမ်းကျင်မှုသင်တန်းများဖြင့် မြန်မာရွှေ့ပြောင်းအမျိုးသမီးများကိုစွမ်းဆောင်ရည်မြှင့်တင်ခြင်း။">
                         Education Bridge for Myanmar Women.
                     </p>
-                    <div class="social-links">
+                    <div class="social-links-modern">
                         <a href="https://www.facebook.com/profile.php?id=61583187345390&mibextid=LQQJ4d&rdid=xyBlhD3SXoruMroe&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1BNqAPcspo%2F%3Fmibextid%3DLQQJ4d#" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
                         <a href="https://www.youtube.com/channel/UCoaBP0vjtLTzBFC5C7ccZJA" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
                         <a href="https://www.tiktok.com/@edbridgeformyanmarwomen?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
+                <div class="footer-column-modern">
+                    <h3 data-en="Quick Links" data-my="အမြန်လင့်ခ်များ">Quick Links</h3>
+                    <ul class="footer-links-modern">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="services.html">Services</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
+                <div class="footer-column-modern">
                     <h3 data-en="Contact Info" data-my="ဆက်သွယ်ရန်အချက်အလက်">Contact Info</h3>
                     <p><i class="fas fa-envelope"></i> edbridgeeducation448@gmail.com</p>
                     <p><i class="fab fa-youtube"></i> <span data-en="YouTube: EdBridge Education" data-my="YouTube: EdBridge Education">YouTube: EdBridge Education</span></p>
                 </div>
             </div>
-            <div class="copyright">
+            <div class="copyright-modern">
                 <p data-en="&copy; 2025 EdBridge - Education Bridge for Myanmar Women." 
                    data-my="&copy; 2025 EdBridge - မြန်မာအမျိုးသမီးများအတွက်ပညာရေးတံတား။">
-                    &copy; 2025 EdBridge.
+                    &copy; 2025 EdBridge. All rights reserved.
                 </p>
             </div>
         </div>
     </footer>
 
     <!-- Scroll to Top Button -->
-    <div class="scroll-to-top" id="scrollToTop">
+    <div class="scroll-to-top-modern" id="scrollToTop">
         <i class="fas fa-chevron-up"></i>
     </div>
 
     <script>
         // Tab Navigation
-        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabButtons = document.querySelectorAll('.modern-tab-btn');
         const contentSections = document.querySelectorAll('.content-section');
         
         tabButtons.forEach(button => {
@@ -1914,7 +1634,7 @@
                 document.getElementById(`${tabId}-section`).classList.add('active');
                 
                 // Scroll to top of section
-                document.getElementById(`${tabId}-section`).scrollIntoView({behavior: 'smooth'});
+                document.getElementById(`${tabId}-section`).scrollIntoView({behavior: 'smooth', block: 'start'});
                 
                 // Trigger animations for visible elements
                 setTimeout(() => {
@@ -1945,19 +1665,13 @@
                 const lang = this.getAttribute('data-lang');
                 
                 document.body.classList.add('loading');
-                const langText = this.textContent;
-                currentLang.textContent = langText;
+                const langText = this.querySelector('span') ? this.querySelector('span').textContent : this.textContent;
+                currentLang.textContent = langText.split(' ')[1] || langText;
                 langDropdown.classList.remove('show');
                 
                 setTimeout(() => {
                     changeLanguage(lang);
                     document.body.classList.remove('loading');
-                    
-                    if (lang === 'my') {
-                        alert('မြန်မာဘာသာသို့ ပြောင်းလဲပြီးပါပြီ။');
-                    } else {
-                        alert('Language changed to English.');
-                    }
                 }, 300);
             });
         });
@@ -1992,11 +1706,20 @@
             document.querySelector('nav ul').classList.toggle('show');
         });
 
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    document.querySelector('nav ul').classList.remove('show');
+                }
+            });
+        });
+
         // Header background on scroll
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             if(window.scrollY > 100) {
-                header.style.backgroundColor = 'rgba(42, 92, 169, 0.95)';
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
             } else {
                 header.style.backgroundColor = '';
             }
@@ -2032,62 +1755,10 @@
                     const target = document.querySelector(href);
                     if (target) {
                         target.scrollIntoView({
-                            behavior: 'smooth'
+                            behavior: 'smooth',
+                            block: 'start'
                         });
                     }
-                }
-            });
-        });
-
-        // Interactive Model Diagram
-        const modelNodes = document.querySelectorAll('.model-node');
-        const modelConnectors = document.querySelectorAll('.model-connector');
-        const modelInfo = document.getElementById('modelInfo');
-        const infoTitle = document.getElementById('infoTitle');
-        const infoDescription = document.getElementById('infoDescription');
-        
-        const modelInfoData = {
-            1: {
-                title: {en: "Revenue Generation", my: "ဝင်ငွေဖန်တီးမှု"},
-                description: {en: "Our EBM Marketing Agency provides digital marketing services to businesses, generating sustainable revenue that funds our educational programs.", my: "ကျွန်ုပ်တို့၏ EBM Marketing Agency သည် စီးပွားရေးလုပ်ငန်းများအတွက် ဒီဂျစ်တယ်စျေးကွက်ရှာဖွေရေးဝန်ဆောင်မှုများကို ပေးအပ်ကာ ကျွန်ုပ်တို့၏ပညာရေးအစီအစဉ်များအတွက် ရန်ပုံငွေထောက်ပံ့ပေးသော ရေရှည်တည်တံ့သောဝင်ငွေကို ဖန်တီးပေးသည်။"}
-            },
-            2: {
-                title: {en: "Free Training Programs", my: "အခမဲ့သင်တန်းအစီအစဉ်များ"},
-                description: {en: "10% of agency profits are reinvested into free digital marketing education programs specifically for Myanmar women, creating a sustainable cycle of empowerment.", my: "အေဂျင်စီအမြတ်၏ ၁၀% ကို မြန်မာအမျိုးသမီးများအတွက်သီးသန့် အခမဲ့ဒီဂျစ်တယ်စျေးကွက်ရှာဖွေရေးပညာရေးအစီအစဉ်များတွင် ပြန်လည်ရင်းနှီးမြှုပ်နှံကာ စွမ်းဆောင်ရည်မြှင့်တင်မှု၏ရေရှည်တည်တံ့သောသံသရာကို ဖန်တီးပေးသည်။"}
-            },
-            3: {
-                title: {en: "Career Opportunities", my: "အလုပ်အကိုင်အခွင့်အလမ်းများ"},
-                description: {en: "Graduates find employment or freelance work, some joining our agency team, creating a continuous cycle of empowerment and community growth.", my: "ဘွဲ့ရများသည် အလုပ်အကိုင်သို့မဟုတ် freelance အလုပ်များရရှိပြီး အချို့သည် ကျွန်ုပ်တို့၏အေဂျင်စီအဖွဲ့တွင် ပါဝင်ကာ စွမ်းဆောင်ရည်မြှင့်တင်မှုနှင့် လူမှုအသိုင်းအဝိုင်းတိုးတက်မှု၏ဆက်လက်ဖြစ်ပေါ်နေသောသံသရာကို ဖန်တီးပေးသည်။"}
-            }
-        };
-        
-        modelNodes.forEach(node => {
-            node.addEventListener('click', function() {
-                const step = this.getAttribute('data-step');
-                
-                // Reset all nodes and connectors
-                modelNodes.forEach(n => n.style.transform = 'scale(1)');
-                modelConnectors.forEach(c => c.classList.remove('active'));
-                
-                // Highlight selected node
-                this.style.transform = 'scale(1.05)';
-                
-                // Highlight connectors
-                if (step === '1') {
-                    document.getElementById('connector1').classList.add('active');
-                } else if (step === '2') {
-                    document.getElementById('connector1').classList.add('active');
-                    document.getElementById('connector2').classList.add('active');
-                } else if (step === '3') {
-                    document.getElementById('connector2').classList.add('active');
-                }
-                
-                // Show info
-                const info = modelInfoData[step];
-                if (info) {
-                    infoTitle.textContent = currentLanguage === 'en' ? info.title.en : info.title.my;
-                    infoDescription.textContent = currentLanguage === 'en' ? info.description.en : info.description.my;
-                    modelInfo.style.display = 'block';
                 }
             });
         });
@@ -2095,7 +1766,7 @@
         // Animation on scroll
         function animateElementsInView() {
             // Timeline items
-            const timelineItems = document.querySelectorAll('.timeline-item');
+            const timelineItems = document.querySelectorAll('.modern-timeline-item');
             timelineItems.forEach(item => {
                 const position = item.getBoundingClientRect();
                 if (position.top < window.innerHeight - 100) {
@@ -2103,17 +1774,8 @@
                 }
             });
             
-            // Model explanation
-            const modelExplanation = document.querySelector('.model-explanation');
-            if (modelExplanation) {
-                const position = modelExplanation.getBoundingClientRect();
-                if (position.top < window.innerHeight - 100) {
-                    modelExplanation.classList.add('visible');
-                }
-            }
-            
             // Model visual items
-            const modelVisualItems = document.querySelectorAll('.model-visual-item');
+            const modelVisualItems = document.querySelectorAll('.model-visual-item-modern');
             modelVisualItems.forEach((item, index) => {
                 const position = item.getBoundingClientRect();
                 if (position.top < window.innerHeight - 100 && !item.classList.contains('animated')) {
@@ -2124,7 +1786,7 @@
             });
             
             // Flow steps
-            const flowSteps = document.querySelectorAll('.flow-step');
+            const flowSteps = document.querySelectorAll('.flow-step-modern');
             flowSteps.forEach((step, index) => {
                 const position = step.getBoundingClientRect();
                 if (position.top < window.innerHeight - 100 && !step.classList.contains('visible')) {
@@ -2135,7 +1797,7 @@
             });
             
             // Value cards
-            const valueCards = document.querySelectorAll('.value-card');
+            const valueCards = document.querySelectorAll('.value-card-modern');
             valueCards.forEach((card, index) => {
                 const position = card.getBoundingClientRect();
                 if (position.top < window.innerHeight - 100 && !card.classList.contains('animated')) {
@@ -2146,7 +1808,7 @@
             });
             
             // Team members
-            const teamMembers = document.querySelectorAll('.team-member-extended');
+            const teamMembers = document.querySelectorAll('.team-member-modern');
             teamMembers.forEach((member, index) => {
                 const position = member.getBoundingClientRect();
                 if (position.top < window.innerHeight - 100 && !member.classList.contains('animated')) {
@@ -2157,7 +1819,7 @@
             });
             
             // Reinvestment cards
-            const reinvestmentCards = document.querySelectorAll('.reinvestment-card');
+            const reinvestmentCards = document.querySelectorAll('.reinvestment-card-modern');
             reinvestmentCards.forEach((card, index) => {
                 const position = card.getBoundingClientRect();
                 if (position.top < window.innerHeight - 100 && !card.classList.contains('animated')) {
@@ -2168,7 +1830,7 @@
             });
             
             // Impact stats
-            const impactStats = document.querySelectorAll('.impact-stat');
+            const impactStats = document.querySelectorAll('.impact-stat-modern');
             impactStats.forEach((stat, index) => {
                 const position = stat.getBoundingClientRect();
                 if (position.top < window.innerHeight - 100 && !stat.classList.contains('animated')) {
@@ -2186,24 +1848,47 @@
             }, 500);
         });
 
-        // Auto-animate model connectors
-        let currentConnector = 0;
-        function animateModelConnectors() {
-            modelConnectors.forEach(connector => connector.classList.remove('active'));
-            
-            if (currentConnector < modelConnectors.length) {
-                modelConnectors[currentConnector].classList.add('active');
-                currentConnector++;
-            } else {
-                currentConnector = 0;
+        // Count up animation for stats
+        function animateCountUp() {
+            const stats = document.querySelectorAll('.stat-number-modern');
+            stats.forEach(stat => {
+                const target = parseInt(stat.textContent);
+                const suffix = stat.textContent.replace(/[0-9]/g, '');
+                const duration = 2000;
+                const step = target / (duration / 16);
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += step;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    stat.textContent = Math.floor(current) + suffix;
+                }, 16);
+            });
+        }
+
+        // Trigger count up when stats are in view
+        let counted = false;
+        function checkStatsInView() {
+            const statsSection = document.querySelector('.impact-stats-modern');
+            if (statsSection && !counted) {
+                const position = statsSection.getBoundingClientRect();
+                if (position.top < window.innerHeight - 100) {
+                    animateCountUp();
+                    counted = true;
+                }
             }
         }
 
-        // Start connector animation
-        setInterval(animateModelConnectors, 2000);
+        // Add stats check to scroll event
+        window.addEventListener('scroll', function() {
+            checkStatsInView();
+        });
+
+        // Initialize
+        checkStatsInView();
     </script>
 </body>
 </html>
-
-
-
