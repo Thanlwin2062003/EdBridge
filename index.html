@@ -3,24 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Education for Myanmar women">
-    <meta name="description" content="Women empowerment in Myanmar">
-    <meta name="description" content="Scholarships for Burmese women">
-    <meta name="description" content="Myanmar women leadership programs">
-    <meta name="description" content="Female education in Myanmar">
     <title>EdBridge - Education Bridge for Myanmar Women</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap">
     <link rel="icon" href="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/logo.png" type="image/png" sizes="32x32">
-    
-    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/logo.png" sizes="32x32">
     <style>
         :root {
-            --primary: #2a5ca9;
-            --secondary: #f9a826;
-            --accent: #e53e3e;
-            --light: #f8f9fa;
-            --dark: #343a40;
-            --success: #28a745;
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #f59e0b;
+            --secondary-dark: #d97706;
+            --accent: #7c3aed;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+            --teal: #0d9488;
+            --purple: #8b5cf6;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --radius: 12px;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         * {
@@ -30,38 +36,39 @@
         }
         
         body {
-            font-family: 'Open Sans', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #FAEBD7;
-            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: #e2e8f0;
+            background-color: #1a202c;
+            overflow-x: hidden;
         }
         
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Playfair Display', serif;
             font-weight: 600;
             margin-bottom: 1rem;
-            color: var(--primary);
+            color: #f7fafc;
+            line-height: 1.3;
         }
         
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 20px;
         }
         
-        /* Header Styles */
+        /* Modern Header */
         header {
-            background: linear-gradient(135deg, var(--primary) 0%, #9f811e 100%);
-            color: white;
-            padding: 1rem 0;
+            background: rgba(26, 32, 44, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            transition: background-color 0.3s;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
         
         .header-container {
@@ -73,17 +80,19 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
         
         .logo img {
-            height: 50px;
+            height: 48px;
             width: auto;
+            border-radius: 50%;
+            box-shadow: var(--shadow);
         }
         
         .logo h1 {
-            font-size: 1.5rem;
-            color: white;
+            font-size: 1.6rem;
+            color: var(--primary);
             margin: 0;
         }
         
@@ -94,27 +103,26 @@
         nav ul {
             display: flex;
             list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 1.5rem;
+            gap: 2rem;
         }
         
         nav ul li a {
-            color: white;
+            color: #e2e8f0;
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s;
+            font-size: 0.95rem;
+            transition: var(--transition);
             padding: 0.5rem 0;
             position: relative;
         }
         
         nav ul li a:hover {
-            color: var(--secondary);
+            color: var(--primary);
         }
         
         nav ul li a.active {
-            color: var(--secondary);
+            color: var(--primary);
+            font-weight: 600;
         }
         
         nav ul li a.active::after {
@@ -124,65 +132,54 @@
             left: 0;
             width: 100%;
             height: 2px;
-            background-color: var(--secondary);
-        }
-        
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--secondary);
-            transition: width 0.3s;
-        }
-        
-        nav ul li a:hover::after {
-            width: 100%;
+            background-color: var(--primary);
+            border-radius: 2px;
         }
         
         .mobile-menu {
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
+            color: #e2e8f0;
         }
         
-        /* Language Switcher Styles */
+        /* Language Switcher */
         .language-switcher {
             position: relative;
-            margin-left: 20px;
         }
 
         .lang-btn {
-            background: rgba(255,255,255,0.2);
-            color: white;
-            border: 1px solid rgba(255,255,255,0.3);
-            padding: 8px 15px;
-            border-radius: 5px;
+            background: rgba(45, 55, 72, 0.7);
+            color: #e2e8f0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: var(--radius);
             cursor: pointer;
             display: flex;
             align-items: center;
             gap: 8px;
             font-size: 0.9rem;
-            transition: all 0.3s;
+            font-weight: 500;
+            transition: var(--transition);
         }
 
         .lang-btn:hover {
-            background: rgba(255,255,255,0.3);
+            background: rgba(55, 65, 81, 0.9);
+            border-color: var(--primary);
         }
 
         .lang-dropdown {
             position: absolute;
             top: 100%;
             right: 0;
-            background: white;
-            border-radius: 5px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            min-width: 120px;
+            background: #2d3748;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            min-width: 140px;
             display: none;
             overflow: hidden;
             z-index: 1001;
+            margin-top: 8px;
         }
 
         .lang-dropdown.show {
@@ -190,16 +187,18 @@
         }
 
         .lang-dropdown a {
-            display: block;
-            padding: 10px 15px;
-            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+            color: #e2e8f0;
             text-decoration: none;
-            transition: background 0.3s;
-            border-bottom: 1px solid #f0f0f0;
+            transition: var(--transition);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .lang-dropdown a:hover {
-            background: #f8f9fa;
+            background: #4a5568;
             color: var(--primary);
         }
 
@@ -207,289 +206,450 @@
             border-bottom: none;
         }
         
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(253, 253, 253, 0.652), rgba(25, 19, 19, 0.6)), url('https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/Cover photo.jpg');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 150px 0 100px;
+        /* Modern Hero */
+        .modern-hero {
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 50%, #4a5568 100%);
+            padding: 180px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .modern-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.6;
+        }
+        
+        .hero-content {
+            max-width: 800px;
             text-align: center;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
         
-        .hero h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: white;
+        .hero-content h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+            color: #f7fafc;
         }
         
-        .hero p {
+        .hero-content p {
             font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
+            color: #cbd5e0;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .btn {
-            display: inline-block;
-            background-color: var(--secondary);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: var(--primary);
             color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
+            padding: 14px 32px;
+            border-radius: var(--radius);
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s;
+            transition: var(--transition);
             border: none;
             cursor: pointer;
+            font-size: 1rem;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
         }
         
         .btn:hover {
-            background-color: #e89a1f;
+            background-color: var(--primary-dark);
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
         }
         
-        .btn-primary {
-            background-color: var(--primary);
+        .btn-secondary {
+            background-color: var(--secondary);
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2);
         }
         
-        .btn-primary:hover {
-            background-color: #1e429f;
+        .btn-secondary:hover {
+            background-color: var(--secondary-dark);
+            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.3);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            box-shadow: none;
+        }
+        
+        .btn-outline:hover {
+            background-color: rgba(37, 99, 235, 0.1);
         }
         
         /* Section Styles */
         section {
-            padding: 80px 0;
+            padding: 100px 0;
+            background-color: transparent;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
         }
         
         .section-title h2 {
-            font-size: 2.2rem;
+            font-size: 2.8rem;
             position: relative;
             display: inline-block;
-            padding-bottom: 10px;
+            margin-bottom: 1.5rem;
         }
         
         .section-title h2::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
             width: 80px;
-            height: 3px;
-            background-color: var(--secondary);
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
         }
         
-        /* About Section */
-        .about-content {
-            display: flex;
+        .section-title p {
+            font-size: 1.1rem;
+            color: #cbd5e0;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* About Preview Section */
+        .about-content-modern {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
             align-items: center;
-            gap: 40px;
+            margin-bottom: 80px;
         }
         
-        .about-text {
-            flex: 1;
+        .about-text-modern h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
         }
         
-        .about-image {
-            flex: 1;
-            border-radius: 10px;
+        .about-text-modern p {
+            font-size: 1.1rem;
+            color: #e2e8f0;
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-image-modern {
+            border-radius: var(--radius);
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow-lg);
+            position: relative;
         }
         
-        .about-image img {
+        .about-image-modern img {
             width: 100%;
             height: auto;
             display: block;
+            transition: transform 0.5s ease;
         }
         
-        .circle-logo {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
+        .about-image-modern:hover img {
+            transform: scale(1.05);
         }
         
-        /* Highlights Grid */
-        .highlights-grid {
+        /* Highlights Grid - Modern */
+        .highlights-grid-modern {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
             margin-top: 50px;
         }
         
-        .highlight-card {
-            background-color: white;
-            border-radius: 10px;
-            padding: 30px;
+        .highlight-card-modern {
+            background-color: #2d3748;
+            border-radius: var(--radius);
+            padding: 35px 30px;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 4px solid var(--primary);
+            opacity: 0;
+            transform: translateY(20px);
         }
         
-        .highlight-card:hover {
+        .highlight-card-modern.animated {
+            animation: slideUp 0.6s forwards;
+        }
+        
+        .highlight-card-modern:hover {
             transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
         }
         
-        .highlight-icon {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
+        .highlight-icon-modern {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
-        /* Contact Section */
-        .contact {
-            background-color: #FAEBD7;
-        }
-        
-        .contact-container {
-            display: flex;
-            gap: 40px;
-        }
-        
-        .contact-info {
-            flex: 1;
-        }
-        
-        .contact-form {
-            flex: 1;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 25px;
-        }
-        
-        .contact-icon {
-            background-color: var(--primary);
+        /* Mission Banner */
+        .mission-banner-modern {
+            background: linear-gradient(135deg, var(--teal) 0%, var(--purple) 100%);
             color: white;
-            width: 50px;
-            height: 50px;
+            padding: 80px 0;
+            border-radius: var(--radius);
+            margin: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mission-banner-modern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        
+        .mission-banner-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .mission-banner-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .mission-banner-content p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+        }
+        
+        /* Stats Section */
+        .stats-section-modern {
+            background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+            border-radius: var(--radius);
+            padding: 80px;
+            margin: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stats-section-modern::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.05) 0%, transparent 70%);
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            flex-shrink: 0;
         }
         
-        .form-group {
-            margin-bottom: 20px;
+        .stats-grid-modern {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            position: relative;
+            z-index: 2;
         }
         
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
+        .stat-item-modern {
+            text-align: center;
+        }
+        
+        .stat-number-modern {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .stat-label-modern {
+            font-size: 1.1rem;
+            color: #e2e8f0;
             font-weight: 500;
         }
         
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: 'Open Sans', sans-serif;
-            transition: border-color 0.3s;
+        /* CTA Section */
+        .cta-section-modern {
+            text-align: center;
+            padding: 100px 0;
         }
         
-        .form-control:focus {
-            border-color: var(--primary);
-            outline: none;
+        .cta-content-modern {
+            max-width: 700px;
+            margin: 0 auto;
         }
         
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
+        .cta-content-modern h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-content-modern p {
+            font-size: 1.2rem;
+            color: #cbd5e0;
+            margin-bottom: 2.5rem;
         }
         
         /* Footer */
         footer {
-            background-color: var(--dark);
+            background-color: #0f1419;
             color: white;
-            padding: 60px 0 20px;
+            padding: 80px 0 30px;
         }
         
-        .footer-content {
+        .footer-content-modern {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            gap: 50px;
+            margin-bottom: 50px;
         }
         
-        .footer-column h3 {
+        .footer-column-modern h3 {
             color: white;
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+        }
+        
+        .footer-column-modern p {
             margin-bottom: 20px;
-            font-size: 1.3rem;
+            color: #cbd5e1;
+            line-height: 1.7;
         }
         
-        .footer-column p {
-            margin-bottom: 15px;
-            color: #bbb;
-        }
-        
-        .social-links {
+        .social-links-modern {
             display: flex;
             gap: 15px;
-            margin-top: 20px;
+            margin-top: 25px;
         }
         
-        .social-links a {
+        .social-links-modern a {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(218, 11, 11, 0.49);
+            width: 45px;
+            height: 45px;
+            background-color: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             color: white;
             text-decoration: none;
-            transition: background-color 0.3s;
+            transition: var(--transition);
         }
         
-        .social-links a:hover {
+        .social-links-modern a:hover {
             background-color: var(--primary);
+            transform: translateY(-3px);
         }
         
-        .footer-links {
+        .footer-links-modern {
             list-style: none;
         }
         
-        .footer-links li {
-            margin-bottom: 10px;
+        .footer-links-modern li {
+            margin-bottom: 12px;
         }
         
-        .footer-links a {
-            color: #bbb;
+        .footer-links-modern a {
+            color: #cbd5e1;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: var(--transition);
         }
         
-        .footer-links a:hover {
+        .footer-links-modern a:hover {
             color: white;
+            padding-left: 5px;
         }
         
-        .copyright {
+        .copyright-modern {
             text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: #bbb;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
             font-size: 0.9rem;
+        }
+        
+        /* Scroll to Top Button */
+        .scroll-to-top-modern {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .scroll-to-top-modern.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-to-top-modern:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-5px);
+        }
+        
+        /* Animation */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         /* Responsive Styles */
         @media (max-width: 992px) {
-            .about-content {
-                flex-direction: column;
+            .about-content-modern {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
             
-            .contact-container {
-                flex-direction: column;
+            .stats-section-modern {
+                padding: 50px 40px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
             }
         }
         
@@ -501,13 +661,14 @@
             nav ul {
                 display: none;
                 position: absolute;
-                top: 70px;
+                top: 100%;
                 left: 0;
                 width: 100%;
-                background-color: var(--primary);
+                background-color: #2d3748;
                 flex-direction: column;
                 padding: 20px;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
             }
             
             nav ul.show {
@@ -518,42 +679,53 @@
                 margin: 10px 0;
             }
             
-            .hero h2 {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .stats-section-modern {
+                padding: 40px 30px;
+                margin: 60px 0;
+            }
+            
+            .stats-grid-modern {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+            
+            .mission-banner-content h2 {
                 font-size: 2rem;
             }
             
-            .hero p {
-                font-size: 1rem;
+            .mission-banner-content p {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .highlights-grid-modern {
+                grid-template-columns: 1fr;
             }
             
-            .language-switcher {
-                margin-left: 10px;
+            .stats-grid-modern {
+                grid-template-columns: 1fr;
             }
-        }
-
-        /* Loading animation for language switching */
-        .loading {
-            opacity: 0.7;
-            pointer-events: none;
-        }
-
-        /* Improved accessibility */
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-
-        /* Improved focus styles for accessibility */
-        a:focus, button:focus {
-            outline: 2px solid var(--secondary);
-            outline-offset: 2px;
+            
+            .stat-number-modern {
+                font-size: 2.8rem;
+            }
+            
+            .cta-content-modern h2 {
+                font-size: 2.2rem;
+            }
         }
     </style>
 </head>
@@ -562,42 +734,48 @@
     <header>
         <div class="container header-container">
             <div class="logo">
-               <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/logo.png" alt="EdBridge Logo" class="circle-logo">
+                <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/logo.png" alt="EdBridge Logo">
                 <h1>Ed<span>Bridge</span></h1>
             </div>
             <div class="mobile-menu">
                 <i class="fas fa-bars"></i>
             </div>
             <nav>
-    <ul>
-        <li><a href="index.html" data-en="Home" data-my="မူလ စာမျက်နှာ" class="active">Home</a></li>
-        <li><a href="about.html" data-en="About" data-my="အကြောင်း">About</a></li>
-        <li><a href="services.html" data-en="Services" data-my="ဝန်ဆောင်မှုများ">Services</a></li>
-        <li><a href="news.html" data-en="News" data-my="သတင်းများ">News</a></li>       
-        <li><a href="contact.html" data-en="Contact" data-my="ဆက်သွယ်ရန်">Contact</a></li>
-    </ul>
-</nav>
+                <ul>
+                    <li><a href="index.html" data-en="Home" data-my="မူလ စာမျက်နှာ" class="active">Home</a></li>
+                    <li><a href="about.html" data-en="About" data-my="အကြောင်း">About</a></li>
+                    <li><a href="services.html" data-en="Services" data-my="ဝန်ဆောင်မှုများ">Services</a></li>
+                    <li><a href="news.html" data-en="News" data-my="သတင်းများ">News</a></li>
+                    <li><a href="contact.html" data-en="Contact" data-my="ဆက်သွယ်ရန်">Contact</a></li>
+                </ul>
+            </nav>
             <!-- Language Switcher -->
             <div class="language-switcher">
                 <button id="langToggle" class="lang-btn">
                     <i class="fas fa-globe"></i> <span id="currentLang">English</span> <i class="fas fa-chevron-down"></i>
                 </button>
                 <div class="lang-dropdown">
-                    <a href="#" data-lang="en">English</a>
-                    <a href="#" data-lang="my">Myanmar</a>
+                    <a href="#" data-lang="en"><i class="fas fa-language"></i> English</a>
+                    <a href="#" data-lang="my"><i class="fas fa-language"></i> Myanmar</a>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
+    <!-- Modern Hero -->
+    <section class="modern-hero">
         <div class="container">
-            <h2 data-en="Education Bridge for Myanmar Women" data-my="မြန်မာအမျိုးသမီးများအတွက် ပညာရေးပေါင်းကူးတံတား">Education Bridge for Myanmar Women</h2>
-            <p data-en="Empowering Myanmar migrant women through education, digital skills training, and community support." 
-               data-my="ပညာရေး၊ ဒစ်ဂျစ်တယ် နည်းပညာများ၊ နှင့် အသိုင်းအဝိုင်းပံ့ပိုးမှုများဖြင့် ရွှေ့ပြောင်း မြန်မာအမျိုးသမီးများအား စွမ်းရည်မြှင့်တင်ခြင်း">Empowering Myanmar migrant women through education, digital skills training, and community support.</p>
-            <a href="contact.html" class="btn" data-en="Get Involved" data-my="ပါဝင်ရန်">Get Involved</a>
-            <a href="about.html" class="btn btn-primary" data-en="Learn More" data-my="ပိုမိုလေ့လာရန်">Learn More</a>
+            <div class="hero-content">
+                <h1 data-en="Education Bridge for Myanmar Women" data-my="မြန်မာအမျိုးသမီးများအတွက် ပညာရေးပေါင်းကူးတံတား">Education Bridge for Myanmar Women</h1>
+                <p data-en="Empowering Myanmar migrant women through education, digital skills training, and community support." 
+                   data-my="ပညာရေး၊ ဒစ်ဂျစ်တယ် နည်းပညာများ၊ နှင့် အသိုင်းအဝိုင်းပံ့ပိုးမှုများဖြင့် ရွှေ့ပြောင်း မြန်မာအမျိုးသမီးများအား စွမ်းရည်မြှင့်တင်ခြင်း">
+                    Empowering Myanmar migrant women through education, digital skills training, and community support.
+                </p>
+                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                    <a href="contact.html" class="btn btn-secondary" data-en="Get Involved" data-my="ပါဝင်ရန်">Get Involved</a>
+                    <a href="about.html" class="btn" data-en="Learn More" data-my="ပိုမိုလေ့လာရန်">Learn More</a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -608,14 +786,18 @@
                 <h2 data-en="About EdBridge" data-my="EdBridge အကြောင်း">About EdBridge</h2>
                 <p data-en="Bridging educational gaps for Myanmar Women" data-my="မြန်မာအမျိုးသမီးကြုံတွေ့နေရသည့် ပညာရေးဆိုင်ရာကွာဟမှုများကို ပေါင်းကူးပေးခြင်း">Bridging educational gaps for Myanmar Women</p>
             </div>
-            <div class="about-content">
-                <div class="about-text">
+            
+            <div class="about-content-modern">
+                <div class="about-text-modern">
+                    <h2 data-en="Our Mission" data-my="ကျွန်ုပ်တို့၏ မစ်ရှင်">Our Mission</h2>
                     <p data-en="EdBridge is a social enterprise dedicated to expanding access to education for Myanmar migrant women and their children. We combine the heart of a non-profit with the mind of a business to create sustainable educational solutions." 
-                       data-my="EdBridge သည် ရွှေ့ပြောင်းမြန်မာအမျိုးသမီးများနှင့် ၎င်းတို့၏ သားသမီးများအတွက် အရည်အသွေးပြည်ဝသော ပညာသင်ကြားနိုင်မှုကို ကောင်းစွာရရှိနိုင်စေရန် အခွင့်အလမ်းများ ရှာဖွေချိတ်ဆက် ပေးနိုင်ရန် ရည်ရွယ်ပြီး လူမှုရေးဆိုင်ရာ ရင်းနှီးမြှပ်နှံထားသည့် လုပ်ငန်း တခုဖြစ်သည်။">EdBridge is a social enterprise dedicated to expanding access to education for Myanmar migrant women and their children.</p>
-                    <a href="about.html" class="btn btn-primary" data-en="Read More" data-my="ဆက်လက်ဖတ်ရှုရန်">Read More</a>
+                       data-my="EdBridge သည် ရွှေ့ပြောင်းမြန်မာအမျိုးသမီးများနှင့် ၎င်းတို့၏ သားသမီးများအတွက် အရည်အသွေးပြည်ဝသော ပညာသင်ကြားနိုင်မှုကို ကောင်းစွာရရှိနိုင်စေရန် အခွင့်အလမ်းများ ရှာဖွေချိတ်ဆက် ပေးနိုင်ရန် ရည်ရွယ်ပြီး လူမှုရေးဆိုင်ရာ ရင်းနှီးမြှပ်နှံထားသည့် လုပ်ငန်း တခုဖြစ်သည်။">
+                        EdBridge is a social enterprise dedicated to expanding access to education for Myanmar migrant women and their children.
+                    </p>
+                    <a href="about.html" class="btn btn-outline" data-en="Read More" data-my="ဆက်လက်ဖတ်ရှုရန်">Read More</a>
                 </div>
-                <div class="about-image">
-                    <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/About Section.jpg" alt="Students learning">
+                <div class="about-image-modern">
+                    <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/About%20Section.jpg" alt="EdBridge team and students">
                 </div>
             </div>
         </div>
@@ -624,38 +806,117 @@
     <!-- Highlights Section -->
     <section class="highlights">
         <div class="container">
-            <div class="highlights-grid">
-                <div class="highlight-card">
-                    <div class="highlight-icon">
+            <div class="section-title">
+                <h2 data-en="What We Offer" data-my="ကျွန်ုပ်တို့ ပေးဆောင်သည်များ">What We Offer</h2>
+                <p data-en="Comprehensive support for education and career development" data-my="ပညာရေးနှင့် အလုပ်အကိုင်ဖွံ့ဖြိုးတိုးတက်မှုအတွက် ကျယ်ပြန့်သော ပံ့ပိုးမှုများ">Comprehensive support for education and career development</p>
+            </div>
+            
+            <div class="highlights-grid-modern">
+                <div class="highlight-card-modern">
+                    <div class="highlight-icon-modern">
                         <i class="fas fa-graduation-cap"></i>
                     </div>
-                    <h3 data-en="Training Support:" data-my="အခမဲ့သင်တန်းများ">Training Support:</h3>
-                    <p data-en="Provides high-quality training at a low cost, with scholarship opportunities available to support women and learners who face financial barrier" data-my="အလုပ်အကိုင်ရရှိရန် ဒီဂျစ်တယ်စျေးကွက်ရှာဖွေရေးကျွမ်းကျင်မှုများ">
-Provides high-quality training at a low cost, with scholarship opportunities available to support women and learners who face financial barrier.</p>
+                    <h3 data-en="Training Support" data-my="အခမဲ့သင်တန်းများ">Training Support</h3>
+                    <p data-en="Provides high-quality training at a low cost, with scholarship opportunities available to support women and learners who face financial barriers."
+                       data-my="အလုပ်အကိုင်ရရှိရန် ဒီဂျစ်တယ်စျေးကွက်ရှာဖွေရေးကျွမ်းကျင်မှုများ">
+                        High-quality training with scholarship opportunities for women facing financial barriers.
+                    </p>
                 </div>
                 
-                <div class="highlight-card">
-                    <div class="highlight-icon">
+                <div class="highlight-card-modern">
+                    <div class="highlight-icon-modern">
                         <i class="fas fa-hands-helping"></i>
                     </div>
                     <h3 data-en="Career Support" data-my="အလုပ်အကိုင်အထောက်အပံ့">Career Support</h3>
-                    <p data-en="Guidance for freelance and job opportunities" data-my="Freelance နှင့် အလုပ်အကိုင်အခွင့်အလမ်းများအတွက် လမ်းညွှန်မှု">Guidance for freelance and job opportunities</p>
+                    <p data-en="Guidance for freelance and job opportunities" 
+                       data-my="Freelance နှင့် အလုပ်အကိုင်အခွင့်အလမ်းများအတွက် လမ်းညွှန်မှု">
+                        Guidance for freelance and job opportunities.
+                    </p>
                 </div>
                 
-                <div class="highlight-card">
-                    <div class="highlight-icon">
+                <div class="highlight-card-modern">
+                    <div class="highlight-icon-modern">
                         <i class="fas fa-users"></i>
                     </div>
                     <h3 data-en="Community" data-my="လူမှုအသိုင်းအဝိုင်း">Community</h3>
-                    <p data-en="Networking and cross-cultural understanding" data-my="ကွန်ယက်ချိတ်ဆက်ခြင်းနှင့် ယဉ်ကျေးမှုများစွာနားလည်ခြင်း">Networking and cross-cultural understanding</p>
+                    <p data-en="Networking and cross-cultural understanding" 
+                       data-my="ကွန်ယက်ချိတ်ဆက်ခြင်းနှင့် ယဉ်ကျေးမှုများစွာနားလည်ခြင်း">
+                        Networking and cross-cultural understanding.
+                    </p>
                 </div>
                 
-                <div class="highlight-card">
-                    <div class="highlight-icon">
+                <div class="highlight-card-modern">
+                    <div class="highlight-icon-modern">
                         <i class="fas fa-seedling"></i>
                     </div>
                     <h3 data-en="Sustainability" data-my="ရေရှည်တည်တံ့မှု">Sustainability</h3>
-                    <p data-en="Social enterprise model for long-term impact" data-my="ရေရှည်သက်ရောက်မှုအတွက် လူမှုရေးစီးပွားရေးမော်ဒယ်">Social enterprise model for long-term impact</p>
+                    <p data-en="Social enterprise model for long-term impact" 
+                       data-my="ရေရှည်သက်ရောက်မှုအတွက် လူမှုရေးစီးပွားရေးမော်ဒယ်">
+                        Social enterprise model for long-term impact.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section-modern">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-en="Our Impact" data-my="ကျွန်ုပ်တို့၏ သက်ရောက်မှု">Our Impact</h2>
+                <p data-en="Transforming lives through education and empowerment" data-my="ပညာရေးနှင့် စွမ်းဆောင်ရည်မြှင့်တင်မှုမှတစ်ဆင့် ဘဝများပြောင်းလဲခြင်း">Transforming lives through education and empowerment</p>
+            </div>
+            
+            <div class="stats-grid-modern">
+                <div class="stat-item-modern">
+                    <div class="stat-number-modern" data-count="250">250+</div>
+                    <div class="stat-label-modern" data-en="Women Trained" data-my="သင်တန်းတက်ရောက်ခဲ့သော အမျိုးသမီးများ">Women Trained</div>
+                </div>
+                
+                <div class="stat-item-modern">
+                    <div class="stat-number-modern" data-count="85">85%</div>
+                    <div class="stat-label-modern" data-en="Job Placement Rate" data-my="အလုပ်အကိုင်နေရာချထားမှုနှုန်း">Job Placement Rate</div>
+                </div>
+                
+                <div class="stat-item-modern">
+                    <div class="stat-number-modern" data-count="50">$50K+</div>
+                    <div class="stat-label-modern" data-en="Reinvested in Education" data-my="ပညာရေးတွင် ပြန်လည်ရင်းနှီးမြှုပ်နှံ">Reinvested in Education</div>
+                </div>
+                
+                <div class="stat-item-modern">
+                    <div class="stat-number-modern" data-count="15">15</div>
+                    <div class="stat-label-modern" data-en="Partner Companies" data-my="မိတ်ဖက်ကုမ္ပဏီများ">Partner Companies</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Banner -->
+    <section class="mission-banner-modern">
+        <div class="container">
+            <div class="mission-banner-content">
+                <h2 data-en="Join Our Movement" data-my="ကျွန်ုပ်တို့၏လှုပ်ရှားမှုတွင် ပါဝင်ပါ">Join Our Movement</h2>
+                <p data-en="Together, we can bridge the educational gap and create opportunities for Myanmar women to thrive in the digital economy." 
+                   data-my="အတူတကွ၊ ကျွန်ုပ်တို့သည် ပညာရေးကွာဟချက်ကို ပေါင်းကူးပေးပြီး မြန်မာအမျိုးသမီးများအတွက် ဒီဂျစ်တယ်စီးပွားရေးတွင် ထွန်းကားရန် အခွင့်အလမ်းများ ဖန်တီးနိုင်သည်။">
+                    Together, we can bridge the educational gap and create opportunities for Myanmar women.
+                </p>
+                <a href="contact.html" class="btn" style="background-color: white; color: var(--teal);" data-en="Get Started Today" data-my="ယနေ့စတင်ပါ">Get Started Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section-modern">
+        <div class="container">
+            <div class="cta-content-modern">
+                <h2 data-en="Ready to Make a Difference?" data-my="ပြောင်းလဲမှုဖန်တီးရန် အဆင်သင့်ဖြစ်ပြီလား?">Ready to Make a Difference?</h2>
+                <p data-en="Whether you want to join our programs, volunteer, or support our mission, we welcome you to be part of the EdBridge community." 
+                   data-my="သင်သည် ကျွန်ုပ်တို့၏အစီအစဉ်များတွင် ပါဝင်လိုသည်ဖြစ်စေ၊ အလုပ်အမှုဆောင်အဖြစ် လုပ်ဆောင်လိုသည်ဖြစ်စေ၊ သို့မဟုတ် ကျွန်ုပ်တို့၏မစ်ရှင်ကို ထောက်ပံ့လိုသည်ဖြစ်စေ၊ EdBridge အသိုင်းအဝိုင်း၏တစ်စိတ်တစ်ပိုင်းဖြစ်ရန် ကြိုဆိုပါသည်။">
+                    Join our programs, volunteer, or support our mission. Be part of the EdBridge community.
+                </p>
+                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                    <a href="contact.html" class="btn btn-secondary" data-en="Contact Us" data-my="ဆက်သွယ်ရန်">Contact Us</a>
+                    <a href="about.html" class="btn" data-en="Learn About Our Model" data-my="ကျွန်ုပ်တို့၏မော်ဒယ်အကြောင်း လေ့လာပါ">Learn About Our Model</a>
                 </div>
             </div>
         </div>
@@ -664,42 +925,47 @@ Provides high-quality training at a low cost, with scholarship opportunities ava
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
+            <div class="footer-content-modern">
+                <div class="footer-column-modern">
                     <h3>EdBridge</h3>
                     <p data-en="Education Bridge for Myanmar Women - Empowering Myanmar migrant women through education and digital skills training." 
                        data-my="မြန်မာအမျိုးသမီးများအတွက်ပညာရေးတံတား - ပညာရေးနှင့်ဒီဂျစ်တယ်ကျွမ်းကျင်မှုသင်တန်းများဖြင့် မြန်မာရွှေ့ပြောင်းအမျိုးသမီးများကိုစွမ်းဆောင်ရည်မြှင့်တင်ခြင်း။">
-                        Education Bridge for Myanmar Women - Empowering Myanmar migrant women through education and digital skills training.
+                        Education Bridge for Myanmar Women.
                     </p>
-                    <div class="social-links">
+                    <div class="social-links-modern">
                         <a href="https://www.facebook.com/profile.php?id=61583187345390&mibextid=LQQJ4d&rdid=xyBlhD3SXoruMroe&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1BNqAPcspo%2F%3Fmibextid%3DLQQJ4d#" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
                         <a href="https://www.youtube.com/channel/UCoaBP0vjtLTzBFC5C7ccZJA" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
                         <a href="https://www.tiktok.com/@edbridgeformyanmarwomen?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
+                <div class="footer-column-modern">
+                    <h3 data-en="Quick Links" data-my="အမြန်လင့်ခ်များ">Quick Links</h3>
+                    <ul class="footer-links-modern">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="services.html">Services</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
+                <div class="footer-column-modern">
                     <h3 data-en="Contact Info" data-my="ဆက်သွယ်ရန်အချက်အလက်">Contact Info</h3>
                     <p><i class="fas fa-envelope"></i> edbridgeeducation448@gmail.com</p>
                     <p><i class="fab fa-youtube"></i> <span data-en="YouTube: EdBridge Education" data-my="YouTube: EdBridge Education">YouTube: EdBridge Education</span></p>
                 </div>
             </div>
-            <div class="copyright">
+            <div class="copyright-modern">
                 <p data-en="&copy; 2025 EdBridge - Education Bridge for Myanmar Women." 
                    data-my="&copy; 2025 EdBridge - မြန်မာအမျိုးသမီးများအတွက်ပညာရေးတံတား။">
-                    &copy; 2025 EdBridge - Education Bridge for Myanmar Women.
+                    &copy; 2025 EdBridge. All rights reserved.
                 </p>
             </div>
         </div>
     </footer>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-to-top-modern" id="scrollToTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
 
     <script>
         // Language Switcher
@@ -724,19 +990,13 @@ Provides high-quality training at a low cost, with scholarship opportunities ava
                 const lang = this.getAttribute('data-lang');
                 
                 document.body.classList.add('loading');
-                const langText = this.textContent;
-                currentLang.textContent = langText;
+                const langText = this.querySelector('span') ? this.querySelector('span').textContent : this.textContent;
+                currentLang.textContent = langText.split(' ')[1] || langText;
                 langDropdown.classList.remove('show');
                 
                 setTimeout(() => {
                     changeLanguage(lang);
                     document.body.classList.remove('loading');
-                    
-                    if (lang === 'my') {
-                        alert('မြန်မာဘာသာသို့ ပြောင်းလဲပြီးပါပြီ။');
-                    } else {
-                        alert('Language changed to English.');
-                    }
                 }, 300);
             });
         });
@@ -747,7 +1007,12 @@ Provides high-quality training at a low cost, with scholarship opportunities ava
             document.querySelectorAll('[data-en]').forEach(element => {
                 if (element.hasAttribute(`data-${lang}`)) {
                     if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                        element.placeholder = element.getAttribute(`data-${lang}`);
+                        const placeholderAttr = element.getAttribute(`data-${lang}-placeholder`);
+                        if (placeholderAttr) {
+                            element.placeholder = placeholderAttr;
+                        } else {
+                            element.placeholder = element.getAttribute(`data-${lang}`);
+                        }
                     } else {
                         element.textContent = element.getAttribute(`data-${lang}`);
                     }
@@ -765,20 +1030,126 @@ Provides high-quality training at a low cost, with scholarship opportunities ava
         document.querySelector('.mobile-menu').addEventListener('click', function() {
             document.querySelector('nav ul').classList.toggle('show');
         });
-        
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    document.querySelector('nav ul').classList.remove('show');
+                }
+            });
+        });
+
         // Header background on scroll
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             if(window.scrollY > 100) {
-                header.style.backgroundColor = 'rgba(42, 92, 169, 0.95)';
+                header.style.backgroundColor = 'rgba(26, 32, 44, 0.98)';
             } else {
                 header.style.backgroundColor = '';
             }
+            
+            // Show/hide scroll to top button
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+            
+            // Trigger animations for elements in view
+            animateElementsInView();
         });
+
+        // Scroll to top functionality
+        document.getElementById('scrollToTop').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Animation on scroll
+        function animateElementsInView() {
+            // Highlight cards
+            const highlightCards = document.querySelectorAll('.highlight-card-modern');
+            highlightCards.forEach((card, index) => {
+                const position = card.getBoundingClientRect();
+                if (position.top < window.innerHeight - 100 && !card.classList.contains('animated')) {
+                    setTimeout(() => {
+                        card.classList.add('animated');
+                    }, index * 200);
+                }
+            });
+        }
+
+        // Initial animation trigger
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                animateElementsInView();
+            }, 500);
+        });
+
+        // Count up animation for stats
+        function animateCountUp() {
+            const stats = document.querySelectorAll('.stat-number-modern');
+            stats.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-count'));
+                const suffix = stat.textContent.replace(/[0-9]/g, '');
+                const duration = 2000;
+                const step = target / (duration / 16);
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += step;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    stat.textContent = Math.floor(current) + suffix;
+                }, 16);
+            });
+        }
+
+        // Trigger count up when stats are in view
+        let counted = false;
+        function checkStatsInView() {
+            const statsSection = document.querySelector('.stats-section-modern');
+            if (statsSection && !counted) {
+                const position = statsSection.getBoundingClientRect();
+                if (position.top < window.innerHeight - 100) {
+                    animateCountUp();
+                    counted = true;
+                }
+            }
+        }
+
+        // Add stats check to scroll event
+        window.addEventListener('scroll', function() {
+            checkStatsInView();
+        });
+
+        // Initialize
+        checkStatsInView();
     </script>
 </body>
-
 </html>
-
-
-
