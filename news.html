@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News & Updates - EdBridge</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/logo.png" type="image/png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap">
+    <link rel="icon" href="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/logo.png" type="image/png" sizes="32x32">
     <style>
         :root {
             --primary: #2563eb;
@@ -330,94 +330,48 @@
             margin: 0 auto;
         }
         
-        /* About Preview Section */
-        .about-content-modern {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            margin-bottom: 80px;
+        /* News Filter Tabs */
+        .news-filter-modern {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
         }
         
-        .about-text-modern h2 {
-            font-size: 2.2rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .about-text-modern p {
-            font-size: 1.1rem;
-            color: #e2e8f0;
-            margin-bottom: 1.5rem;
-        }
-        
-        .about-image-modern {
+        .filter-btn-modern {
+            background: #2d3748;
+            border: 2px solid #4a5568;
+            color: #cbd5e0;
+            padding: 12px 28px;
             border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-            position: relative;
-        }
-        
-        .about-image-modern img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-        
-        .about-image-modern:hover img {
-            transform: scale(1.05);
-        }
-        
-        /* Highlights Grid - Modern */
-        .highlights-grid-modern {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-        
-        .highlight-card-modern {
-            background-color: #2d3748;
-            border-radius: var(--radius);
-            padding: 35px 30px;
-            text-align: center;
-            box-shadow: var(--shadow);
+            cursor: pointer;
+            font-weight: 600;
             transition: var(--transition);
-            border-top: 4px solid var(--primary);
-            opacity: 0;
-            transform: translateY(20px);
+            font-size: 0.95rem;
         }
         
-        .highlight-card-modern.animated {
-            animation: slideUp 0.6s forwards;
+        .filter-btn-modern.active,
+        .filter-btn-modern:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            box-shadow: var(--shadow);
         }
         
-        .highlight-card-modern:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .highlight-icon-modern {
-            font-size: 2.8rem;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        /* Mission Banner */
-        .mission-banner-modern {
+        /* New Year Message Section */
+        .new-year-message-modern {
             background: linear-gradient(135deg, var(--teal) 0%, var(--purple) 100%);
             color: white;
-            padding: 80px 0;
+            padding: 60px;
             border-radius: var(--radius);
-            margin: 80px 0;
+            margin: 60px 0;
             position: relative;
             overflow: hidden;
+            box-shadow: var(--shadow-lg);
         }
         
-        .mission-banner-modern::before {
+        .new-year-message-modern::before {
             content: '';
             position: absolute;
             top: 0;
@@ -427,93 +381,458 @@
             background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
         }
         
-        .mission-banner-content {
-            max-width: 800px;
+        .new-year-content {
+            max-width: 900px;
             margin: 0 auto;
             text-align: center;
             position: relative;
             z-index: 2;
         }
         
-        .mission-banner-content h2 {
+        .new-year-content h2 {
             font-size: 2.5rem;
             margin-bottom: 1.5rem;
             color: white;
         }
         
-        .mission-banner-content p {
+        .new-year-content p {
             font-size: 1.2rem;
             color: rgba(255, 255, 255, 0.9);
             margin-bottom: 2rem;
         }
         
-        /* Stats Section */
-        .stats-section-modern {
-            background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+        .message-language-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .lang-tab-modern {
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 12px 30px;
             border-radius: var(--radius);
-            padding: 80px;
-            margin: 80px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .stats-section-modern::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(37, 99, 235, 0.05) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-        
-        .stats-grid-modern {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .stat-item-modern {
-            text-align: center;
-        }
-        
-        .stat-number-modern {
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 10px;
-            font-family: 'Inter', sans-serif;
-        }
-        
-        .stat-label-modern {
-            font-size: 1.1rem;
-            color: #e2e8f0;
+            cursor: pointer;
+            transition: var(--transition);
             font-weight: 500;
         }
         
-        /* CTA Section */
-        .cta-section-modern {
-            text-align: center;
-            padding: 100px 0;
+        .lang-tab-modern.active {
+            background: white;
+            color: var(--teal);
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         
-        .cta-content-modern {
+        .message-content-modern {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius);
+            padding: 40px;
+            text-align: left;
+            margin-top: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .message-content-modern h3 {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+        }
+        
+        .message-body-modern {
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.95);
+        }
+        
+        .message-body-modern p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .message-body-modern ul {
+            margin-left: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .message-body-modern li {
+            margin-bottom: 10px;
+        }
+        
+        .message-signature {
+            text-align: right;
+            margin-top: 40px;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+        }
+        
+        /* News Grid */
+        .news-grid-modern {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .news-card-modern {
+            background: #2d3748;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .news-card-modern:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .news-image-modern {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .news-image-modern img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .news-card-modern:hover .news-image-modern img {
+            transform: scale(1.05);
+        }
+        
+        .news-category-modern {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .news-content-modern {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .news-meta-modern {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+        
+        .news-date-modern {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .news-title-modern {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            line-height: 1.4;
+            color: #f7fafc;
+        }
+        
+        .news-excerpt-modern {
+            color: #cbd5e0;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+        
+        .news-link-modern {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+        
+        .news-link-modern:hover {
+            color: var(--secondary);
+            gap: 12px;
+        }
+        
+        /* Gallery Section */
+        .gallery-section-modern {
+            margin: 80px 0;
+        }
+        
+        .gallery-grid-modern {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .gallery-item-modern {
+            border-radius: var(--radius);
+            overflow: hidden;
+            position: relative;
+            height: 280px;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+        }
+        
+        .gallery-item-modern img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item-modern:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-overlay-modern {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: white;
+            padding: 25px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item-modern:hover .gallery-overlay-modern {
+            transform: translateY(0);
+        }
+        
+        .gallery-title-modern {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        
+        .gallery-description-modern {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        /* Video Gallery */
+        .video-gallery-modern {
+            margin: 80px 0;
+        }
+        
+        .video-grid-modern {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .video-card-modern {
+            background: #2d3748;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .video-card-modern:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .video-thumbnail-modern {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .video-thumbnail-modern img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .video-play-modern {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .video-play-modern:hover {
+            background: var(--primary);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        
+        .video-content-modern {
+            padding: 25px;
+        }
+        
+        .video-title-modern {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #f7fafc;
+        }
+        
+        .video-description-modern {
+            color: #cbd5e0;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            max-width: 900px;
+            width: 100%;
+            background: #1a202c;
+            border-radius: var(--radius);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .modal-iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: none;
+            font-size: 1.2rem;
+            transition: var(--transition);
+            z-index: 10;
+        }
+        
+        .modal-close:hover {
+            background: var(--danger);
+        }
+        
+        /* Image Modal */
+        .image-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .image-modal.active {
+            display: flex;
+        }
+        
+        .modal-image-content {
+            max-width: 90%;
+            max-height: 90vh;
+            position: relative;
+        }
+        
+        .modal-image {
+            width: 100%;
+            height: auto;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 5px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Newsletter Section */
+        .newsletter-section-modern {
+            background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+            color: white;
+            padding: 80px 0;
+            border-radius: var(--radius);
+            margin: 80px 0;
+            text-align: center;
+        }
+        
+        .newsletter-content {
             max-width: 700px;
             margin: 0 auto;
         }
         
-        .cta-content-modern h2 {
-            font-size: 2.8rem;
-            margin-bottom: 1.5rem;
+        .newsletter-content h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
         }
         
-        .cta-content-modern p {
-            font-size: 1.2rem;
-            color: #cbd5e0;
-            margin-bottom: 2.5rem;
+        .newsletter-form-modern {
+            display: flex;
+            gap: 15px;
+            max-width: 500px;
+            margin: 40px auto;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 16px 20px;
+            background-color: #1a202c;
+            border: 1px solid #4a5568;
+            border-radius: var(--radius);
+            color: #e2e8f0;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         
         /* Footer */
@@ -545,7 +864,7 @@
         .social-links-modern {
             display: flex;
             gap: 15px;
-            margin-top: 25px;
+            margin-top: 20px;
         }
         
         .social-links-modern a {
@@ -556,13 +875,14 @@
             height: 45px;
             background-color: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
-            color: white;
+            color: #e2e8f0;
             text-decoration: none;
             transition: var(--transition);
         }
         
         .social-links-modern a:hover {
             background-color: var(--primary);
+            color: white;
             transform: translateY(-3px);
         }
         
@@ -624,31 +944,31 @@
             transform: translateY(-5px);
         }
         
-        /* Animation */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        @keyframes slideUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* Back to Home */
+        .back-to-home-modern {
+            text-align: center;
+            margin: 60px 0 30px;
         }
         
         /* Responsive Styles */
         @media (max-width: 992px) {
-            .about-content-modern {
-                grid-template-columns: 1fr;
-                gap: 40px;
+            .news-grid-modern {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             }
             
-            .stats-section-modern {
-                padding: 50px 40px;
+            .gallery-grid-modern {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .video-grid-modern {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             }
             
             .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title h2 {
                 font-size: 2.5rem;
             }
         }
@@ -691,41 +1011,143 @@
                 font-size: 2.2rem;
             }
             
-            .stats-section-modern {
+            .new-year-message-modern {
                 padding: 40px 30px;
-                margin: 60px 0;
             }
             
-            .stats-grid-modern {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 30px;
+            .newsletter-form-modern {
+                flex-direction: column;
             }
             
-            .mission-banner-content h2 {
-                font-size: 2rem;
+            .message-language-tabs {
+                flex-direction: column;
+                align-items: center;
             }
             
-            .mission-banner-content p {
-                font-size: 1.1rem;
+            .lang-tab-modern {
+                width: 200px;
+            }
+            
+            .modal-iframe {
+                height: 300px;
             }
         }
         
         @media (max-width: 576px) {
-            .highlights-grid-modern {
+            .news-grid-modern {
                 grid-template-columns: 1fr;
             }
             
-            .stats-grid-modern {
+            .gallery-grid-modern {
                 grid-template-columns: 1fr;
             }
             
-            .stat-number-modern {
-                font-size: 2.8rem;
+            .video-grid-modern {
+                grid-template-columns: 1fr;
             }
             
-            .cta-content-modern h2 {
-                font-size: 2.2rem;
+            .news-card-modern,
+            .video-card-modern {
+                margin-bottom: 30px;
             }
+            
+            .message-content-modern {
+                padding: 25px;
+            }
+        }
+        /* Wish Letter Gallery Section */
+.wishletter-gallery {
+    margin: 80px 0;
+    padding: 40px 0;
+}
+
+.wishletter-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.wishletter-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    border-radius: 2px;
+}
+
+.wishletter-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.wishletter-card {
+    background: #2d3748;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    height: 500px;
+    position: relative;
+}
+
+.wishletter-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.wishletter-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: #1a202c;
+    padding: 20px;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+}
+
+.wishletter-card:hover img {
+    transform: scale(1.02);
+}
+
+/* Responsive styles for wish letter gallery */
+@media (max-width: 768px) {
+    .wishletter-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .wishletter-card {
+        height: 400px;
+    }
+    
+    .wishletter-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .wishletter-card {
+        height: 300px;
+    }
+}
+        
+        /* Animation */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animated {
+            animation: fadeInUp 0.6s forwards;
         }
     </style>
 </head>
@@ -762,10 +1184,10 @@
         </div>
     </header>
 
-    <!-- News Hero -->
-    <section class="news-hero-modern">
+    <!-- Modern Hero -->
+    <section class="modern-hero">
         <div class="container">
-            <div class="news-hero-content">
+            <div class="hero-content">
                 <h1 data-en="News & Updates" data-my="သတင်းများနှင့် အပ်ဒိတ်များ">News & Updates</h1>
                 <p data-en="Stay informed about our latest initiatives, success stories, and community events." 
                    data-my="ကျွန်ုပ်တို့၏နောက်ဆုံးပေါ် လုပ်ငန်းစဉ်များ၊ အောင်မြင်မှုဇာတ်လမ်းများနှင့် အသိုင်းအဝိုင်းပွဲများအကြောင်း အသိပေးချက်ရယူပါ။">
@@ -1012,26 +1434,53 @@
                 </div>
             </div>
 
-            <!-- Newsletter Section -->
-            <div class="newsletter-section-modern">
-                <div class="newsletter-content">
-                    <h2 data-en="Stay Updated" data-my="နောက်ဆုံးရသတင်းများရယူရန်">Stay Updated</h2>
-                    <p data-en="Subscribe to our newsletter for the latest news, events, and success stories."
-                       data-my="နောက်ဆုံးရသတင်းများ၊ ပွဲစဉ်များနှင့် အောင်မြင်မှုဇာတ်လမ်းများအတွက် ကျွန်ုပ်တို့၏ သတင်းလွှာကို စာရင်းသွင်းပါ။">
-                        Subscribe to our newsletter for the latest news, events, and success stories.
-                    </p>
-                    
-                    <form class="newsletter-form-modern">
-                        <input type="email" class="newsletter-input" placeholder="Your email address" required>
-                        <button type="submit" class="btn btn-secondary" data-en="Subscribe" data-my="စာရင်းသွင်းရန်">Subscribe</button>
-                    </form>
-                    
-                    <p style="font-size: 0.9rem; opacity: 0.8;" data-en="We respect your privacy. Unsubscribe at any time." 
-                       data-my="သင့်ကိုယ်ရေးကိုယ်တာကို ကျွန်ုပ်တို့လေးစားပါသည်။ မည်သည့်အချိန်တွင်မဆို စာရင်းမှ ပယ်ဖျက်နိုင်ပါသည်။">
-                        We respect your privacy. Unsubscribe at any time.
-                    </p>
+           <!-- Wish Letter Gallery Section -->
+<section id="wish-letter-gallery">
+    <div class="container">
+        <div class="wishletter-gallery" data-category="photos">
+            <h2 class="wishletter-title" data-en="Wish Letter Gallery" data-my="ဆုတောင်းစာများ">Wish Letter Gallery</h2>
+            <p class="section-subtitle" style="text-align: center; margin-bottom: 40px; color: #cbd5e0;" 
+               data-en="Heartfelt messages and wishes from our community"
+               data-my="ကျွန်ုပ်တို့၏ အသိုင်းအဝိုင်းမှ စိတ်နှလုံးအကြွင်းမဲ့ သတင်းစကားများနှင့် ဆုတောင်းချက်များ">
+                Heartfelt messages and wishes from our community
+            </p>
+            <div class="wishletter-grid">
+                <!-- Photo 1 -->
+                <div class="wishletter-card">
+                    <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/wish%20letter%20form%20Ni%20Nar%20Mying.jpg" 
+                         alt="Ni Nar Mying's Wish Letter" 
+                         class="clickable-image"
+                         data-description="Ni Nar Mying's heartfelt wish letter for EdBridge">
+                    <div class="image-overlay" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.7); color: white; padding: 15px; text-align: center;">
+                        <p data-en="Ni Nar Mying's Wish Letter" data-my="နီနာမြိုင်၏ ဆုတောင်းစာ">Ni Nar Mying's Wish Letter</p>
+                    </div>
+                </div>
+                
+                <!-- Photo 2 -->
+                <div class="wishletter-card">
+                    <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/wish%20letter%20form%20Dr.Zaw%20Naing.jpg" 
+                         alt="Dr. Zaw Naing's Wish Letter" 
+                         class="clickable-image"
+                         data-description="Dr. Zaw Naing's inspiring wish letter">
+                    <div class="image-overlay" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.7); color: white; padding: 15px; text-align: center;">
+                        <p data-en="Dr. Zaw Naing's Wish Letter" data-my="ဒေါက်တာဇေနိုင်င့် ဆုတောင်းစာ">Dr. Zaw Naing's Wish Letter</p>
+                    </div>
                 </div>
             </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <p style="color: #cbd5e0; margin-bottom: 20px;" 
+                   data-en="Share your wish letter with us!"
+                   data-my="သင့်ဆုတောင်းစာကို ကျွန်ုပ်တို့နှင့် မျှဝေပါ!">
+                    Share your wish letter with us!
+                </p>
+                <a href="contact.html" class="btn btn-outline" data-en="Contact Us" data-my="ဆက်သွယ်ရန်">
+                    <i class="fas fa-envelope"></i> Contact Us
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
         </div>
     </section>
 
@@ -1218,11 +1667,11 @@
             const scrollToTopBtn = document.getElementById('scrollToTop');
             
             if(window.scrollY > 100) {
-                header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+                header.style.backgroundColor = 'rgba(26, 32, 44, 0.98)';
                 header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
             } else {
                 header.style.backgroundColor = '';
-                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
             }
             
             // Show/hide scroll to top button
