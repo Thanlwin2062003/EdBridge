@@ -5,16 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Services - EdBridge</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap">
     <link rel="icon" href="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/logo.png" type="image/png" sizes="32x32">
-    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/logo.png" sizes="32x32">
     <style>
         :root {
-            --primary: #2a5ca9;
-            --secondary: #f9a826;
-            --accent: #e53e3e;
-            --light: #f8f9fa;
-            --dark: #343a40;
-            --success: #28a745;
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #f59e0b;
+            --secondary-dark: #d97706;
+            --accent: #7c3aed;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --gray: #64748b;
+            --gray-light: #e2e8f0;
+            --teal: #0d9488;
+            --purple: #8b5cf6;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --radius: 12px;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
         * {
@@ -24,37 +36,39 @@
         }
         
         body {
-            font-family: 'Open Sans', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #FAEBD7;
-            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: #e2e8f0;
+            background-color: #1a202c;
+            overflow-x: hidden;
         }
         
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Playfair Display', serif;
             font-weight: 600;
             margin-bottom: 1rem;
-            color: var(--primary);
+            color: #f7fafc;
+            line-height: 1.3;
         }
         
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 20px;
         }
         
-        /* Header Styles */
+        /* Modern Header */
         header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            padding: 1rem 0;
+            background: rgba(26, 32, 44, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            transition: background-color 0.3s;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
         
         .header-container {
@@ -66,17 +80,19 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
         
         .logo img {
-            height: 50px;
+            height: 48px;
             width: auto;
+            border-radius: 50%;
+            box-shadow: var(--shadow);
         }
         
         .logo h1 {
-            font-size: 1.5rem;
-            color: white;
+            font-size: 1.6rem;
+            color: var(--primary);
             margin: 0;
         }
         
@@ -87,27 +103,26 @@
         nav ul {
             display: flex;
             list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 1.5rem;
+            gap: 2rem;
         }
         
         nav ul li a {
-            color: white;
+            color: #e2e8f0;
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s;
+            font-size: 0.95rem;
+            transition: var(--transition);
             padding: 0.5rem 0;
             position: relative;
         }
         
         nav ul li a:hover {
-            color: var(--secondary);
+            color: var(--primary);
         }
         
         nav ul li a.active {
-            color: var(--secondary);
+            color: var(--primary);
+            font-weight: 600;
         }
         
         nav ul li a.active::after {
@@ -117,65 +132,54 @@
             left: 0;
             width: 100%;
             height: 2px;
-            background-color: var(--secondary);
-        }
-        
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--secondary);
-            transition: width 0.3s;
-        }
-        
-        nav ul li a:hover::after {
-            width: 100%;
+            background-color: var(--primary);
+            border-radius: 2px;
         }
         
         .mobile-menu {
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
+            color: #e2e8f0;
         }
         
-        /* Language Switcher Styles */
+        /* Language Switcher */
         .language-switcher {
             position: relative;
-            margin-left: 20px;
         }
 
         .lang-btn {
-            background: rgba(255,255,255,0.2);
-            color: white;
-            border: 1px solid rgba(255,255,255,0.3);
-            padding: 8px 15px;
-            border-radius: 5px;
+            background: rgba(45, 55, 72, 0.7);
+            color: #e2e8f0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: var(--radius);
             cursor: pointer;
             display: flex;
             align-items: center;
             gap: 8px;
             font-size: 0.9rem;
-            transition: all 0.3s;
+            font-weight: 500;
+            transition: var(--transition);
         }
 
         .lang-btn:hover {
-            background: rgba(255,255,255,0.3);
+            background: rgba(55, 65, 81, 0.9);
+            border-color: var(--primary);
         }
 
         .lang-dropdown {
             position: absolute;
             top: 100%;
             right: 0;
-            background: white;
-            border-radius: 5px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            min-width: 120px;
+            background: #2d3748;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            min-width: 140px;
             display: none;
             overflow: hidden;
             z-index: 1001;
+            margin-top: 8px;
         }
 
         .lang-dropdown.show {
@@ -183,16 +187,18 @@
         }
 
         .lang-dropdown a {
-            display: block;
-            padding: 10px 15px;
-            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+            color: #e2e8f0;
             text-decoration: none;
-            transition: background 0.3s;
-            border-bottom: 1px solid #f0f0f0;
+            transition: var(--transition);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .lang-dropdown a:hover {
-            background: #f8f9fa;
+            background: #4a5568;
             color: var(--primary);
         }
 
@@ -200,158 +206,484 @@
             border-bottom: none;
         }
         
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(253, 253, 253, 0.652), rgba(25, 19, 19, 0.6)), url('https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/Cover photo.jpg');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 150px 0 100px;
+        /* Modern Hero */
+        .modern-hero {
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 50%, #4a5568 100%);
+            padding: 180px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .modern-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.6;
+        }
+        
+        .hero-content {
+            max-width: 800px;
             text-align: center;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
         
-        .hero h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: white;
+        .hero-content h1 {
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+            color: #f7fafc;
         }
         
-        .hero p {
+        .hero-content p {
             font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
+            color: #cbd5e0;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .btn {
-            display: inline-block;
-            background-color: var(--secondary);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: var(--primary);
             color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
+            padding: 14px 32px;
+            border-radius: var(--radius);
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s;
+            transition: var(--transition);
             border: none;
             cursor: pointer;
+            font-size: 1rem;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
         }
         
         .btn:hover {
-            background-color: #e89a1f;
+            background-color: var(--primary-dark);
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
         }
         
-        .btn-primary {
-            background-color: var(--primary);
+        .btn-secondary {
+            background-color: var(--secondary);
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2);
         }
         
-        .btn-primary:hover {
-            background-color: #1e429f;
+        .btn-secondary:hover {
+            background-color: var(--secondary-dark);
+            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.3);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            box-shadow: none;
+        }
+        
+        .btn-outline:hover {
+            background-color: rgba(37, 99, 235, 0.1);
         }
         
         /* Section Styles */
         section {
-            padding: 80px 0;
+            padding: 100px 0;
+            background-color: transparent;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
         }
         
         .section-title h2 {
-            font-size: 2.2rem;
+            font-size: 2.8rem;
             position: relative;
             display: inline-block;
-            padding-bottom: 10px;
+            margin-bottom: 1.5rem;
         }
         
         .section-title h2::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
             width: 80px;
-            height: 3px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        /* Services Content */
+        .service-section-modern {
+            background-color: #2d3748;
+            border-radius: var(--radius);
+            padding: 60px;
+            margin-bottom: 60px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-left: 4px solid transparent;
+        }
+        
+        .service-section-modern:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .service-section-modern:nth-child(1) {
+            border-left-color: var(--primary);
+        }
+        
+        .service-section-modern:nth-child(2) {
+            border-left-color: var(--secondary);
+        }
+        
+        .service-section-modern:nth-child(3) {
+            border-left-color: var(--teal);
+        }
+        
+        .section-header-modern {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-header-modern h2 {
+            display: inline-block;
+            padding-bottom: 15px;
+            position: relative;
+            color: var(--primary);
+            font-size: 2.4rem;
+        }
+        
+        .section-header-modern h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
             background-color: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        .purpose-box-modern {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%);
+            padding: 30px;
+            border-radius: var(--radius);
+            margin-bottom: 40px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .purpose-box-modern h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .purpose-box-modern p {
+            font-size: 1.2rem;
+            color: #cbd5e0;
+            line-height: 1.8;
+            margin-bottom: 0;
+        }
+        
+        .content-box-modern {
+            background-color: rgba(26, 32, 44, 0.5);
+            padding: 30px;
+            border-radius: var(--radius);
+            margin-bottom: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .content-box-modern h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .content-box-modern p {
+            font-size: 1.1rem;
+            color: #cbd5e0;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .skills-grid-modern {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .skill-item-modern {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(26, 32, 44, 0.8) 100%);
+            padding: 30px;
+            border-radius: var(--radius);
+            border-left: 4px solid var(--secondary);
+            transition: var(--transition);
+        }
+        
+        .skill-item-modern:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+        
+        .skill-item-modern h4 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .skill-item-modern h4 i {
+            color: var(--secondary);
+        }
+        
+        .skill-item-modern ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .skill-item-modern li {
+            margin-bottom: 12px;
+            padding-left: 24px;
+            position: relative;
+            color: #cbd5e0;
+            line-height: 1.6;
+        }
+        
+        .skill-item-modern li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: bold;
+        }
+        
+        .consulting-list-modern {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .consulting-list-modern li {
+            margin-bottom: 15px;
+            padding: 15px 20px;
+            background-color: rgba(37, 99, 235, 0.1);
+            border-radius: var(--radius);
+            color: #cbd5e0;
+            border-left: 3px solid var(--secondary);
+            transition: var(--transition);
+        }
+        
+        .consulting-list-modern li:hover {
+            background-color: rgba(37, 99, 235, 0.15);
+            transform: translateX(5px);
+        }
+        
+        .formats-list-modern {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .formats-list-modern li {
+            margin-bottom: 15px;
+            padding: 15px 20px;
+            background-color: rgba(245, 158, 11, 0.1);
+            border-radius: var(--radius);
+            color: #cbd5e0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: var(--transition);
+        }
+        
+        .formats-list-modern li:hover {
+            background-color: rgba(245, 158, 11, 0.15);
+            transform: translateX(5px);
+        }
+        
+        .formats-list-modern li i {
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+        
+        .section-cta-modern {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .cta-section-modern {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--teal) 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            margin-top: 60px;
+            border-radius: var(--radius);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section-modern::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .back-to-home-modern {
+            text-align: center;
+            margin: 60px 0 80px;
         }
         
         /* Footer */
         footer {
-            background-color: var(--dark);
+            background-color: #0f1419;
             color: white;
-            padding: 60px 0 20px;
+            padding: 80px 0 30px;
         }
         
-        .footer-content {
+        .footer-content-modern {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            gap: 50px;
+            margin-bottom: 50px;
         }
         
-        .footer-column h3 {
+        .footer-column-modern h3 {
             color: white;
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+        }
+        
+        .footer-column-modern p {
             margin-bottom: 20px;
-            font-size: 1.3rem;
+            color: #cbd5e1;
+            line-height: 1.7;
         }
         
-        .footer-column p {
-            margin-bottom: 15px;
-            color: #bbb;
-        }
-        
-        .social-links {
+        .social-links-modern {
             display: flex;
             gap: 15px;
             margin-top: 20px;
         }
         
-        .social-links a {
+        .social-links-modern a {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(218, 11, 11, 0.49);
+            width: 45px;
+            height: 45px;
+            background-color: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
-            color: white;
+            color: #e2e8f0;
             text-decoration: none;
-            transition: background-color 0.3s;
+            transition: var(--transition);
         }
         
-        .social-links a:hover {
+        .social-links-modern a:hover {
             background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
         }
         
-        .footer-links {
+        .footer-links-modern {
             list-style: none;
         }
         
-        .footer-links li {
-            margin-bottom: 10px;
+        .footer-links-modern li {
+            margin-bottom: 12px;
         }
         
-        .footer-links a {
-            color: #bbb;
+        .footer-links-modern a {
+            color: #cbd5e1;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: var(--transition);
         }
         
-        .footer-links a:hover {
+        .footer-links-modern a:hover {
             color: white;
+            padding-left: 5px;
         }
         
-        .copyright {
+        .copyright-modern {
             text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: #bbb;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
             font-size: 0.9rem;
         }
         
+        /* Scroll to Top Button */
+        .scroll-to-top-modern {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .scroll-to-top-modern.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-to-top-modern:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-5px);
+        }
+        
+        /* Animation */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
         /* Responsive Styles */
+        @media (max-width: 992px) {
+            .skills-grid-modern {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
         @media (max-width: 768px) {
             .mobile-menu {
                 display: block;
@@ -360,13 +692,14 @@
             nav ul {
                 display: none;
                 position: absolute;
-                top: 70px;
+                top: 100%;
                 left: 0;
                 width: 100%;
-                background-color: var(--primary);
+                background-color: #2d3748;
                 flex-direction: column;
                 padding: 20px;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
             }
             
             nav ul.show {
@@ -377,245 +710,39 @@
                 margin: 10px 0;
             }
             
-            .hero h2 {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .service-section-modern {
+                padding: 40px 30px;
+            }
+            
+            .section-header-modern h2 {
                 font-size: 2rem;
             }
-            
-            .hero p {
-                font-size: 1rem;
+        }
+        
+        @media (max-width: 576px) {
+            .service-section-modern {
+                padding: 35px 25px;
             }
             
-            .language-switcher {
-                margin-left: 10px;
-            }
-        }
-
-        /* Loading animation for language switching */
-        .loading {
-            opacity: 0.7;
-            pointer-events: none;
-        }
-
-        /* Improved accessibility */
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-
-        /* Improved focus styles for accessibility */
-        a:focus, button:focus {
-            outline: 2px solid var(--secondary);
-            outline-offset: 2px;
-        }
-   
-        
-        /* Services Page Specific Styles */
-        .services-hero {
-            background: linear-gradient(rgba(253, 253, 253, 0.652), rgba(25, 19, 19, 0.6)), url('https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/Cover photo.jpg');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 150px 0 100px;
-            text-align: center;
-        }
-        
-        .services-hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: white;
-        }
-        
-        .service-section {
-            background-color: white;
-            border-radius: 15px;
-            padding: 50px 40px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 40px;
-            position: relative;
-        }
-        
-        .section-header h2 {
-            display: inline-block;
-            padding-bottom: 10px;
-            position: relative;
-            color: var(--primary);
-            font-size: 2.2rem;
-        }
-        
-        .section-header h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background-color: var(--secondary);
-        }
-        
-        .purpose-box {
-            background-color: var(--light);
-            padding: 25px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            border-left: 4px solid var(--primary);
-        }
-        
-        .purpose-box h3 {
-            color: var(--primary);
-            margin-bottom: 10px;
-            font-size: 1.4rem;
-        }
-        
-        .purpose-box p {
-            font-size: 1.1rem;
-            color: #666;
-            line-height: 1.7;
-            margin-bottom: 0;
-        }
-        
-        .content-box {
-            background-color: #f9f9f9;
-            padding: 25px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-        }
-        
-        .content-box h3 {
-            color: var(--primary);
-            margin-bottom: 15px;
-            font-size: 1.4rem;
-        }
-        
-        .content-box p {
-            font-size: 1.1rem;
-            color: #666;
-            line-height: 1.7;
-            margin-bottom: 10px;
-        }
-        
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-        
-        .skill-item {
-            background-color: #f0f7ff;
-            padding: 25px;
-            border-radius: 10px;
-            border-left: 4px solid var(--secondary);
-        }
-        
-        .skill-item h4 {
-            color: var(--primary);
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .skill-item ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        
-        .skill-item li {
-            margin-bottom: 8px;
-            padding-left: 20px;
-            position: relative;
-            color: #555;
-        }
-        
-        .skill-item li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-            font-weight: bold;
-        }
-        
-        .consulting-list {
-            list-style: none;
-            padding-left: 0;
-        }
-        
-        .consulting-list li {
-            margin-bottom: 12px;
-            padding: 10px 15px;
-            background-color: #f0f7ff;
-            border-radius: 5px;
-            color: #555;
-            border-left: 3px solid var(--secondary);
-        }
-        
-        .formats-list {
-            list-style: none;
-            padding-left: 0;
-        }
-        
-        .formats-list li {
-            margin-bottom: 12px;
-            padding: 12px 15px;
-            background-color: #f0f7ff;
-            border-radius: 5px;
-            color: #555;
-            font-size: 1.1rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .formats-list li i {
-            color: var(--primary);
-        }
-        
-        .section-cta {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 30px;
-            border-top: 1px solid #eee;
-        }
-        
-        .cta-section {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-            margin-top: 40px;
-            border-radius: 15px;
-        }
-        
-        .back-to-home {
-            text-align: center;
-            margin: 50px 0 30px;
-        }
-        
-        @media (max-width: 768px) {
-            .service-section {
-                padding: 30px 20px;
-            }
-            
-            .section-header h2 {
-                font-size: 1.8rem;
-            }
-            
-            .skills-grid {
+            .skills-grid-modern {
                 grid-template-columns: 1fr;
+            }
+            
+            .purpose-box-modern, 
+            .content-box-modern {
+                padding: 25px 20px;
             }
         }
     </style>
@@ -625,20 +752,20 @@
     <header>
         <div class="container header-container">
             <div class="logo">
-                <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/logo.png" alt="EdBridge Logo" class="circle-logo">
+                <img src="https://raw.githubusercontent.com/Thanlwin2062003/EdBridge/main/image/logo.png" alt="EdBridge Logo">
                 <h1>Ed<span>Bridge</span></h1>
             </div>
             <div class="mobile-menu">
                 <i class="fas fa-bars"></i>
             </div>
             <nav>
-                 <ul>
-        <li><a href="index.html" data-en="Home" data-my="မူလ စာမျက်နှာ" class="active">Home</a></li>
-        <li><a href="about.html" data-en="About" data-my="အကြောင်း">About</a></li>
-        <li><a href="services.html" data-en="Services" data-my="ဝန်ဆောင်မှုများ">Services</a></li>
-        <li><a href="news.html" data-en="News" data-my="သတင်းများ">News</a></li>
-        <li><a href="contact.html" data-en="Contact" data-my="ဆက်သွယ်ရန်">Contact</a></li>
-    </ul>
+                <ul>
+                    <li><a href="index.html" data-en="Home" data-my="မူလ စာမျက်နှာ">Home</a></li>
+                    <li><a href="about.html" data-en="About" data-my="အကြောင်း">About</a></li>
+                    <li><a href="services.html" data-en="Services" data-my="ဝန်ဆောင်မှုများ" class="active">Services</a></li>
+                    <li><a href="news.html" data-en="News" data-my="သတင်းများ">News</a></li>
+                    <li><a href="contact.html" data-en="Contact" data-my="ဆက်သွယ်ရန်">Contact</a></li>
+                </ul>
             </nav>
             <!-- Language Switcher -->
             <div class="language-switcher">
@@ -646,70 +773,74 @@
                     <i class="fas fa-globe"></i> <span id="currentLang">English</span> <i class="fas fa-chevron-down"></i>
                 </button>
                 <div class="lang-dropdown">
-                    <a href="#" data-lang="en">English</a>
-                    <a href="#" data-lang="my">Myanmar</a>
+                    <a href="#" data-lang="en"><i class="fas fa-language"></i> English</a>
+                    <a href="#" data-lang="my"><i class="fas fa-language"></i> Myanmar</a>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Services Hero -->
-    <section class="services-hero">
+    <!-- Modern Hero -->
+    <section class="modern-hero">
         <div class="container">
-            <h1 data-en="Our Services" data-my="ကျွန်ုပ်တို့၏ ဝန်ဆောင်မှုများ">Our Services</h1>
-            <p data-en="Comprehensive support for Myanmar women through education and digital empowerment" 
-               data-my="ပညာရေးနှင့် ဒစ်ဂျစ်တယ် စွမ်းရည်မြှင့်တင်မှုမှတစ်ဆင့် မြန်မာအမျိုးသမီးများအတွက် ပြည့်စုံသော ပံ့ပိုးမှုများကို EdBridge မှ ပေးအပ်လျက်ရှိပါသည်။">
-                Comprehensive support for Myanmar women through education and digital empowerment
-            </p>
+            <div class="hero-content">
+                <h1 data-en="Our Services" data-my="ကျွန်ုပ်တို့၏ ဝန်ဆောင်မှုများ">Our Services</h1>
+                <p data-en="Comprehensive support for Myanmar women through education and digital empowerment" 
+                   data-my="ပညာရေးနှင့် ဒစ်ဂျစ်တယ် စွမ်းရည်မြှင့်တင်မှုမှတစ်ဆင့် မြန်မာအမျိုးသမီးများအတွက် ပြည့်စုံသော ပံ့ပိုးမှုများ">
+                    Comprehensive support for Myanmar women through education and digital empowerment
+                </p>
+                <a href="#services-content" class="btn" data-en="Explore Services" data-my="ဝန်ဆောင်မှုများကို စူးစမ်းပါ">Explore Services</a>
+            </div>
         </div>
     </section>
 
-    <!-- Section 1: Skills Training Programs -->
-    <section id="skills-training">
+    <!-- Services Content -->
+    <section id="services-content">
         <div class="container">
-            <div class="service-section">
-                <div class="section-header">
+            <!-- Section 1: Skills Training Programs -->
+            <div class="service-section-modern" id="skills-training">
+                <div class="section-header-modern">
                     <h2 data-en="Skills Training Programs" data-my="ကျွမ်းကျင်မှုသင်တန်းအစီအစဉ်များ">Skills Training Programs</h2>
                 </div>
                 
-                <div class="purpose-box">
-                    <h3 data-en="Purpose" data-my="ရည်ရွယ်ချက်">Purpose</h3>
+                <div class="purpose-box-modern">
+                    <h3><i class="fas fa-bullseye"></i> <span data-en="Purpose" data-my="ရည်ရွယ်ချက်">Purpose</span></h3>
                     <p data-en="Manage small businesses or freelance work effectively" 
                        data-my="သေးငယ်သောစီးပွားရေးလုပ်ငန်းများ သို့မဟုတ် လွတ်လပ်သောအလုပ်များကို ထိရောက်စွာ စီမံခန့်ခွဲနိုင်ရန်">
                         Manage small businesses or freelance work effectively
                     </p>
                 </div>
                 
-                <div class="skills-grid">
+                <div class="skills-grid-modern">
                     <!-- Digital Marketing -->
-                    <div class="skill-item">
-                        <h4><i class="fas fa-bullhorn"></i> <span data-en="Digital Marketing" data-my="ဒစ်ဂျစ်တယ် မားကတ်တင်း ">Digital Marketing</span></h4>
+                    <div class="skill-item-modern">
+                        <h4><i class="fas fa-bullhorn"></i> <span data-en="Digital Marketing" data-my="ဒစ်ဂျစ်တယ် မားကတ်တင်း">Digital Marketing</span></h4>
                         <ul>
-                            <li data-en="Social media & content" data-my="လူမှုကွန်ရက်နှင့် အကြောင်းအရာ ဖန်တီးမှု ">Social media & content</li>
+                            <li data-en="Social media & content" data-my="လူမှုကွန်ရက်နှင့် အကြောင်းအရာ ဖန်တီးမှု">Social media & content</li>
                             <li data-en="Ads & analytics" data-my="ကြော်ငြာနှင့် ခွဲခြမ်းစိတ်ဖြာမှု">Ads & analytics</li>
                         </ul>
                     </div>
 
                     <!-- Finance -->
-                    <div class="skill-item">
-                        <h4><i class="fas fa-chart-line"></i> <span data-en="Finance" data-my="ငွေကြေးစီမံခန့်ခွဲမှု ">Finance</span></h4>
+                    <div class="skill-item-modern">
+                        <h4><i class="fas fa-chart-line"></i> <span data-en="Finance" data-my="ငွေကြေးစီမံခန့်ခွဲမှု">Finance</span></h4>
                         <ul>
-                            <li data-en="Basic accounting" data-my="အခြေခံစာရင်းကိုင်ပညာ ">Basic accounting</li>
-                            <li data-en="Budgeting & planning" data-my="ဘတ်ဂျက်ရေးဆွဲခြင်းနှင့် စီမံကိန်းချမှတ်ခြင်း ">Budgeting & planning</li>
+                            <li data-en="Basic accounting" data-my="အခြေခံစာရင်းကိုင်ပညာ">Basic accounting</li>
+                            <li data-en="Budgeting & planning" data-my="ဘတ်ဂျက်ရေးဆွဲခြင်းနှင့် စီမံကိန်းချမှတ်ခြင်း">Budgeting & planning</li>
                         </ul>
                     </div>
 
                     <!-- Human Resources (HR) -->
-                    <div class="skill-item">
+                    <div class="skill-item-modern">
                         <h4><i class="fas fa-users"></i> <span data-en="Human Resources (HR)" data-my="လူ့စွမ်းအားအရင်းအမြစ် (HR)">Human Resources (HR)</span></h4>
                         <ul>
                             <li data-en="Recruitment & HR admin" data-my="ဝန်ထမ်းခေါ်ယူခြင်းနှင့် HR စီမံခန့်ခွဲရေးလုပ်ငန်း">Recruitment & HR admin</li>
-                            <li data-en="Workplace policies" data-my=" လုပ်ငန်းခွင်ဆိုင်ရာ မူဝါဒများ">Workplace policies</li>
+                            <li data-en="Workplace policies" data-my="လုပ်ငန်းခွင်ဆိုင်ရာ မူဝါဒများ">Workplace policies</li>
                         </ul>
                     </div>
 
                     <!-- Business English -->
-                    <div class="skill-item">
+                    <div class="skill-item-modern">
                         <h4><i class="fas fa-language"></i> <span data-en="Business English" data-my="စီးပွားရေးအင်္ဂလိပ်စာ">Business English</span></h4>
                         <ul>
                             <li data-en="Emails & meetings" data-my="အီးမေးလ်များနှင့် အစည်းအဝေးများ">Emails & meetings</li>
@@ -718,78 +849,67 @@
                     </div>
                 </div>
                 
-                <div class="section-cta">
-                    <a href="contact.html" class="btn" data-en="Learn More" data-my="လျှောက်ထားရန်">Apply</a>
+                <div class="section-cta-modern">
+                    <a href="contact.html" class="btn" data-en="Apply Now" data-my="လျှောက်ထားရန်">Apply Now</a>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Section 2: Individual Consulting -->
-    <section id="individual-consulting" style="background-color: #f8f9fa;">
-        <div class="container">
-            <div class="service-section">
-                <div class="section-header">
+            <!-- Section 2: Individual Consulting -->
+            <div class="service-section-modern" id="individual-consulting">
+                <div class="section-header-modern">
                     <h2 data-en="Individual Consulting" data-my="တစ်ဦးချင်း အကြံပေးမှု">Individual Consulting</h2>
                 </div>
                 
-                <div class="purpose-box">
-                    <h3 data-en="Purpose" data-my="ရည်ရွယ်ချက်">Purpose</h3>
+                <div class="purpose-box-modern">
+                    <h3><i class="fas fa-bullseye"></i> <span data-en="Purpose" data-my="ရည်ရွယ်ချက်">Purpose</span></h3>
                     <p data-en="Personalized professional support" 
-                       data-my="ပုဂ္ဂိုလ်တစ်ဦးချင်းစီ၏ လိုအပ်ချက်နှင့်အညီ စိတ်ကြိုက် ပရော်ဖက်ရှင်နယ် ပံ့ပိုးမှုပေးရန်။
-">
+                       data-my="ပုဂ္ဂိုလ်တစ်ဦးချင်းစီ၏ လိုအပ်ချက်နှင့်အညီ စိတ်ကြိုက် ပရော်ဖက်ရှင်နယ် ပံ့ပိုးမှုပေးရန်">
                         Personalized professional support
                     </p>
                 </div>
                 
-                <div class="content-box">
+                <div class="content-box-modern">
                     <h3 data-en="Content" data-my="ဝန်ဆောင်မှုအကြောင်းအရာ">Content</h3>
                     <p data-en="One-on-one consulting tailored to individual needs. Suitable for individuals, small businesses, and organizations."
-                       data-my="တစ်ဦးချင်းလိုအပ်ချက်နှင့်အညီ ပြင်ဆင်ထားသော တစ်ဦးချင်း အကြံပေးမှု (One-on-one Consulting) ဝန်ဆောင်မှုများ။
-">
+                       data-my="တစ်ဦးချင်းလိုအပ်ချက်နှင့်အညီ ပြင်ဆင်ထားသော တစ်ဦးချင်း အကြံပေးမှု (One-on-one Consulting) ဝန်ဆောင်မှုများ။">
                         One-on-one consulting tailored to individual needs. Suitable for individuals, small businesses, and organizations.
                     </p>
                 </div>
                 
-                <div class="content-box">
+                <div class="content-box-modern">
                     <h3 data-en="Consulting Areas" data-my="အကြံပေးနယ်ပယ်များ">Consulting Areas</h3>
-                    <ul class="consulting-list">
-                        <li data-en="Digital Marketing" data-my="ဒစ်ဂျစ်တယ် မားကတ်တင်း ">Digital Marketing</li>
-                        <li data-en="Finance" data-my="ငွေကြေးစီမံခန့်ခွဲမှု ">Finance</li>
+                    <ul class="consulting-list-modern">
+                        <li data-en="Digital Marketing" data-my="ဒစ်ဂျစ်တယ် မားကတ်တင်း">Digital Marketing</li>
+                        <li data-en="Finance" data-my="ငွေကြေးစီမံခန့်ခွဲမှု">Finance</li>
                         <li data-en="Human Resources (HR)" data-my="လူ့စွမ်းအားအရင်းအမြစ် (HR)">Human Resources (HR)</li>
                         <li data-en="Business English" data-my="စီးပွားရေးအင်္ဂလိပ်စာ">Business English</li>
                         <li data-en="Education & Scholarship Guidance" data-my="ပညာရေးနှင့် ပညာသင်ဆု လမ်းညွှန်မှု">Education & Scholarship Guidance</li>
                     </ul>
                 </div>
                 
-                <div class="section-cta">
-                    <a href="contact.html" class="btn" data-en="Book Consultation" data-my="အကြံပေးမှုအတွက် ရက်ချိန်းယူပါ">Book Consultation</a>
+                <div class="section-cta-modern">
+                    <a href="contact.html" class="btn btn-secondary" data-en="Book Consultation" data-my="အကြံပေးမှုအတွက် ရက်ချိန်းယူပါ">Book Consultation</a>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Section 3: Onsite Training -->
-    <section id="onsite-training">
-        <div class="container">
-            <div class="service-section">
-                <div class="section-header">
+            <!-- Section 3: Onsite Training -->
+            <div class="service-section-modern" id="onsite-training">
+                <div class="section-header-modern">
                     <h2 data-en="Onsite Training" data-my="လုပ်ငန်းခွင်သို့ သွားရောက် လေ့ကျင့်ပေးခြင်း">Onsite Training</h2>
                 </div>
                 
-                <div class="purpose-box">
-                    <h3 data-en="Purpose" data-my="ရည်ရွယ်ချက်">Purpose</h3>
+                <div class="purpose-box-modern">
+                    <h3><i class="fas fa-bullseye"></i> <span data-en="Purpose" data-my="ရည်ရွယ်ချက်">Purpose</span></h3>
                     <p data-en="Customized training for organizations & communities" 
                        data-my="အဖွဲ့အစည်းများနှင့် လူမှုအသိုင်းအဝိုင်းများအတွက် ဒီ သင်တန်းများကို ပံ့ပိုးပေးရန်">
                         Customized training for organizations & communities
                     </p>
                 </div>
                 
-                <div class="content-box">
+                <div class="content-box-modern">
                     <h3 data-en="Content" data-my="အကြောင်းအရာ">Content</h3>
                     <p data-en="Onsite workshops and group training" 
-                       data-my=" လုပ်ငန်းခွင်/လူမှုအသိုင်းအဝိုင်းသို့ သွားရောက်၍ သင်ကြားပေးသည့် လက်တွေ့အခြေခံ အလုပ်ရုံဆွေးနွေးပွဲများ နှင့် အုပ်စုဖွဲ့ လေ့ကျင့်ရေးများ။
-">
+                       data-my="လုပ်ငန်းခွင်/လူမှုအသိုင်းအဝိုင်းသို့ သွားရောက်၍ သင်ကြားပေးသည့် လက်တွေ့အခြေခံ အလုပ်ရုံဆွေးနွေးပွဲများ နှင့် အုပ်စုဖွဲ့ လေ့ကျင့်ရေးများ။">
                         Onsite workshops and group training
                     </p>
                     <p data-en="Designed around specific learning goals" 
@@ -797,76 +917,89 @@
                         Designed around specific learning goals
                     </p>
                     <p data-en="Available for NGOs, companies, and community groups"
-                       data-my=" NGO များ၊ ကုမ္ပဏီများ၊ နှင့် ရပ်ရွာအခြေပြု အဖွဲ့အစည်းများ။
-">
+                       data-my="NGO များ၊ ကုမ္ပဏီများ၊ နှင့် ရပ်ရွာအခြေပြု အဖွဲ့အစည်းများ။">
                         Available for NGOs, companies, and community groups
                     </p>
                 </div>
                 
-                <div class="content-box">
+                <div class="content-box-modern">
                     <h3 data-en="Formats" data-my="ပုံစံများ">Formats</h3>
-                    <ul class="formats-list">
-                        <li><i class="fas fa-clock"></i> <span data-en="Half-day / Full-day workshops" data-my=" နေ့တစ်ဝက်/တစ်နေကုန် အလုပ်ရုံဆွေးနွေးပွဲများ၊ ကာလတို လေ့ကျင့်ရေး စီးရီးများ">Half-day / Full-day workshops</span></li>
+                    <ul class="formats-list-modern">
+                        <li><i class="fas fa-clock"></i> <span data-en="Half-day / Full-day workshops" data-my="နေ့တစ်ဝက်/တစ်နေကုန် အလုပ်ရုံဆွေးနွေးပွဲများ၊ ကာလတို လေ့ကျင့်ရေး စီးရီးများ">Half-day / Full-day workshops</span></li>
                         <li><i class="fas fa-calendar-alt"></i> <span data-en="Short-term training series" data-my="အချိန်တိုသင်တန်းစီးရီးများ">Short-term training series</span></li>
                     </ul>
                 </div>
                 
-                <div class="section-cta">
-                    <a href="contact.html" class="btn btn-primary" data-en="Request Onsite Training" data-my="Onsite Training တောင်းဆိုရန်">Request Onsite Training</a>
+                <div class="section-cta-modern">
+                    <a href="contact.html" class="btn" data-en="Request Onsite Training" data-my="Onsite Training တောင်းဆိုရန်">Request Onsite Training</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    
+    <section class="cta-section-modern">
+        <div class="container">
+            <h2 data-en="Ready to Empower Your Future?" data-my="သင့်အနာဂတ်ကို စွမ်းဆောင်ရန် အဆင်သင့်ဖြစ်ပြီလား?">Ready to Empower Your Future?</h2>
+            <p data-en="Join our programs and take the next step in your professional journey" 
+               data-my="ကျွန်ုပ်တို့၏အစီအစဉ်များတွင် ပါဝင်ပြီး သင်၏ပရော်ဖက်ရှင်နယ်ခရီးတွင် နောက်တစ်ဆင့် ဆက်လှမ်းပါ">
+                Join our programs and take the next step in your professional journey
+            </p>
+            <a href="contact.html" class="btn btn-secondary" data-en="Get Started Today" data-my="ယနေ့ပဲ စတင်လိုက်ပါ">Get Started Today</a>
+        </div>
+    </section>
 
     <!-- Back to Home -->
     <div class="container">
-        <div class="back-to-home">
-            <a href="index.html" class="btn btn-primary" data-en="Back to Home" data-my="မူလစာမျက်နှာသို့ ပြန်သွားရန်">Back to Home</a>
+        <div class="back-to-home-modern">
+            <a href="index.html" class="btn btn-outline" data-en="Back to Home" data-my="မူလစာမျက်နှာသို့ ပြန်သွားရန်">Back to Home</a>
         </div>
     </div>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
+            <div class="footer-content-modern">
+                <div class="footer-column-modern">
                     <h3>EdBridge</h3>
                     <p data-en="Education Bridge for Myanmar Women - Empowering Myanmar migrant women through education and digital skills training." 
                        data-my="မြန်မာအမျိုးသမီးများအတွက်ပညာရေးတံတား - ပညာရေးနှင့်ဒီဂျစ်တယ်ကျွမ်းကျင်မှုသင်တန်းများဖြင့် မြန်မာရွှေ့ပြောင်းအမျိုးသမီးများကိုစွမ်းဆောင်ရည်မြှင့်တင်ခြင်း။">
                         Education Bridge for Myanmar Women.
                     </p>
-                    <div class="social-links">
+                    <div class="social-links-modern">
                         <a href="https://www.facebook.com/profile.php?id=61583187345390&mibextid=LQQJ4d&rdid=xyBlhD3SXoruMroe&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1BNqAPcspo%2F%3Fmibextid%3DLQQJ4d#" target="_blank" rel="noopener"><i class="fab fa-facebook-f"></i></a>
                         <a href="https://www.youtube.com/channel/UCoaBP0vjtLTzBFC5C7ccZJA" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
                         <a href="https://www.tiktok.com/@edbridgeformyanmarwomen?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
+                <div class="footer-column-modern">
+                    <h3 data-en="Quick Links" data-my="အမြန်လင့်ခ်များ">Quick Links</h3>
+                    <ul class="footer-links-modern">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="services.html">Services</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
+                <div class="footer-column-modern">
                     <h3 data-en="Contact Info" data-my="ဆက်သွယ်ရန်အချက်အလက်">Contact Info</h3>
                     <p><i class="fas fa-envelope"></i> edbridgeeducation448@gmail.com</p>
                     <p><i class="fab fa-youtube"></i> <span data-en="YouTube: EdBridge Education" data-my="YouTube: EdBridge Education">YouTube: EdBridge Education</span></p>
                 </div>
             </div>
-            <div class="copyright">
+            <div class="copyright-modern">
                 <p data-en="&copy; 2025 EdBridge - Education Bridge for Myanmar Women." 
                    data-my="&copy; 2025 EdBridge - မြန်မာအမျိုးသမီးများအတွက်ပညာရေးတံတား။">
-                    &copy; 2025 EdBridge.
+                    &copy; 2025 EdBridge. All rights reserved.
                 </p>
             </div>
         </div>
     </footer>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-to-top-modern" id="scrollToTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
 
     <script>
         // Language Switcher
@@ -891,19 +1024,13 @@
                 const lang = this.getAttribute('data-lang');
                 
                 document.body.classList.add('loading');
-                const langText = this.textContent;
-                currentLang.textContent = langText;
+                const langText = this.querySelector('span') ? this.querySelector('span').textContent : this.textContent;
+                currentLang.textContent = langText.split(' ')[1] || langText;
                 langDropdown.classList.remove('show');
                 
                 setTimeout(() => {
                     changeLanguage(lang);
                     document.body.classList.remove('loading');
-                    
-                    if (lang === 'my') {
-                        alert('မြန်မာဘာသာသို့ ပြောင်းလဲပြီးပါပြီ။');
-                    } else {
-                        alert('Language changed to English.');
-                    }
                 }, 300);
             });
         });
@@ -938,17 +1065,109 @@
             document.querySelector('nav ul').classList.toggle('show');
         });
 
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    document.querySelector('nav ul').classList.remove('show');
+                }
+            });
+        });
+
         // Header background on scroll
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             if(window.scrollY > 100) {
-                header.style.backgroundColor = 'rgba(42, 92, 169, 0.95)';
+                header.style.backgroundColor = 'rgba(26, 32, 44, 0.98)';
             } else {
                 header.style.backgroundColor = '';
             }
+            
+            // Show/hide scroll to top button
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+            
+            // Trigger animations for service sections
+            animateElementsInView();
+        });
+
+        // Scroll to top functionality
+        document.getElementById('scrollToTop').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Animation on scroll
+        function animateElementsInView() {
+            // Service sections
+            const serviceSections = document.querySelectorAll('.service-section-modern');
+            serviceSections.forEach((section, index) => {
+                const position = section.getBoundingClientRect();
+                if (position.top < window.innerHeight - 100) {
+                    setTimeout(() => {
+                        section.style.opacity = '1';
+                        section.style.transform = 'translateY(0)';
+                    }, index * 200);
+                }
+            });
+            
+            // Skill items
+            const skillItems = document.querySelectorAll('.skill-item-modern');
+            skillItems.forEach((item, index) => {
+                const position = item.getBoundingClientRect();
+                if (position.top < window.innerHeight - 100) {
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateY(0)';
+                    }, index * 100);
+                }
+            });
+        }
+
+        // Initial animation setup
+        document.querySelectorAll('.service-section-modern').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+        
+        document.querySelectorAll('.skill-item-modern').forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+
+        // Trigger initial animation
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                animateElementsInView();
+            }, 500);
         });
     </script>
 </body>
 </html>
-
-
